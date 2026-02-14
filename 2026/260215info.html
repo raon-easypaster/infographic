@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주목해보아라 - Visual Sermon Magazine</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0f172a; /* Deep Navy */
+            --secondary-color: #334155; /* Slate */
+            --accent-color: #d4af37; /* Gold */
+            --text-main: #333333;
+            --text-light: #f8fafc;
+            --bg-paper: #fdfbf7;
+            --font-title: 'Gowun Batang', serif;
+            --font-body: 'Noto Sans KR', sans-serif;
+            --font-serif: 'Song Myung', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #e2e2e2;
+            color: var(--text-main);
+            line-height: 1.75;
+            /* Paper Texture Overlay */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        /* Container Layout */
+        .magazine-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-paper);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 1. Cinematic Header */
+        header.cinema-header {
+            position: relative;
+            height: 90vh;
+            max-height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem 2rem;
+            color: white;
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1499578124509-1611b7706d58?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header-content {
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .preacher-name {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h1.main-title {
+            font-family: var(--font-title);
+            font-size: 3.2rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            word-break: keep-all;
+        }
+
+        h1.main-title span {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .scripture-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* 2. Intro & Hook */
+        .intro-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            word-break: keep-all;
+        }
+
+        .divider {
+            width: 1px;
+            height: 60px;
+            background: var(--accent-color);
+            margin: 0 auto;
+        }
+
+        /* 3. Visual Sermon Body */
+        .content-body {
+            padding: 0 1.5rem 4rem 1.5rem;
+        }
+
+        .chapter {
+            margin-bottom: 4rem;
+        }
+
+        .chapter-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 0.5rem;
+        }
+
+        .chapter-num {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: rgba(15, 23, 42, 0.1);
+            margin-right: 1rem;
+            line-height: 1;
+        }
+
+        .chapter-title {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .chapter-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            filter: brightness(0.9);
+        }
+
+        .text-content {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .story-box {
+            background-color: #f1f5f9;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+        }
+
+        /* 4. Graphic Key Message */
+        .key-message-section {
+            position: relative;
+            padding: 5rem 2rem;
+            color: white;
+            text-align: center;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            margin-bottom: 4rem;
+        }
+
+        .message-badge {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .key-message-text {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+        /* 5. Action Plan */
+        .action-plan-section {
+            padding: 0 2rem 4rem 2rem;
+        }
+
+        .checklist-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .checklist-title {
+            font-family: var(--font-title);
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .check-icon {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        /* 6. Prayer & Footer */
+        .prayer-section {
+            padding: 4rem 2rem;
+            background-color: #f8f5f2; /* Old paper color */
+            border-top: 1px dashed #ccc;
+            text-align: center;
+        }
+
+        .prayer-box {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: #555;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .prayer-box::before {
+            content: '🙏';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: #f8f5f2;
+            padding: 0 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-title);
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body data-scripture="요한복음 9:1-7">
+
+    <div class="magazine-container">
+        
+        <!-- 1. Cinematic Header -->
+        <header class="cinema-header">
+            <div class="header-content">
+                <p class="preacher-name">오소원 선교사 | Message</p>
+                <h1 class="main-title">
+                    주목해보아라
+                    <span>하나님께서 어떤 일을 하시는지</span>
+                </h1>
+                <div class="scripture-badge">John 9:1-7</div>
+            </div>
+        </header>
+
+        <!-- 2. Intro & Hook -->
+        <section class="intro-section">
+            <p class="intro-text">
+                "왜 이런 일이 생겼을까?"<br>
+                우리는 고난 앞에서<br>
+                너무나 자연스럽게<br>
+                원인과 책임을 묻습니다.
+            </p>
+            <div class="divider"></div>
+        </section>
+
+        <!-- 3. Visual Sermon Body -->
+        <section class="content-body">
+            
+            <!-- Chapter 1 -->
+            <article class="chapter">
+                <div class="chapter-header">
+                    <span class="chapter-num">01</span>
+                    <h2 class="chapter-title">신앙적인데 틀린 질문</h2>
+                </div>
+                <img src="https://images.unsplash.com/photo-1516575334481-f85287c2c81d?q=80&w=1000&auto=format&fit=crop" alt="Confused crowd" class="chapter-image">
+                <p class="text-content">
+                    제자들은 날 때부터 앞을 보지 못하는 사람을 보고 묻습니다. <span class="highlight">"누구의 죄 때문입니까? 이 사람입니까, 부모입니까?"</span>
+                </p>
+                <p class="text-content">
+                    이 질문은 매우 신학적이고 논리적으로 보입니다. '원인이 죄라면 결과가 있다'는 공식 때문입니다. 하지만 이 질문은 사람을 사랑의 대상이 아닌, <strong>분석의 대상</strong>으로 만들어 버립니다. 우리 역시 고난 당하는 이를 볼 때 위로와 공감보다 이유와 판단을 앞세우지는 않습니까?
+                </p>
+            </article>
+
+            <!-- Chapter 2 -->
+            <article class="chapter">
+                <div class="chapter-header">
+                    <span class="chapter-num">02</span>
+                    <h2 class="chapter-title">이유가 아니라 드러남이다</h2>
+                </div>
+                <img src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=1000&auto=format&fit=crop" alt="Light revealing" class="chapter-image">
+                <p class="text-content">
+                    예수님은 단호하게 선언하십니다. <span class="highlight">"하나님의 일이 그에게서 드러나려는 것이다."</span>
+                </p>
+                <div class="story-box">
+                    "하나님은 고난을 만들어 내시는 분이 아니라, 지금 겪고 있는 그 고난의 자리 속으로 친히 들어오셔서 그 자리에서 자신을 드러내시는 분이십니다."
+                </div>
+                <p class="text-content">
+                    초점은 'Why(왜)'가 아니라 'What(무엇이 드러나는가)'에 있습니다. 우리의 시선을 고난의 원인 규명에서, 하나님이 하실 일에 대한 기대로 옮겨야 합니다.
+                </p>
+            </article>
+
+            <!-- Chapter 3 -->
+            <article class="chapter">
+                <div class="chapter-header">
+                    <span class="chapter-num">03</span>
+                    <h2 class="chapter-title">설명 대신 행동하시다</h2>
+                </div>
+                <img src="https://images.unsplash.com/photo-1533158326339-7f3d2a3ec216?q=80&w=1000&auto=format&fit=crop" alt="Hands washing water" class="chapter-image">
+                <p class="text-content">
+                    예수님은 설명을 멈추고 행동하십니다. 흙을 이겨 눈에 바르시고 "실로암 못에 가서 씻으라" 하십니다. 비위생적이고 비논리적으로 보입니다.
+                </p>
+                <p class="text-content">
+                    하지만 맹인은 묻지 않고 가서 씻습니다. 그리고 보게 됩니다. <span class="highlight">믿음은 이해한 다음 순종하는 것이 아닙니다.</span> 순종하는 자리에서 비로소 보게 되는 신비입니다.
+                </p>
+            </article>
+
+        </section>
+
+        <!-- 4. Graphic Key Message -->
+        <section class="key-message-section">
+            <span class="message-badge">One Message</span>
+            <h3 class="key-message-text">
+                고난의 이유를 묻기보다,<br>
+                하나님이 드러내실 일을<br>
+                주목하십시오.
+            </h3>
+            <p style="font-size: 0.9rem; opacity: 0.8;">순종의 자리에서 하나님을 보게 될 것입니다.</p>
+        </section>
+
+        <!-- 5. Action Plan -->
+        <section class="action-plan-section">
+            <div class="checklist-card">
+                <h3 class="checklist-title">Weekly Action Plan</h3>
+                <div class="check-item">
+                    <span class="check-icon">✔</span>
+                    <p>고난 앞에서 "왜?"라고 묻던 습관을 멈춰보기</p>
+                </div>
+                <div class="check-item">
+                    <span class="check-icon">✔</span>
+                    <p>어려운 상황 속에서 하나님이 하실 일을 기대하며 기도하기</p>
+                </div>
+                <div class="check-item">
+                    <span class="check-icon">✔</span>
+                    <p>이해되지 않아도 오늘 주신 말씀에 작은 순종 실천하기</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prayer & Footer -->
+        <section class="prayer-section">
+            <div class="prayer-box">
+                <p>
+                    하나님 아버지,<br><br>
+                    우리는 고난 앞에서 너무 쉽게 이유를 찾고 너무 빨리 판단했습니다.
+                    오늘 말씀 앞에서 우리의 질문을 내려놓게 하옵소서.<br><br>
+                    "왜 이런 일이 생겼습니까?"가 아니라<br>
+                    "이 자리에서 주님은 무엇을 드러내고 계신지"를 주목하게 하시옵소서.<br><br>
+                    이해되지 않아도 순종하게 하시고, 설명되지 않아도 주님을 신뢰하겠습니다.
+                    우리의 어두운 자리에 친히 오셔서 하나님께서 원하시는 뜻대로 일하여 주심을 믿습니다.<br><br>
+                    예수 그리스도의 이름으로 기도드립니다. 아멘.
+                </p>
+            </div>
+            
+            <footer>
+                <div class="footer-logo">Visual Sermon</div>
+                <p>오소원 선교사 | 요한복음 9:1-7</p>
+                <p style="margin-top: 1rem; font-size: 0.7rem; opacity: 0.5;">Designed for Worship & Life</p>
+            </footer>
+        </section>
+
+    </div>
+
+</body>
+</html>
