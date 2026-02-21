@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나님 나라를 위한 '라온동행' - 로마서 35</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #162422; /* Very Deep Green/Black */
+            --secondary-color: #2a403d; /* Forest Green */
+            --accent-color: #b89153;  /* Premium Gold */
+            --accent-light: #dfcaa7;
+            --text-main: #2c3533;
+            --text-sub: #5a6664;
+            --bg-paper: #f8f6f0;
+            --graphic-bg: #ece9e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e5e5e5;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            background-color: var(--bg-paper);
+            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23noise)" opacity="0.04"/%3E%3C/svg%3E');
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 1. Graphic Header */
+        header {
+            position: relative;
+            padding: 6rem 2rem 4rem;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Header Geometric Graphics */
+        .header-graphic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.15;
+        }
+        
+        .header-graphic svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-badge {
+            font-family: 'Song Myung', serif;
+            display: inline-block;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .header-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            word-break: keep-all;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-light);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .scripture-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* 2. Intro Area */
+        .intro-section {
+            padding: 4rem 2.5rem;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 1.5rem;
+        }
+
+        .intro-line {
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-color), transparent);
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            word-break: keep-all;
+        }
+
+        .intro-text strong {
+            color: var(--primary-color);
+        }
+
+        /* 3. Chapter Layout */
+        .chapter {
+            padding: 0 2.5rem 5rem;
+        }
+
+        .chapter-header {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .chapter-num {
+            font-family: 'Song Myung', serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--graphic-bg);
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.05);
+            position: absolute;
+            top: -2.5rem;
+            left: -1rem;
+            z-index: 1;
+        }
+
+        .chapter-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 2;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-light);
+            display: inline-block;
+        }
+
+        /* SVG Graphic Containers */
+        .graphic-box {
+            background: var(--graphic-bg);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graphic-box svg {
+            width: 140px;
+            height: 140px;
+        }
+
+        .graphic-caption {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Text Typographics */
+        .body-text {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            word-break: keep-all;
+        }
+
+        .pull-quote {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.35rem;
+            color: var(--primary-color);
+            line-height: 1.6;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px dashed var(--accent-color);
+            border-bottom: 1px dashed var(--accent-color);
+        }
+
+        .insight-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent-color);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .insight-title {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .insight-box p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 65%, rgba(184, 145, 83, 0.2) 35%);
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        /* Custom Lists */
+        .people-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .people-list li {
+            background: white;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .people-list li::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .people-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .people-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* 4. Conclusion Graphic */
+        .conclusion {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5rem 2.5rem;
+            text-align: center;
+        }
+
+        .conclusion-graphic svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+        }
+
+        .conclusion h2 {
+            font-family: 'Gowun Batang', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .conclusion p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+        }
+
+        /* 5. Footer */
+        footer {
+            padding: 4rem 2.5rem;
+            background: white;
+            text-align: center;
+        }
+
+        .prayer {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-paper);
+            border-radius: 16px;
+        }
+
+        .pastor-info {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        @media (max-width: 480px) {
+            .header-title { font-size: 2.5rem; }
+            .chapter-title { font-size: 1.7rem; }
+            .chapter { padding: 0 1.5rem 4rem; }
+            .intro-section { padding: 3rem 1.5rem; }
+            .people-list li { flex-direction: column; align-items: flex-start; }
+            .people-list li::before { margin-bottom: 8px; }
+        }
+    </style>
+</head>
+<body data-scripture="로마서 16:21-27">
+
+    <div class="container">
+        <!-- 1. Graphic Header -->
+        <header>
+            <div class="header-graphic">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0,100 L50,0 L100,100 Z" fill="rgba(223, 202, 167, 0.3)"/>
+                    <path d="M20,100 L50,40 L80,100 Z" fill="rgba(223, 202, 167, 0.6)"/>
+                    <rect x="48" y="20" width="4" height="80" fill="rgba(255,255,255,0.2)"/>
+                </svg>
+            </div>
+            <div class="header-content">
+                <div class="header-badge">ROMANS 35</div>
+                <h1 class="header-title">하나님 나라를 위한<br>‘라온동행’</h1>
+                <p class="header-subtitle">로마서 강해 대단원의 막을 내리며</p>
+                <div class="scripture-box">
+                    로마서 16장 21-27절
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. Intro -->
+        <section class="intro-section">
+            <div class="intro-grid">
+                <div class="intro-line"></div>
+                <div class="intro-text">
+                    <p>작년부터 시작한 로마서가 마침내 대단원의 막을 내립니다. 로마서는 <strong>1-11장(이론편), 12-15장(실천편), 16장(인사말)</strong>로 정교하게 짜여 있습니다.</p>
+                    <p style="margin-top: 1rem;">집을 건축할 때 계획과 도면이 필요하고, 기초와 기둥을 세운 뒤 내부를 꾸미듯, 바울은 마치 거대한 건축물을 세우듯 로마서를 기록했습니다. 오늘 그 마지막 인사를 통해 교회의 본질을 되돌아봅니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Chapter 1: Essence -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <span class="chapter-num">01</span>
+                <h2 class="chapter-title">복음의 본질을 알자</h2>
+            </div>
+            
+            <div class="graphic-box">
+                <!-- SVG: Solid Foundation vs Sand -->
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sand Waves -->
+                    <path d="M20 160 Q 60 140 100 160 T 180 160 L 180 190 L 20 190 Z" fill="#dfcaa7" opacity="0.5"/>
+                    <path d="M20 170 Q 50 155 100 170 T 180 170 L 180 190 L 20 190 Z" fill="#b89153" opacity="0.3"/>
+                    <!-- Solid Block -->
+                    <rect x="60" y="80" width="80" height="80" fill="#2a403d" rx="4"/>
+                    <!-- Diamond/Light inside block -->
+                    <path d="M100 100 L 120 120 L 100 140 L 80 120 Z" fill="#b89153"/>
+                </svg>
+                <div class="graphic-caption">모래 위의 성 vs 단단한 반석</div>
+            </div>
+
+            <p class="body-text">
+                ‘사상누각’이라는 말이 있습니다. 모래 위에 지은 누각은 겉보기엔 화려하지만 언제 무너질지 모르는 시한폭탄과 같습니다. 한국교회가 폭발적으로 부흥하던 시기, 간증과 인파로 넘쳐났지만 <strong>복음의 본질을 가지지 못한 채 세워진 교회들은 모래 위의 성처럼 무너져 내렸습니다.</strong>
+            </p>
+            
+            <p class="body-text">
+                어떤 종교든 가장 중요한 것은 경전입니다. 경전을 읽지 않고 종교를 논하는 것은 자기 신념의 관철에 불과합니다. 불교 신자나 이슬람 신자들이 경전을 파편적으로만 알고 자신의 유리한 대로 해석하는 것을 우리는 쉽게 봅니다. <span class="highlight">기독교인은 다를까요? 교회를 오래 다녔어도 성경을 자신의 처지에 맞춰 해석하며 사상누각을 짓고 있지는 않습니까?</span>
+            </p>
+
+            <div class="insight-box">
+                <h4 class="insight-title">PASTOR's INSIGHT</h4>
+                <p>제가 AI를 열심히 연구하는 이유는 분명합니다. <em>'어떻게 하면 내가 성경을 잘 이해하고, 성도들에게 이 복음을 잘 전할 수 있을까?'</em> 저에게는 이것이 1순위입니다. 제가 종종 <strong>"목회자를 귀찮게 하십시오. 목회자가 편하면 성도가 죽어가고 있는 겁니다."</strong>라고 말씀드리는 이유도, 우리가 치열하게 신앙의 본질을 갈망해야 하기 때문입니다.</p>
+            </div>
+
+            <p class="body-text">
+                하지만 단순히 공부한다고 깨달아지는 것은 아닙니다. 바울은 이를 <strong>'신비의 계시'</strong>라고 말합니다. 알기 위해 최선을 다하되, 궁극적으로는 성령의 조명하심 앞에 무릎 꿇어야 합니다.
+            </p>
+        </div>
+
+        <!-- 4. Chapter 2: Action -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <span class="chapter-num">02</span>
+                <h2 class="chapter-title">삶으로 살아내자</h2>
+            </div>
+            
+            <div class="graphic-box">
+                <!-- SVG: Architecture / Building -->
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Blueprint Grid -->
+                    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#2a403d" stroke-width="0.5" opacity="0.2"/>
+                    </pattern>
+                    <rect width="200" height="200" fill="url(#grid)" />
+                    <!-- Building Columns -->
+                    <rect x="50" y="140" width="30" height="40" fill="#2a403d"/>
+                    <rect x="120" y="140" width="30" height="40" fill="#2a403d"/>
+                    <path d="M40 140 L 160 140 L 150 120 L 50 120 Z" fill="#b89153"/>
+                    <!-- Constructing elements -->
+                    <rect x="70" y="90" width="60" height="30" fill="#2a403d" opacity="0.6"/>
+                    <path d="M100 60 L 100 90" stroke="#b89153" stroke-width="4" stroke-dasharray="4,4"/>
+                    <circle cx="100" cy="50" r="8" fill="#b89153"/>
+                </svg>
+                <div class="graphic-caption">설계도와 멈추지 않는 건축</div>
+            </div>
+
+            <p class="body-text">
+                사상누각도 문제지만 <strong>짓다 만 건물도 문제입니다.</strong> 기초를 잘 닦아놓고 방치하면 그 건물은 범죄의 온상이 되거나 흉물이 됩니다. 신앙의 본질을 잘 갖췄다고 하면서 삶으로 살아내지 못하면 이와 같습니다.
+            </p>
+
+            <blockquote class="pull-quote">
+                "복음을 안다고 말하면서 삶이 달라지지 않는 것은,<br>마음속으로는 사랑한다면서 입 밖으로 내뱉는 말이<br>'공부해!' 뿐인 것과 같습니다."
+            </blockquote>
+
+            <p class="body-text">
+                건물을 세우는 일은 결코 쉽지 않습니다. 합판으로 비만 피할 집을 짓는 것과 거대한 저택을 짓는 데 드는 에너지가 다르듯, <span class="highlight">그리스도의 자녀로 살아내는 데에는 세상의 그 무엇보다 큰 노력이 필요합니다.</span> 단번에 모든 것을 얻으려 하지 마십시오.
+            </p>
+            <p class="body-text">
+                바울은 로마서를 기록하기까지 수많은 것을 포기하고, 옥고를 치르며, 시기와 질투를 견뎌냈습니다. 그 치열한 삶을 살아낸 바울만이 이 위대한 서신을 쓸 수 있었습니다. 우리는 지금, 우리의 삶으로 어떤 성서를 기록하고 있습니까?
+            </p>
+        </div>
+
+        <!-- 5. Chapter 3: Community -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <span class="chapter-num">03</span>
+                <h2 class="chapter-title">주 안에서 한 공동체</h2>
+            </div>
+            
+            <div class="graphic-box">
+                <!-- SVG: Network / Community -->
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Connections -->
+                    <line x1="100" y1="50" x2="60" y2="120" stroke="#b89153" stroke-width="2"/>
+                    <line x1="100" y1="50" x2="140" y2="120" stroke="#b89153" stroke-width="2"/>
+                    <line x1="60" y1="120" x2="140" y2="120" stroke="#b89153" stroke-width="2"/>
+                    <line x1="100" y1="50" x2="100" y2="150" stroke="#b89153" stroke-width="2"/>
+                    <!-- Nodes -->
+                    <circle cx="100" cy="50" r="14" fill="#2a403d"/>
+                    <circle cx="60" cy="120" r="18" fill="#162422"/>
+                    <circle cx="140" cy="120" r="12" fill="#2a403d"/>
+                    <circle cx="100" cy="150" r="16" fill="#162422"/>
+                </svg>
+                <div class="graphic-caption">연결된 기둥, 하나의 성전</div>
+            </div>
+
+            <p class="body-text">
+                기초를 닦고 기둥을 세웠다면 중요한 질문을 던져야 합니다. <strong>'그 집 안에는 누가 살고 있는가?'</strong> 아무리 화려해도 온기가 없다면 모델하우스에 불과합니다.
+            </p>
+            <p class="body-text">
+                바울이 로마서의 마지막을 수많은 동역자의 이름으로 채운 이유가 여기에 있습니다. 거룩한 삶의 최종 목적지는 독불장군이 아니라, 서로를 용납하는 <strong>'한 가족 공동체'</strong>입니다. 바울은 그들을 '친척(선게노스)'이라 부르며 부리는 종이 아닌 동역자로 대우했습니다.
+            </p>
+
+            <ul class="people-list">
+                <li>
+                    <span class="people-name">디모데</span>
+                    <span class="people-desc">가장 어리지만 제일 먼저 언급하며 세워준 동역자</span>
+                </li>
+                <li>
+                    <span class="people-name">더디오</span>
+                    <span class="people-desc">노예 계층이 주로 쓰던 이름을 가진 대필자</span>
+                </li>
+                <li>
+                    <span class="people-name">가이오 & 에라스도</span>
+                    <span class="people-desc">교회를 지원한 부자와 도시의 고위 재무관</span>
+                </li>
+            </ul>
+
+            <p class="body-text">
+                세상은 신분과 학력으로 사람을 나누지만, 바울은 지위고하를 막론하고 모두를 동등하게 기록했습니다. 계급을 나누거나 가족끼리 비교해서는 안 됩니다. 교회는 슈퍼스타 한 명에 열광하는 곳이 아니라, <span class="highlight">각각 다른 기둥들이 예수 그리스도라는 기초 위에 함께 연합하는 곳</span>입니다.
+            </p>
+        </div>
+
+        <!-- 6. Conclusion Graphic -->
+        <section class="conclusion">
+            <div class="conclusion-graphic">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 L 90 40 L 90 90 L 10 90 L 10 40 Z" fill="none" stroke="white" stroke-width="4"/>
+                    <path d="M40 90 L 40 60 L 60 60 L 60 90" fill="none" stroke="white" stroke-width="4"/>
+                    <circle cx="50" cy="40" r="8" fill="#b89153"/>
+                </svg>
+            </div>
+            <h2>복음의 라온행전</h2>
+            <p>
+                우리가 말씀을 공부하고 실천하는 이유는,<br>
+                옆의 지체들과 함께 '라온동행'하며<br>
+                이 땅에 하나님의 집을 짓기 위함입니다.<br>
+                함께, 이 위대한 행전을 써 내려갑시다.
+            </p>
+        </section>
+
+        <!-- 7. Footer & Prayer -->
+        <footer>
+            <div class="prayer">
+                "하나님, 우리가 모래 위에 신앙을 쌓지 않게 하소서.<br>
+                복음의 본질을 깨닫고, 땀 흘려 삶을 살아내며,<br>
+                지체들과 함께 기쁘게 하나님 나라를 짓는<br>
+                '라온행전'의 주인공이 되게 하옵소서. 아멘."
+            </div>
+            
+            <div class="pastor-info">
+                <p><strong>로마서 강해 시리즈 (롬 35) 완료</strong></p>
+                <p style="margin-top: 5px; color: var(--accent-color);">주 예수 그리스도의 은혜가 너희에게 있을지어다.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
