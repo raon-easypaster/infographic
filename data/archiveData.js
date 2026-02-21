@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260222info.html",
+    "relativeURL": "2026/260222info.html",
+    "date": "2026-02-22",
+    "title": "하나님 나라를 위한 '라온동행'",
+    "scripture": "로마서 16:21-27"
+  },
+  {
     "fileName": "260215info.html",
     "relativeURL": "2026/260215info.html",
     "date": "2026-02-15",
