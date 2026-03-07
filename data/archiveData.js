@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260308info.html",
+    "relativeURL": "2026/260308info.html",
+    "date": "2026-03-08",
+    "title": "설교 리포트: 모세가 될 수 있었던 이유",
+    "scripture": "출애굽기 2:1-10"
+  },
+  {
     "fileName": "260301info.html",
     "relativeURL": "2026/260301info.html",
     "date": "2026-03-01",
