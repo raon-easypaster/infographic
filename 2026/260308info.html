@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설교 리포트: 모세가 될 수 있었던 이유</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1A2B48;
+            --accent-mint: #4FD1C5;
+            --bg-light: #F7FAFC;
+            --text-dark: #2D3748;
+            --text-muted: #718096;
+            --border-color: #E2E8F0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-dark);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            min-height: 100vh;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* ① Hero Header */
+        .hero {
+            background: var(--primary-navy);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+            color: var(--white);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--accent-mint);
+            color: var(--primary-navy);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* ② Scripture Context */
+        .scripture-section {
+            padding: 24px;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .scripture-box {
+            background: var(--white);
+            border-left: 4px solid var(--accent-mint);
+            padding: 16px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .scripture-ref {
+            font-weight: 700;
+            color: var(--primary-navy);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .scripture-text {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        /* ③ Main Logic Grid */
+        .logic-section {
+            padding: 32px 24px;
+        }
+
+        .logic-card {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logic-card:last-child {
+            border-bottom: none;
+        }
+
+        .logic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .logic-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 12px;
+            color: var(--primary-navy);
+        }
+
+        .logic-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        .logic-content {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            padding-left: 48px;
+        }
+
+        .logic-content strong {
+            color: var(--primary-navy);
+        }
+
+        .quote-bubble {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 8px;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* ④ Key Keywords */
+        .keyword-section {
+            padding: 0 24px 32px;
+            text-align: center;
+        }
+
+        .keyword-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            color: var(--primary-navy);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        /* ⑤ Conclusion & One Message */
+        .conclusion-card {
+            margin: 0 24px 32px;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2c3e50 100%);
+            color: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(26,43,72,0.15);
+        }
+
+        .conclusion-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .conclusion-text {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+
+        /* ⑥ Action Checklist */
+        .action-section {
+            padding: 32px 24px;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--accent-mint);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .todo-item:active {
+            transform: scale(0.98);
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-mint);
+            border-radius: 4px;
+            margin-right: 12px;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .todo-text {
+            font-size: 0.95rem;
+        }
+
+        /* ⑦ Prayer & Footer */
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .prayer-box {
+            margin-bottom: 32px;
+        }
+
+        .prayer-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-navy);
+        }
+
+        .prayer-content {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .church-info {
+            font-size: 0.8rem;
+            color: #A0AEC0;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+        }
+
+        /* Responsive spacing */
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.6rem; }
+            .logic-content { padding-left: 0; margin-top: 12px; }
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 2:1-10">
+
+<div class="container">
+    <!-- ① Hero Header -->
+    <header class="hero">
+        <span class="hero-label">2026.03.08 모세 시리즈 (2)</span>
+        <h1 class="hero-title">모세가 될 수 있었던 이유</h1>
+        <p class="hero-subtitle">라온동행교회 주일 설교 리포트</p>
+    </header>
+
+    <!-- ② Scripture Context -->
+    <section class="scripture-section">
+        <div class="scripture-box">
+            <span class="scripture-ref">출애굽기 2장 1-10절</span>
+            <p class="scripture-text">"그가 그를 불쌍히 여겨 이르되 이는 히브리 사람의 아기로다 하고... 그가 그의 이름을 모세라 하여 이르되 이는 내가 그를 물에서 건져내었음이라 하였더라"</p>
+        </div>
+    </section>
+
+    <!-- ③ Main Logic Grid -->
+    <main class="logic-section">
+        <!-- Point 1 -->
+        <article class="logic-card">
+            <div class="logic-header">
+                <div class="logic-icon">👶</div>
+                <h2 class="logic-title">철저히 의존적인 존재, 인간</h2>
+            </div>
+            <div class="logic-content">
+                인간은 만물 중 가장 찬란한 가능성을 가졌으나, 동시에 가장 오랜 시간 누군가의 품을 빌려야만 일어설 수 있는 <strong>'의존적 존재'</strong>입니다. 우리의 생존은 결코 나 혼자만의 힘이 아닌, 무수한 돕는 손길과 하나님의 은혜 덕분입니다.
+            </div>
+        </article>
+
+        <!-- Point 2 -->
+        <article class="logic-card">
+            <div class="logic-header">
+                <div class="logic-icon">✨</div>
+                <h2 class="logic-title">하나님의 선행 은총: 하말(חָמַל)</h2>
+            </div>
+            <div class="logic-content">
+                모세가 발견된 순간, 바로의 공주는 그가 죽어야 마땅한 히브리 아이임을 알았음에도 <strong>'불쌍히 여기는 마음(하말)'</strong>을 품었습니다. 이는 인간의 선함을 넘어, 죽음의 절망 속에서 미리 일하시는 하나님의 <strong>'선행 은총'</strong>입니다.
+                <div class="quote-bubble">"하말(Hāmal): 단순한 동정을 넘어 '아끼고 남겨두다'라는 구원의 의지"</div>
+            </div>
+        </article>
+
+        <!-- Point 3 -->
+        <article class="logic-card">
+            <div class="logic-header">
+                <div class="logic-icon">🧺</div>
+                <h2 class="logic-title">섭리와 노력의 신비한 조화</h2>
+            </div>
+            <div class="logic-content">
+                하나님은 전능하시지만 부족한 우리를 통해 일하십니다. 요게벳은 역청을 발라 <strong>갈대상자(테바)</strong>를 만들었고, 미리암은 포기하지 않고 끝까지 지켜보았습니다. 하나님의 섭리를 믿는다면, 우리는 우리 몫의 최선을 다해야 합니다.
+            </div>
+        </article>
+    </main>
+
+    <!-- ④ Key Keywords -->
+    <section class="keyword-section">
+        <h3 class="keyword-title">Key Keywords</h3>
+        <div class="tag-container">
+            <span class="tag">#하나님의섭리</span>
+            <span class="tag">#선행은총</span>
+            <span class="tag">#갈대상자(테바)</span>
+            <span class="tag">#의존적존재</span>
+            <span class="tag">#동역하는노력</span>
+        </div>
+    </section>
+
+    <!-- ⑤ Conclusion & One Message -->
+    <section class="conclusion-card">
+        <span class="conclusion-label">One Message</span>
+        <p class="conclusion-text">"기도는 뜨겁게 하되, 상자를 만드는 손길은 분주해야 합니다. 하나님의 섭리 안에서 우리의 최선을 다합시다."</p>
+    </section>
+
+    <!-- ⑥ Action Checklist -->
+    <section class="action-section">
+        <h3 class="section-header">이번 주 삶의 적용점</h3>
+        <div class="todo-list">
+            <div class="todo-item" onclick="this.style.opacity = this.style.opacity === '0.5' ? '1' : '0.5'">
+                <div class="checkbox">✓</div>
+                <p class="todo-text">나를 여기까지 있게 한 '돕는 손길' 3가지 떠올리고 감사하기</p>
+            </div>
+            <div class="todo-item" onclick="this.style.opacity = this.style.opacity === '0.5' ? '1' : '0.5'">
+                <div class="checkbox">✓</div>
+                <p class="todo-text">지금 내가 정성을 다해 역청을 발라야 할 '갈대상자'가 무엇인지 점검하기</p>
+            </div>
+            <div class="todo-item" onclick="this.style.opacity = this.style.opacity === '0.5' ? '1' : '0.5'">
+                <div class="checkbox">✓</div>
+                <p class="todo-text">다음 세대 리더들을 위해 구체적인 중보기도 시작하기</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑦ Prayer & Footer -->
+    <footer class="footer">
+        <div class="prayer-box">
+            <h4 class="prayer-title">오늘의 기도</h4>
+            <p class="prayer-content">
+                "주님, 제가 독불장군처럼 내 힘으로 산 것이 아니라 주님의 섭리와 수많은 도움 속에 있음을 고백합니다. 절망의 나일강 위에서도 하나님이 일하실 것을 믿으며, 오늘도 제게 맡겨진 갈대상자를 정성껏 만드는 성도가 되게 하소서. 예수님의 이름으로 기도합니다. 아멘."
+            </p>
+        </div>
+        <div class="church-info">
+            <p>라온동행교회 | 담임목사 김광복</p>
+            <p style="margin-top:4px;">함께 걷는 즐거운 동행</p>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
