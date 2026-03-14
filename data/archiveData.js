@@ -3,7 +3,7 @@ window.ARCHIVE_DATA = [
     "fileName": "260315info.html",
     "relativeURL": "2026/260315info.html",
     "date": "2026-03-15",
-    "title": "제목 없음",
+    "title": "히어로 모세",
     "scripture": ""
   },
   {
