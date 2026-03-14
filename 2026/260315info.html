@@ -1,0 +1,253 @@
+import React from 'react';
+import { 
+  Crown, BookOpen, Sword, Dumbbell, Map, 
+  Flame, HeartHandshake, ArrowDownRight, 
+  Church, AlertTriangle, ShieldCheck, Milestone
+} from 'lucide-react';
+
+const StatBar = ({ label, value, color }) => (
+  <div className="mb-3">
+    <div className="flex justify-between text-sm font-semibold mb-1">
+      <span>{label}</span>
+      <span>{value}%</span>
+    </div>
+    <div className="w-full bg-gray-200 rounded-full h-2.5">
+      <div className={`h-2.5 rounded-full ${color}`} style={{ width: `${value}%` }}></div>
+    </div>
+  </div>
+);
+
+const App = () => {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-amber-200">
+      
+      {/* 1. Header Section */}
+      <header className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 px-6 text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+        <div className="max-w-3xl mx-auto relative z-10">
+          <p className="text-amber-400 font-semibold tracking-wider mb-2">출애굽기 2장 11-22절</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+            히어로 모세 <br />
+            <span className="text-3xl md:text-4xl font-light">철저한 자기부정의 은혜</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-300 mt-6 leading-relaxed">
+            모세는 정말 어려움을 모르고 귀하게 자란 샌님이었을까요?<br/>
+            하나님이 80년이나 그를 훈련하신 진짜 이유를 살펴봅니다.
+          </p>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-6 py-12">
+        
+        {/* 2. 오해와 진실 Section */}
+        <section className="mb-20">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 flex items-center justify-center gap-2">
+              <AlertTriangle className="text-amber-500" />
+              우리의 오해 vs 성경의 진실
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-red-400"></div>
+              <h3 className="text-xl font-bold text-slate-800 mb-4 line-through decoration-red-400 decoration-2">오해: 모세는 연약한 샌님이다</h3>
+              <p className="text-slate-600 leading-relaxed">
+                모세가 부족해서 80년이나 훈련받았다고 생각하기 쉽습니다. 왕궁에서 어려움 없이 자라 두려움에 도망친 나약한 인물로 오해하곤 합니다.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-amber-100 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+              <h3 className="text-xl font-bold text-amber-600 mb-4">진실: 모세는 당대 최고의 엘리트 영웅</h3>
+              <p className="text-slate-600 leading-relaxed">
+                그는 제국 최정상의 지혜, 지식, 무력, 권력을 모두 갖춘 '거인'이었습니다. 능력이 부족해서가 아니라, <strong className="text-slate-900">그 능력을 내려놓기 위해</strong> 오랜 훈련이 필요했습니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. 인간 모세의 스펙 (Infographic Cards) */}
+        <section className="mb-20">
+          <div className="text-center mb-12">
+            <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wide">Age 40</span>
+            <h2 className="text-3xl font-bold mt-4 mb-2">세상적 히어로, 40세 모세의 스펙</h2>
+            <p className="text-slate-500">인간적인 기준으로 그는 이미 완벽한 구원자의 조건을 갖추고 있었습니다.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 스펙 1: 배경 */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
+                <Crown size={24} />
+              </div>
+              <h3 className="text-lg font-bold mb-2">최고 권력의 비호</h3>
+              <p className="text-sm text-slate-600 mb-4">
+                양어머니 하트셉수트(이집트 18왕조의 강력한 여성 파라오). 하나님은 세계 최고 권력자의 품을 미리 준비하셨습니다.
+              </p>
+              <StatBar label="정치/배경" value={95} color="bg-purple-500" />
+            </div>
+
+            {/* 스펙 2: 교육 */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                <BookOpen size={24} />
+              </div>
+              <h3 className="text-lg font-bold mb-2">초엘리트 교육</h3>
+              <p className="text-sm text-slate-600 mb-4">
+                애굽 최고 교육기관 '페르 앙크' 수학. 문자학, 외교, 수학, 건축, 법학 마스터 (훗날 모세오경 기록, 성막 건축에 사용됨).
+              </p>
+              <StatBar label="지적 능력" value={99} color="bg-blue-500" />
+            </div>
+
+            {/* 스펙 3: 군사 */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600">
+                <Sword size={24} />
+              </div>
+              <h3 className="text-lg font-bold mb-2">탁월한 군사 수완</h3>
+              <p className="text-sm text-slate-600 mb-4">
+                청년 시절 애굽 정규군 총사령관. 에티오피아(구스) 침공을 기습 전술로 막아내고 외교적 수완으로 전쟁을 종결.
+              </p>
+              <StatBar label="전술/지휘" value={90} color="bg-red-500" />
+            </div>
+
+            {/* 스펙 4: 무력 */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
+                <Dumbbell size={24} />
+              </div>
+              <h3 className="text-lg font-bold mb-2">압도적 신체 능력</h3>
+              <p className="text-sm text-slate-600 mb-4">
+                400여 가지 격투기 마스터. 무장한 노동 감독관을 단숨에 제압하고 미디안 목자 다수를 혼자서 물리치는 체력 보유.
+              </p>
+              <StatBar label="무력/체력" value={95} color="bg-orange-500" />
+            </div>
+          </div>
+        </section>
+
+        {/* 4. 전환점 (Why God didn't use him yet) */}
+        <section className="mb-20 bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-16 opacity-10 pointer-events-none">
+            <Flame size={200} />
+          </div>
+          <div className="relative z-10 max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6 text-amber-400">왜 하나님은 40세의 모세를 부르지 않으셨을까?</h2>
+            <p className="text-lg text-slate-300 leading-relaxed mb-8">
+              "스스로 무엇이든 할 수 있다는 <strong>자신감</strong>이 차 있었습니다. 
+              문제는 그 자신감이 하나님이 아닌 <strong>'나'를 향해 있었다는 것</strong>입니다."
+            </p>
+            <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm text-left border border-white/20">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <ArrowDownRight className="text-red-400 mt-1 shrink-0" />
+                  <span><strong>능력이 뛰어났기에:</strong> 이 때 부르셨다면 자신의 능력이 뛰어나 쓰임 받는다는 교만에 빠졌을 것입니다.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ArrowDownRight className="text-red-400 mt-1 shrink-0" />
+                  <span><strong>완전 범죄의 실패:</strong> 동족을 위해 애굽인을 죽였으나 오히려 동족에게 비난받고 정치적으로 숙청당할 위기에 처합니다.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ShieldCheck className="text-emerald-400 mt-1 shrink-0" />
+                  <span className="text-emerald-50 font-medium"><strong>하나님의 기준:</strong> 하나님은 능력 있는 사람이 아니라, "하나님만 의지하는 사람"을 찾으십니다.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. 광야 40년의 의미 (Before & After) */}
+        <section className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">미디안 광야 40년: 자기 의가 사라지는 시간</h2>
+            <p className="text-slate-600">모세가 '모세이기를 포기하는' 철저한 낮아짐의 시간이었습니다.</p>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            {/* Before */}
+            <div className="bg-slate-100 p-8 rounded-2xl w-full md:w-5/12 text-center border-t-4 border-slate-300">
+              <div className="text-slate-400 mb-4 flex justify-center"><Crown size={48} /></div>
+              <h3 className="text-xl font-bold mb-2">애굽의 총사령관</h3>
+              <ul className="text-slate-600 space-y-2 text-sm">
+                <li>장군의 계급장과 무력</li>
+                <li>왕궁의 화려한 수사학</li>
+                <li>"나는 할 수 있다" (자아 팽창)</li>
+                <li>세상적 성공, 영적 미성숙</li>
+              </ul>
+            </div>
+
+            {/* Arrow */}
+            <div className="py-4 md:py-0 text-amber-500 font-bold flex flex-col items-center">
+              <span className="text-sm bg-amber-100 text-amber-800 px-3 py-1 rounded-full mb-2">40년의 연단</span>
+              <svg className="w-8 h-8 md:-rotate-90 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+
+            {/* After */}
+            <div className="bg-amber-50 p-8 rounded-2xl w-full md:w-5/12 text-center border-t-4 border-amber-400">
+              <div className="text-amber-500 mb-4 flex justify-center"><Map size={48} /></div>
+              <h3 className="text-xl font-bold mb-2">미디안의 양치기</h3>
+              <ul className="text-slate-700 space-y-2 text-sm font-medium">
+                <li>양치기의 지팡이와 사명</li>
+                <li>양들의 언어와 세미한 음성 청종</li>
+                <li>"나는 할 수 없습니다" (자기 부정)</li>
+                <li>세상적 실패, 영적 히어로의 탄생</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. Application & Church Message */}
+        <section className="bg-white border-2 border-emerald-100 rounded-3xl p-8 md:p-12 shadow-xl mb-12">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="md:w-1/3 text-center text-emerald-600">
+              <Church size={80} className="mx-auto mb-4" />
+              <h3 className="text-2xl font-black tracking-tight">라온동행교회<br/>우리의 고백</h3>
+            </div>
+            <div className="md:w-2/3">
+              <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <Milestone className="text-amber-500" /> 
+                여러분의 손에는 어떤 지팡이가 있습니까?
+              </h4>
+              <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                <div className="bg-slate-50 p-4 rounded-xl">
+                  <p className="font-bold text-slate-800">❌ 금지팡이</p>
+                  <p className="text-sm text-slate-600">"내가 이만큼 유능하니 하나님이 나를 써주셔야 한다"는 교만</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-xl">
+                  <p className="font-bold text-slate-800">❌ 부러진 지팡이</p>
+                  <p className="text-sm text-slate-600">"나는 가진 게 없어 아무것도 못한다"며 지레 포기하는 불신앙</p>
+                </div>
+              </div>
+              <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-200">
+                <p className="font-bold text-emerald-800 flex items-center gap-2 mb-2">
+                  <HeartHandshake size={20} /> 
+                  ⭕ 하나님이 찾으시는 '믿음의 지팡이'
+                </p>
+                <p className="text-emerald-700 leading-relaxed">
+                  우리가 쓰임 받지 못하는 이유는 능력이 없어서가 아니라 내 안에 '나의 의'가 너무 크기 때문입니다. 
+                  작고 연약한 라온동행교회를 하나님이 붙드시는 이유는 <strong>"하나님 없이는 아무것도 할 수 없습니다"</strong>라고 날마다 고백하기 때문입니다. 
+                  우리가 빈손일 때, 하나님이 채우십니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer & References */}
+        <footer className="text-center text-sm text-slate-400 mt-16 border-t pt-8">
+          <p className="mb-2 font-semibold text-slate-500">📖 이광복 목사님의 주일 설교 묵상 나눔 (쉬운목사 이광복의 즐거운 묵상 나눔)</p>
+          <p className="mb-4">"신앙은 보수적, 신학은 진보적, 삶은 실제적이어야 합니다."</p>
+          <div className="bg-slate-100 inline-block p-4 rounded-lg text-left max-w-2xl text-xs leading-relaxed">
+            <strong className="block mb-1 text-slate-600">[설교 및 자료 출처 안내]</strong>
+            * 본 인포그래픽은 출애굽기 2장 11-22절 본문을 바탕으로 작성되었습니다.<br/>
+            * <strong>역사적/신학적 추론:</strong> 모세의 양어머니를 '하트셉수트(Hatshepsut)'로 보는 견해, 페르 앙크에서의 엘리트 교육, 에티오피아 원정(요세푸스의 기록 참증), 베니 하산 무덤 벽화를 통한 무력 추론 등은 역사학과 성서학을 바탕으로 한 학문적 추론(Inference)을 설교에 적용한 것입니다.<br/>
+            * 이단 및 사이비 자료는 철저히 배제되었습니다.
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  );
+};
+
+export default App;
