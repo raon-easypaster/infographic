@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모세의 5가지 항변 인포그래픽</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                        serif: ['"Noto Serif KR"', 'serif'],
+                    },
+                    colors: {
+                        desert: {
+                            50: '#faf8f5',
+                            100: '#f0eadd',
+                            200: '#e1d3bc',
+                            300: '#ceb693',
+                            400: '#b89466',
+                            500: '#a67c4b',
+                            600: '#90643e',
+                            700: '#784f35',
+                            800: '#644230',
+                            900: '#513728',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #faf8f5; }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ceb693, #784f35);
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 2rem;
+            }
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="text-desert-900 antialiased py-12 px-4 md:px-8">
+
+    <!-- Header Section -->
+    <header class="max-w-4xl mx-auto text-center mb-16 px-4">
+        <div class="inline-block p-3 rounded-full bg-desert-100 text-desert-600 mb-4">
+            <i class="fa-solid fa-fire-flame-curved fa-2x"></i>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-desert-800 mb-6 tracking-tight leading-tight">
+            모세의 5가지 항변
+        </h1>
+        <p class="font-sans text-xl md:text-2xl text-desert-600 font-medium max-w-2xl mx-auto break-keep">
+            믿음의 부족인가, 지극히 현실적인 인간의 고뇌인가?
+        </p>
+        <div class="mt-8 border-b-2 border-desert-200 w-24 mx-auto"></div>
+    </header>
+
+    <!-- Timeline Section -->
+    <div class="max-w-5xl mx-auto relative pt-8 pb-24">
+        <!-- The Central Line -->
+        <div class="timeline-line hidden md:block"></div>
+        <!-- Mobile Line -->
+        <div class="absolute left-8 w-1 h-full bg-gradient-to-b from-desert-300 to-desert-700 md:hidden z-0"></div>
+
+        <!-- Item 1 (출 3:11) - Left -->
+        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
+            <div class="hidden md:block w-5/12"></div>
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-600 text-white font-bold border-4 border-desert-50 z-20 shadow-md">
+                1
+            </div>
+            <div class="w-full md:w-5/12 pl-20 md:pl-0 pr-0 md:pr-12">
+                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-600 relative">
+                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 3:11</span>
+                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"내가 누구이기에 바로에게 가며..."</h3>
+                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
+                        이미 40년 전 도망쳐 온 자신이 가장 권력 있는 바로를 대면한다는 것에 대한 <strong class="text-desert-800">극도의 압박감</strong>. 아무도 자신을 기억하지 못할 것이라는 합리적인 두려움입니다.
+                    </p>
+                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fa-solid fa-person-circle-question text-desert-500 mt-1"></i>
+                        <p class="text-sm text-desert-600 break-keep">이해하기 힘든 부르심 앞의 당혹감</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2 (출 3:13) - Right -->
+        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
+            <div class="w-full md:w-5/12 pl-20 md:pl-12 order-2 md:order-1">
+                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-500 relative">
+                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 3:13</span>
+                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"그들이 그의 이름이 무엇이냐 하리니..."</h3>
+                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
+                        본인이 간다고 해도, 과연 이스라엘 백성들이 나를 <strong class="text-desert-800">특사로 인정해 줄 것인가?</strong> 스스로 특사라 주장한다고 특사가 되는 것이 아니기에 제기하는 너무나 당연한 질문입니다.
+                    </p>
+                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fa-solid fa-stamp text-desert-500 mt-1"></i>
+                        <p class="text-sm text-desert-600 break-keep">하나님으로부터 파송받은 자의 당위성 요구</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-500 text-white font-bold border-4 border-desert-50 z-20 shadow-md order-1 md:order-2">
+                2
+            </div>
+            <div class="hidden md:block w-5/12 order-3"></div>
+        </div>
+
+        <!-- Item 3 (출 4:1) - Left -->
+        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
+            <div class="hidden md:block w-5/12"></div>
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-700 text-white font-bold border-4 border-desert-50 z-20 shadow-md">
+                3
+            </div>
+            <div class="w-full md:w-5/12 pl-20 md:pl-0 pr-0 md:pr-12">
+                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-700 relative">
+                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 4:1</span>
+                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"그들이 나를 믿지 아니하며..."</h3>
+                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
+                        하나님의 말씀대로 한다 한들, 과연 그들이 믿어줄지에 대한 의문. 이것은 믿음의 결여가 아니라 <strong class="text-desert-800">믿음이 아직 성장 중인 자의 솔직한 모습</strong>입니다.
+                    </p>
+                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fa-solid fa-people-arrows text-desert-500 mt-1"></i>
+                        <p class="text-sm text-desert-600 break-keep">실패를 예견하는 지극히 일반적인 인간의 반응</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4 (출 4:10) - Right -->
+        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
+            <div class="w-full md:w-5/12 pl-20 md:pl-12 order-2 md:order-1">
+                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-600 relative">
+                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 4:10</span>
+                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"나는 본래 말을 잘 하지 못하는 자니이다"</h3>
+                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
+                        과거 이집트 '생명의 집(페르 앙크)'에서 수사학을 배운 엘리트였으나, 40년간 양치기로 살며 깊은 <strong class="text-desert-800">사유와 언어 사용이 멈춰버린 현실</strong>에 대한 정직한 고백입니다.
+                    </p>
+                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fa-solid fa-comment-slash text-desert-500 mt-1"></i>
+                        <p class="text-sm text-desert-600 break-keep">통찰과 감각이 무뎌진 자의 현실적인 한계 인식</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-600 text-white font-bold border-4 border-desert-50 z-20 shadow-md order-1 md:order-2">
+                4
+            </div>
+            <div class="hidden md:block w-5/12 order-3"></div>
+        </div>
+
+        <!-- Item 5 (출 4:13) - Left -->
+        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 z-10">
+            <div class="hidden md:block w-5/12"></div>
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-800 text-white font-bold border-4 border-desert-50 z-20 shadow-md">
+                5
+            </div>
+            <div class="w-full md:w-5/12 pl-20 md:pl-0 pr-0 md:pr-12">
+                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-800 relative">
+                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 4:13</span>
+                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"보낼 만한 자를 보내소서"</h3>
+                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
+                        <strong class="text-desert-800">"나만 아니면 되니 누구든 보내라"</strong>는 모세의 진심입니다. 두려움, 잃어버린 자신감, 이제는 더 이상 폭풍 같은 곳에 가고 싶지 않은 노년의 솔직한 마음입니다.
+                    </p>
+                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fa-solid fa-person-walking-arrow-right text-desert-500 mt-1"></i>
+                        <p class="text-sm text-desert-600 break-keep">안정을 깨고 싶지 않은 인간의 숨겨진 본성</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Summary Section -->
+    <div class="max-w-3xl mx-auto bg-desert-800 rounded-2xl p-8 md:p-12 text-center text-white shadow-xl mt-8">
+        <i class="fa-solid fa-quote-left text-desert-500 fa-2x mb-6 opacity-50"></i>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold mb-6 break-keep">
+            모세의 대답은 믿음의 문제가 아닌<br>우리가 마주하는 '현실'의 문제입니다.
+        </h2>
+        <p class="text-desert-100 text-lg md:text-xl font-light leading-relaxed break-keep mb-8">
+            지극히 현실적인 그의 삶에서 대답할 수 있는 가장 합리적인 대답입니다.<br>
+            이토록 평범하고 연약한 고백 앞에, 과연 누가 돌을 던질 수 있겠습니까?
+        </p>
+        <div class="inline-block px-6 py-2 border border-desert-500 rounded-full text-desert-200 text-sm tracking-wide">
+            이광복 목사의 쉬운 묵상 나눔
+        </div>
+    </div>
+
+</body>
+</html>
