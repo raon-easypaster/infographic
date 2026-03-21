@@ -3,204 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모세의 5가지 항변 인포그래픽</title>
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans KR"', 'sans-serif'],
-                        serif: ['"Noto Serif KR"', 'serif'],
-                    },
-                    colors: {
-                        desert: {
-                            50: '#faf8f5',
-                            100: '#f0eadd',
-                            200: '#e1d3bc',
-                            300: '#ceb693',
-                            400: '#b89466',
-                            500: '#a67c4b',
-                            600: '#90643e',
-                            700: '#784f35',
-                            800: '#644230',
-                            900: '#513728',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>모세의 5가지 핑계와 우리의 소명 - 인포그래픽</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { background-color: #faf8f5; }
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #ceb693, #784f35);
-            z-index: 0;
+        :root {
+            --bg-dark: #0d1117; /* GitHub Dark theme background */
+            --bg-panel: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-orange: #f97316;
+            --accent-gold: #fbbf24;
+            --accent-red: #ef4444;
         }
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 2rem;
-            }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .card-shadow {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Infographic Canvas */
+        .infographic {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2a0a0a 0%, var(--bg-dark) 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-orange);
+            position: relative;
+        }
+        
+        .header-icon {
+            font-size: 48px;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 10px;
+            word-break: keep-all;
+        }
+
+        .header h2 {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        /* Section Containers */
+        .section {
+            padding: 50px 40px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: var(--accent-orange);
+        }
+
+        /* 5 Excuses Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .excuse-card {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: transform 0.2s;
+        }
+
+        .excuse-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-gold);
+        }
+
+        .excuse-num {
+            background-color: var(--border-color);
+            color: var(--accent-gold);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .excuse-content h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .excuse-content p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+        
+        .verse-ref {
+            font-size: 13px;
+            color: var(--accent-orange);
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Data Section */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .data-box {
+            background-color: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .data-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent-orange);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .data-label {
+            font-size: 16px;
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .data-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Highlight Quote */
+        .quote-box {
+            background: linear-gradient(to right, var(--bg-panel), transparent);
+            border-left: 5px solid var(--accent-gold);
+            padding: 30px;
+            margin: 40px 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .quote-box span {
+            color: var(--accent-gold);
+        }
+
+        /* Paradox Section */
+        .paradox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .paradox-item {
+            padding: 30px;
+            background-color: var(--bg-panel);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .paradox-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(to bottom, var(--bg-dark), #1a1005);
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .conclusion h2 {
+            font-size: 32px;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .conclusion p {
+            font-size: 18px;
+            color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            padding: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-brand {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .inference-note {
+            display: inline-block;
+            background-color: rgba(251, 191, 36, 0.1);
+            color: var(--accent-gold);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .data-grid, .paradox-grid { grid-template-columns: 1fr; }
+            .section { padding: 40px 20px; }
+            .excuse-card { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
-<body class="text-desert-900 antialiased py-12 px-4 md:px-8">
+<body>
 
-    <!-- Header Section -->
-    <header class="max-w-4xl mx-auto text-center mb-16 px-4">
-        <div class="inline-block p-3 rounded-full bg-desert-100 text-desert-600 mb-4">
-            <i class="fa-solid fa-fire-flame-curved fa-2x"></i>
-        </div>
-        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-desert-800 mb-6 tracking-tight leading-tight">
-            모세의 5가지 항변
-        </h1>
-        <p class="font-sans text-xl md:text-2xl text-desert-600 font-medium max-w-2xl mx-auto break-keep">
-            믿음의 부족인가, 지극히 현실적인 인간의 고뇌인가?
-        </p>
-        <div class="mt-8 border-b-2 border-desert-200 w-24 mx-auto"></div>
+<div class="infographic">
+    
+    <!-- Header -->
+    <header class="header">
+        <i class="fa-solid fa-cross header-icon"></i>
+        <h1>십자가를 질 수 있나</h1>
+        <h2>모세의 5가지 핑계와 우리의 소명</h2>
     </header>
 
-    <!-- Timeline Section -->
-    <div class="max-w-5xl mx-auto relative pt-8 pb-24">
-        <!-- The Central Line -->
-        <div class="timeline-line hidden md:block"></div>
-        <!-- Mobile Line -->
-        <div class="absolute left-8 w-1 h-full bg-gradient-to-b from-desert-300 to-desert-700 md:hidden z-0"></div>
-
-        <!-- Item 1 (출 3:11) - Left -->
-        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
-            <div class="hidden md:block w-5/12"></div>
-            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-600 text-white font-bold border-4 border-desert-50 z-20 shadow-md">
-                1
-            </div>
-            <div class="w-full md:w-5/12 pl-20 md:pl-0 pr-0 md:pr-12">
-                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-600 relative">
-                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 3:11</span>
-                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"내가 누구이기에 바로에게 가며..."</h3>
-                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
-                        이미 40년 전 도망쳐 온 자신이 가장 권력 있는 바로를 대면한다는 것에 대한 <strong class="text-desert-800">극도의 압박감</strong>. 아무도 자신을 기억하지 못할 것이라는 합리적인 두려움입니다.
-                    </p>
-                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
-                        <i class="fa-solid fa-person-circle-question text-desert-500 mt-1"></i>
-                        <p class="text-sm text-desert-600 break-keep">이해하기 힘든 부르심 앞의 당혹감</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Section 1: The Situation -->
+    <section class="section">
+        <div class="section-title">
+            <i class="fa-solid fa-fire"></i> 떨기나무 앞의 모세
         </div>
-
-        <!-- Item 2 (출 3:13) - Right -->
-        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
-            <div class="w-full md:w-5/12 pl-20 md:pl-12 order-2 md:order-1">
-                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-500 relative">
-                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 3:13</span>
-                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"그들이 그의 이름이 무엇이냐 하리니..."</h3>
-                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
-                        본인이 간다고 해도, 과연 이스라엘 백성들이 나를 <strong class="text-desert-800">특사로 인정해 줄 것인가?</strong> 스스로 특사라 주장한다고 특사가 되는 것이 아니기에 제기하는 너무나 당연한 질문입니다.
-                    </p>
-                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
-                        <i class="fa-solid fa-stamp text-desert-500 mt-1"></i>
-                        <p class="text-sm text-desert-600 break-keep">하나님으로부터 파송받은 자의 당위성 요구</p>
-                    </div>
-                </div>
-            </div>
-            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-500 text-white font-bold border-4 border-desert-50 z-20 shadow-md order-1 md:order-2">
-                2
-            </div>
-            <div class="hidden md:block w-5/12 order-3"></div>
-        </div>
-
-        <!-- Item 3 (출 4:1) - Left -->
-        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
-            <div class="hidden md:block w-5/12"></div>
-            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-700 text-white font-bold border-4 border-desert-50 z-20 shadow-md">
-                3
-            </div>
-            <div class="w-full md:w-5/12 pl-20 md:pl-0 pr-0 md:pr-12">
-                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-700 relative">
-                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 4:1</span>
-                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"그들이 나를 믿지 아니하며..."</h3>
-                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
-                        하나님의 말씀대로 한다 한들, 과연 그들이 믿어줄지에 대한 의문. 이것은 믿음의 결여가 아니라 <strong class="text-desert-800">믿음이 아직 성장 중인 자의 솔직한 모습</strong>입니다.
-                    </p>
-                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
-                        <i class="fa-solid fa-people-arrows text-desert-500 mt-1"></i>
-                        <p class="text-sm text-desert-600 break-keep">실패를 예견하는 지극히 일반적인 인간의 반응</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Item 4 (출 4:10) - Right -->
-        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 z-10">
-            <div class="w-full md:w-5/12 pl-20 md:pl-12 order-2 md:order-1">
-                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-600 relative">
-                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 4:10</span>
-                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"나는 본래 말을 잘 하지 못하는 자니이다"</h3>
-                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
-                        과거 이집트 '생명의 집(페르 앙크)'에서 수사학을 배운 엘리트였으나, 40년간 양치기로 살며 깊은 <strong class="text-desert-800">사유와 언어 사용이 멈춰버린 현실</strong>에 대한 정직한 고백입니다.
-                    </p>
-                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
-                        <i class="fa-solid fa-comment-slash text-desert-500 mt-1"></i>
-                        <p class="text-sm text-desert-600 break-keep">통찰과 감각이 무뎌진 자의 현실적인 한계 인식</p>
-                    </div>
-                </div>
-            </div>
-            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-600 text-white font-bold border-4 border-desert-50 z-20 shadow-md order-1 md:order-2">
-                4
-            </div>
-            <div class="hidden md:block w-5/12 order-3"></div>
-        </div>
-
-        <!-- Item 5 (출 4:13) - Left -->
-        <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 z-10">
-            <div class="hidden md:block w-5/12"></div>
-            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-desert-800 text-white font-bold border-4 border-desert-50 z-20 shadow-md">
-                5
-            </div>
-            <div class="w-full md:w-5/12 pl-20 md:pl-0 pr-0 md:pr-12">
-                <div class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-t-4 border-desert-800 relative">
-                    <span class="text-sm font-bold text-desert-500 mb-2 block tracking-wider">출애굽기 4:13</span>
-                    <h3 class="font-serif text-2xl font-bold text-desert-800 mb-4">"보낼 만한 자를 보내소서"</h3>
-                    <p class="text-desert-700 leading-relaxed mb-4 break-keep">
-                        <strong class="text-desert-800">"나만 아니면 되니 누구든 보내라"</strong>는 모세의 진심입니다. 두려움, 잃어버린 자신감, 이제는 더 이상 폭풍 같은 곳에 가고 싶지 않은 노년의 솔직한 마음입니다.
-                    </p>
-                    <div class="bg-desert-50 p-4 rounded-lg flex items-start gap-3">
-                        <i class="fa-solid fa-person-walking-arrow-right text-desert-500 mt-1"></i>
-                        <p class="text-sm text-desert-600 break-keep">안정을 깨고 싶지 않은 인간의 숨겨진 본성</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Summary Section -->
-    <div class="max-w-3xl mx-auto bg-desert-800 rounded-2xl p-8 md:p-12 text-center text-white shadow-xl mt-8">
-        <i class="fa-solid fa-quote-left text-desert-500 fa-2x mb-6 opacity-50"></i>
-        <h2 class="font-serif text-2xl md:text-3xl font-bold mb-6 break-keep">
-            모세의 대답은 믿음의 문제가 아닌<br>우리가 마주하는 '현실'의 문제입니다.
-        </h2>
-        <p class="text-desert-100 text-lg md:text-xl font-light leading-relaxed break-keep mb-8">
-            지극히 현실적인 그의 삶에서 대답할 수 있는 가장 합리적인 대답입니다.<br>
-            이토록 평범하고 연약한 고백 앞에, 과연 누가 돌을 던질 수 있겠습니까?
+        <p style="font-size: 17px; margin-bottom: 15px;">
+            하나님의 부르심을 받은 모세. "네 발에서 신을 벗으라"는 명령에 모세는 경외함으로 응답합니다. 하지만 신을 벗은 모세는 하나님의 사역 명령 앞에서 곧바로 순종하지 못하고 <strong>다섯 번의 현실적인 핑계</strong>를 댑니다.
         </p>
-        <div class="inline-block px-6 py-2 border border-desert-500 rounded-full text-desert-200 text-sm tracking-wide">
-            이광복 목사의 쉬운 묵상 나눔
+        <p style="font-size: 14px; color: var(--text-muted);">
+            <i class="fa-solid fa-book-bible"></i> 출처: 출애굽기 3장 1-5절
+        </p>
+    </section>
+
+    <!-- Section 2: 5 Excuses -->
+    <section class="section" style="background-color: #0d1117;">
+        <div class="section-title">
+            <i class="fa-solid fa-list-ol"></i> 모세의 다섯 가지 대답
         </div>
-    </div>
+        
+        <div class="timeline">
+            <div class="excuse-card">
+                <div class="excuse-num">1</div>
+                <div class="excuse-content">
+                    <h3>"내가 누구이기에 바로에게 가며..."</h3>
+                    <p>이미 40년 전 도망쳐온 자신이 당대의 가장 강력한 권력자 바로를 대면한다는 것은 불가능해 보였습니다.</p>
+                    <span class="verse-ref">출 3:11</span>
+                </div>
+            </div>
+            
+            <div class="excuse-card">
+                <div class="excuse-num">2</div>
+                <div class="excuse-content">
+                    <h3>"그들이 그의 이름이 무엇이냐 하리니..."</h3>
+                    <p>설사 자신이 간다고 해도, 이스라엘 백성들이 자신을 하나님의 특사로 인정해 주지 않을 것이란 두려움이 있었습니다.</p>
+                    <span class="verse-ref">출 3:13</span>
+                </div>
+            </div>
+
+            <div class="excuse-card">
+                <div class="excuse-num">3</div>
+                <div class="excuse-content">
+                    <h3>"그들이 나를 믿지 아니하며..."</h3>
+                    <p>하나님의 말씀대로 전한다 한들, 그들이 정말로 내 말을 듣고 믿어줄 것인가에 대한 강한 의구심입니다.</p>
+                    <span class="verse-ref">출 4:1</span>
+                </div>
+            </div>
+
+            <div class="excuse-card">
+                <div class="excuse-num">4</div>
+                <div class="excuse-content">
+                    <h3>"나는 본래 말을 잘 하지 못하는 자니이다"</h3>
+                    <p>40년간 광야에서 양만 치며 살았기에, 사람들을 설득할 언변과 통찰력이 이미 사라졌다고 여겼습니다.</p>
+                    <span class="verse-ref">출 4:10</span>
+                </div>
+            </div>
+
+            <div class="excuse-card">
+                <div class="excuse-num">5</div>
+                <div class="excuse-content">
+                    <h3>"보낼 만한 자를 보내소서"</h3>
+                    <p>결국 진심이 나옵니다. 두려움과 자신감 부족으로 인해 더 이상 폭풍 같은 삶으로 돌아가고 싶지 않은 마음입니다.</p>
+                    <span class="verse-ref">출 4:13</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Reality (Inference) -->
+    <section class="section">
+        <span class="inference-note"><i class="fa-solid fa-lightbulb"></i> 목회적 추론 및 묵상</span>
+        <div class="section-title">
+            <i class="fa-solid fa-scale-balanced"></i> 불신앙이 아닌 '현실의 무게'
+        </div>
+        <p style="margin-bottom: 30px;">모세의 대답은 단순히 믿음이 없어서가 아닙니다. 지극히 현실적이고 합리적인 상황 판단이었습니다. 누구도 모세를 비난할 수 없습니다.</p>
+        
+        <div class="data-grid">
+            <div class="data-box">
+                <div class="data-value">40<span style="font-size: 24px;">년</span></div>
+                <div class="data-label">단절의 시간</div>
+                <div class="data-desc">무력, 지력, 권력을 모두 잃고 미디안 광야의 평범한 목동으로 잊혀지기에 충분한 시간</div>
+            </div>
+            <div class="data-box">
+                <div class="data-value">452<span style="font-size: 24px;">km</span></div>
+                <div class="data-label">물리적/심리적 거리</div>
+                <div class="data-desc">애굽 라암셋까지 도보 102시간. 다시는 돌아가지 않겠다는 모세의 강한 의지의 산물</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: The Core Message -->
+    <section class="section">
+        <div class="quote-box">
+            "장신구의 십자가는 가벼울수록 <span>아름답지만</span>,<br>
+            소명의 십자가는 무거울수록 <span>영광스럽습니다.</span>"
+        </div>
+
+        <div class="paradox-grid">
+            <div class="paradox-item">
+                <div class="paradox-icon" style="color: var(--accent-gold);">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+                <h3 style="color: #fff; margin-bottom: 10px;">성전에서 신발을 벗는 것</h3>
+                <p style="font-size: 14px; color: var(--text-muted);">예배당 문턱에서 하나님을 만나 경이로움 속에 신을 벗는 것은 어쩌면 가장 쉬운 일입니다.</p>
+            </div>
+            <div class="paradox-item">
+                <div class="paradox-icon" style="color: var(--accent-orange);">
+                    <i class="fa-solid fa-shoe-prints" style="transform: rotate(180deg);"></i>
+                </div>
+                <h3 style="color: #fff; margin-bottom: 10px;">세상을 향해 신을 신는 것</h3>
+                <p style="font-size: 14px; color: var(--text-muted);">진정 거룩한 순종은, 그 신발 끈을 다시 묶고 가시밭길 같은 세상으로 발걸음을 내딛는 것입니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="conclusion">
+        <h2>영적 애굽을 향하여</h2>
+        <p>
+            우리는 여전히 나이, 건강, 재정, 환경을 핑계 삼습니다.<br><br>
+            하지만 예배당에서 벗었던 신발을 다시 묶고, 우리 각자에게 주신 <strong>영적 애굽 (가정, 직장, 이웃)</strong>을 향해 십자가를 지고 나아가는 삶. 그것이 진짜 신앙입니다.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">라온동행교회 이광복 목사</div>
+        <p>"신앙은 보수적, 신학은 진보적, 삶은 실천적으로"</p>
+        <p style="margin-top: 15px; font-size: 12px; opacity: 0.6;">
+            성경 본문: 출애굽기 3:3 - 4:13<br>
+            ※ 모세의 핑계가 불신앙이 아닌 합리적 현실의 무게였다는 점은 설교자의 목회적 묵상(추론)이 반영된 부분입니다.
+        </p>
+    </footer>
+
+</div>
 
 </body>
 </html>
