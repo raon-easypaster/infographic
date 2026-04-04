@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설교 인포그래픽: 잠자는 자들의 첫 열매</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Color Palette & Variables */
+        :root {
+            --primary-navy: #1A2B4C;
+            --point-mint: #20C997;
+            --soft-grey: #F4F7F6;
+            --text-dark: #2D3748;
+            --text-light: #718096;
+            --white: #FFFFFF;
+            --border-color: #E2E8F0;
+            
+            --font-main: 'Noto Sans KR', sans-serif;
+            --font-point: 'Gowun Batang', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--soft-grey);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* 1. Hero Header */
+        .hero-header {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+            /* Geometric Pattern */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(32, 201, 151, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 20%);
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            color: var(--point-mint);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: var(--font-point);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+
+        .hero-date {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* 2. Scripture Context */
+        .scripture-section {
+            padding: 0 30px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .scripture-box {
+            background-color: var(--white);
+            border-top: 4px solid var(--point-mint);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .scripture-label {
+            display: inline-block;
+            background-color: var(--soft-grey);
+            color: var(--text-light);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .scripture-text {
+            font-family: var(--font-point);
+            font-size: 1.15rem;
+            color: var(--primary-navy);
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .scripture-ref {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* 3. Main Logic Grid */
+        .logic-section {
+            padding: 50px 30px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .section-title::before, .section-title::after {
+            content: '';
+            height: 1px;
+            background-color: var(--border-color);
+            flex-grow: 1;
+            max-width: 50px;
+        }
+
+        .logic-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--soft-grey);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            word-break: keep-all;
+        }
+
+        .card-body {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .highlight-quote {
+            background-color: rgba(32, 201, 151, 0.05);
+            border-left: 3px solid var(--point-mint);
+            padding: 12px 15px;
+            margin-top: 15px;
+            font-family: var(--font-point);
+            font-weight: 700;
+            color: var(--primary-navy);
+            border-radius: 0 8px 8px 0;
+            word-break: keep-all;
+        }
+
+        /* 4. Word Cloud / Keywords */
+        .keyword-section {
+            padding: 0 30px 40px;
+            text-align: center;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: var(--soft-grey);
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tag.primary {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            border-color: var(--primary-navy);
+        }
+
+        /* 5. Conclusion Banner */
+        .conclusion-banner {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2A4365 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .conclusion-title {
+            font-size: 0.9rem;
+            color: var(--point-mint);
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .conclusion-message {
+            font-family: var(--font-point);
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+
+        /* 6. Action Checklist */
+        .action-section {
+            padding: 50px 30px;
+            background-color: var(--white);
+        }
+
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: var(--soft-grey);
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .check-item:hover {
+            background-color: #E2E8F0;
+        }
+
+        .check-item input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary-navy);
+            border-radius: 6px;
+            margin-top: 2px;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            background-color: var(--white);
+        }
+
+        .check-item input[type="checkbox"]:checked {
+            background-color: var(--point-mint);
+            border-color: var(--point-mint);
+        }
+
+        .check-item input[type="checkbox"]:checked::after {
+            content: '✔';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .check-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+
+        /* 7. Prayer & Footer */
+        .prayer-section {
+            padding: 0 30px 40px;
+        }
+
+        .prayer-box {
+            background-color: rgba(32, 201, 151, 0.05);
+            border: 1px dashed var(--point-mint);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .prayer-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .prayer-text {
+            font-family: var(--font-point);
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            word-break: keep-all;
+        }
+
+        .footer {
+            background-color: var(--soft-grey);
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .church-name {
+            font-weight: 900;
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .footer-info {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+    </style>
+</head>
+<body data-scripture="고린도전서 15:20">
+
+    <div class="container">
+        
+        <!-- 1. Hero Header -->
+        <header class="hero-header">
+            <div class="hero-subtitle">부활 주일 메세지</div>
+            <h1 class="hero-title">잠자는 자들의<br>첫 열매</h1>
+            <div class="hero-date">라온동행교회 주일설교 리포트</div>
+        </header>
+
+        <!-- 2. Scripture Context -->
+        <section class="scripture-section">
+            <div class="scripture-box">
+                <span class="scripture-label">오늘의 중심 말씀</span>
+                <p class="scripture-text">"그러나 이제 그리스도께서 죽은 자 가운데서 다시 살아나사 잠자는 자들의 첫 열매가 되셨도다"</p>
+                <p class="scripture-ref">고린도전서 15장 20절</p>
+            </div>
+        </section>
+
+        <!-- 3. Main Logic Grid -->
+        <section class="logic-section">
+            <h2 class="section-title">설교의 흐름</h2>
+
+            <!-- Section 1 -->
+            <article class="logic-card">
+                <div class="card-header">
+                    <div class="card-icon">🌱</div>
+                    <h3 class="card-title">절망을 뚫고 피어나는 생명력</h3>
+                </div>
+                <div class="card-body">
+                    <p>먹을 것, 볼 것, 갈 곳이 없는 '3무(無)의 나라' 방글라데시. 그 척박하고 열악한 환경 속에서도 최선을 다해 살아가는 아이들의 미소에서 뜻밖의 생명력을 보았습니다. 이는 하나님이 우리 안에 심어두신 <strong>'선행 은총(Prevenient Grace)'</strong>입니다.</p>
+                    <div class="highlight-quote">
+                        "죽음이 지배하는 땅에서도 생명은 자란다 — 이것이 부활이 말하는 복음의 논리입니다."
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 2 -->
+            <article class="logic-card">
+                <div class="card-header">
+                    <div class="card-icon">🥇</div>
+                    <h3 class="card-title">부활의 첫 열매, 아파르케</h3>
+                </div>
+                <div class="card-body">
+                    <p>예수님이 '첫 열매(아파르케)'가 되셨다는 것은 예수님 혼자만의 승리가 아닙니다. 구약의 초실절 제사처럼 첫 단을 드림으로 전체 추수가 인정받듯, <strong>우리 역시 반드시 부활할 것임을 확증하는 은혜의 보증 수표</strong>입니다.</p>
+                    <div class="highlight-quote">
+                        "기독교가 말하는 부활은 썩어질 육신을 조금 오래 쓰는 것이 아닙니다. 썩지 아니할 영광스러운 몸으로 완전히 새롭게 입는 '새 창조'의 완성입니다."
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 3 -->
+            <article class="logic-card">
+                <div class="card-header">
+                    <div class="card-icon">☕</div>
+                    <h3 class="card-title">실습으로 완성되는 삶과 복음</h3>
+                </div>
+                <div class="card-body">
+                    <p>방글라데시 청년들은 단 10여 회의 커피 추출 실습만으로도 훌륭한 바리스타가 되어 꿈을 품었습니다. 머리로 성경을 암기만 하고 삶으로 살아내지 못하면 신앙의 위기 때 무너지지만, <strong>매일의 삶 속에서 복음을 실습</strong>할 때 진정한 능력이 나타납니다.</p>
+                </div>
+            </article>
+            
+            <!-- Section 4 -->
+            <article class="logic-card">
+                <div class="card-header">
+                    <div class="card-icon">🏃‍♂️</div>
+                    <h3 class="card-title">성화: 매일 살아내는 부활 신앙</h3>
+                </div>
+                <div class="card-body">
+                    <p>구원은 단번에 끝나지 않습니다. 커피를 배우듯 우리는 매일 실습하며 그리스도를 닮아가는 사람들입니다. 부활의 생명을 매일 이웃을 향한 사랑으로 피워내는 과정, 이것이 웨슬리가 말한 <strong>'성화(Sanctification)'</strong>입니다.</p>
+                    <div class="highlight-quote">
+                        "십자가의 외형만 있고 빈 무덤의 생명력이 없는 신앙은 공허합니다."
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 4. Word Cloud / Key Keywords -->
+        <section class="keyword-section">
+            <div class="keyword-tags">
+                <span class="tag primary">#부활의첫열매</span>
+                <span class="tag primary">#아파르케</span>
+                <span class="tag">#선행은총</span>
+                <span class="tag">#복음의실습</span>
+                <span class="tag">#성화</span>
+            </div>
+        </section>
+
+        <!-- 5. Conclusion & One Message -->
+        <section class="conclusion-banner">
+            <h3 class="conclusion-title">ONE MESSAGE</h3>
+            <p class="conclusion-message">
+                "교회는 건물이 아닙니다.<br>프로그램이 아닙니다.<br>
+                부활하신 그리스도의 생명이 뛰고 있는 곳,<br>
+                그 어디든 교회입니다."
+            </p>
+        </section>
+
+        <!-- 6. Action Checklist -->
+        <section class="action-section">
+            <h2 class="section-title">말씀 적용 (Action Plan)</h2>
+            <div class="checklist">
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span class="check-text">단순한 성경 지식 암기를 넘어, 오늘 내 삶의 현장에서 복음을 '실습'하기</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span class="check-text">척박하고 답답한 나의 상황 속에서도 피어나는 '생명의 씨앗(선행 은총)' 발견하기</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span class="check-text">내가 서 있는 일터와 가정이 '부활의 심장이 뛰는 교회'가 되도록 이웃 사랑 실천하기</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- 7. Prayer & Footer -->
+        <section class="prayer-section">
+            <div class="prayer-box">
+                <div class="prayer-icon">🙏</div>
+                <p class="prayer-text">
+                    "생명의 주님, 우리 안에 빈 무덤의 생명력을 허락하옵소서. 부활의 첫 열매 되신 예수님을 따라 우리도 매일의 삶 속에서 복음을 실습하며 그리스도를 닮아가는 성화의 길을 걷게 하옵소서. 예수님의 이름으로 기도합니다. 아멘."
+                </p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="church-name">라온동행교회</div>
+            <div class="footer-info">Digital Sermon Infographic Report v3.0</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
