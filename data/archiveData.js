@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260405info.html",
+    "relativeURL": "2026/260405info.html",
+    "date": "2026-04-05",
+    "title": "설교 인포그래픽: 잠자는 자들의 첫 열매",
+    "scripture": "고린도전서 15:20"
+  },
+  {
     "fileName": "260322info.html",
     "relativeURL": "2026/260322info.html",
     "date": "2026-03-22",
