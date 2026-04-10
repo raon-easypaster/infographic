@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260412info.html",
+    "relativeURL": "2026/260412info.html",
+    "date": "2026-04-12",
+    "title": "설교 인포그래픽 | 준비된 동역자",
+    "scripture": "출애굽기 4:27-31, 전도서 4:9-12"
+  },
+  {
     "fileName": "260405info.html",
     "relativeURL": "2026/260405info.html",
     "date": "2026-04-05",
