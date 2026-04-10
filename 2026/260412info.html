@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설교 인포그래픽 | 준비된 동역자</title>
+    <!-- Google Fonts: Noto Sans KR (본문용), Gowun Batang (제목/강조용) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 동적 컬러 팔레트: Warm Earthy Sunrise (따뜻한 대지/일출 톤) */
+        :root {
+            --bg-color: #FDFBF7; /* 따뜻한 오프화이트 배경 */
+            --main-color: #C05A3B; /* 테라코타 (핵심 강조) */
+            --sub-color: #E29C68; /* 소프트 오렌지/피치 (서브 강조/배경) */
+            --accent-color: #4A5D4E; /* 세이지 그린 (안정감을 주는 보조 색상) */
+            --text-main: #2D2A26; /* 짙은 차콜 (기본 텍스트) */
+            --text-muted: #6B655F; /* 회갈색 (보조 텍스트) */
+            --surface-color: #FFFFFF; /* 카드 배경 */
+            --border-color: #EAE0D5; /* 부드러운 경계선 */
+            
+            --font-body: 'Noto Sans KR', sans-serif;
+            --font-title: 'Gowun Batang', serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--surface-color);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 1. Hero Header */
+        .hero {
+            background: linear-gradient(135deg, var(--sub-color) 0%, var(--main-color) 100%);
+            padding: 60px 30px 50px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 30px;
+            background: var(--surface-color);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        .hero-series {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .hero-meta {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            padding: 10px 30px 40px;
+        }
+
+        /* 2. Scripture Context */
+        .scripture-box {
+            background-color: #F8F5F1;
+            border-left: 4px solid var(--accent-color);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+        }
+        .scripture-box h3 {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .scripture-text {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+        .scripture-ref {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* 3. Main Logic Grid (Sections) */
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .section-icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(226, 156, 104, 0.2); /* sub-color light */
+            color: var(--main-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+        .section-body {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        .section-body p {
+            margin-bottom: 16px;
+        }
+        
+        /* Blockquote for key phrases */
+        blockquote {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--main-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            font-family: var(--font-title);
+            font-size: 1.15rem;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Highlight point cards within section */
+        .point-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .point-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .point-number {
+            background-color: var(--main-color);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .point-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .point-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* 4. Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background-color: rgba(74, 93, 78, 0.1); /* accent-color light */
+            color: var(--accent-color);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(74, 93, 78, 0.2);
+        }
+
+        /* 5. Conclusion Banner */
+        .conclusion-banner {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2A362D 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(74, 93, 78, 0.2);
+        }
+        .conclusion-banner h2 {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #F8F5F1;
+        }
+        .conclusion-banner p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* 6. Action Checklist */
+        .action-section {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+        .action-title {
+            text-align: center;
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--main-color);
+            margin-bottom: 25px;
+        }
+        .checklist {
+            list-style: none;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .check-item:hover {
+            background-color: rgba(226, 156, 104, 0.1);
+        }
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-muted);
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            margin-top: 2px;
+        }
+        .check-item.active .check-box {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+        }
+        .check-item.active .check-box::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .check-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+        .check-item.active .check-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        /* 7. Footer & Prayer */
+        .footer {
+            text-align: center;
+            padding: 40px 30px 60px;
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--border-color);
+        }
+        .prayer-box {
+            margin-bottom: 30px;
+        }
+        .prayer-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--main-color);
+            margin-bottom: 10px;
+        }
+        .prayer-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.8;
+        }
+        .church-info {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.2rem; }
+            .section-title { font-size: 1.4rem; }
+            .content-wrapper { padding: 10px 20px 40px; }
+            blockquote { font-size: 1.05rem; padding: 15px 20px; }
+            .conclusion-banner h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 4:27-31, 전도서 4:9-12">
+
+    <div class="container">
+        <!-- 1. Hero Header -->
+        <header class="hero">
+            <span class="hero-series">모세 시리즈 5</span>
+            <h1 class="hero-title">준비된 동역자</h1>
+            <p class="hero-meta">라온동행교회 · 쉬운목사 이광복</p>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- 2. Scripture Context -->
+            <div class="scripture-box">
+                <h3>오늘의 중심 말씀</h3>
+                <p class="scripture-text">"여호와께서 아론에게 이르시되 광야에 가서 모세를 맞으라 하시매 그가 가서 하나님의 산에서 모세를 만나 그에게 입맞추니"</p>
+                <span class="scripture-ref">출애굽기 4:27</span>
+            </div>
+
+            <!-- 3. Main Logic Grid -->
+            <!-- Section 1 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">👣</div>
+                    <h2 class="section-title">무거운 발걸음, 그러나 다 아시는 하나님</h2>
+                </div>
+                <div class="section-body">
+                    <p>하나님의 부르심을 완곡히 거절하던 모세가, 결국 계획하심을 따라 애굽으로 발걸음을 향했습니다. 그 발걸음은 기쁨이었을까요? 아마 전혀 가볍지 않았을 것입니다. 40년 동안 자리 잡았던 터전을 떠나는 것은 결코 쉬운 일이 아닙니다.</p>
+                    <p>우리도 가야 한다는 것을 알고 결정했지만, 현실의 높은 벽에 부딪힐 때가 있습니다. 목사님께서 개척을 준비하며 집을 구하고 생계를 걱정해야 했던 막막한 시간들처럼, 우리의 결단과는 별개로 현실의 문제는 여전히 존재합니다. 40년을 애굽과 단절되어 살아온 모세의 발걸음 역시 근심과 두려움으로 가득했을 것입니다.</p>
+                    
+                    <blockquote>
+                        "하지만, 이 모든 걱정을 하나님은 다 알고 계셨습니다. 하나님은 한 명의 슈퍼스타를 찾으시는 것이 아니라, 필요한 자리에 필요한 사람들을 부르시며 언제나 그를 돕는 '준비된 동역자'를 세워주십니다."
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">🤝</div>
+                    <h2 class="section-title">하나님이 준비하신 사람, 아론</h2>
+                </div>
+                <div class="section-body">
+                    <p>모세 혼자서는 이스라엘 백성을 인도해 낼 능력이 없었습니다. 그래서 하나님은 세 살 위의 형, '아론'을 준비하셨습니다. 아론은 어떤 동역자였을까요?</p>
+                    
+                    <div class="point-grid">
+                        <div class="point-card">
+                            <div class="point-number">1</div>
+                            <div class="point-content">
+                                <h4>단절 속에서도 하나님을 붙들다</h4>
+                                <p>수백 킬로미터 떨어진 곳에서 서로 생사도 모르며 40년을 살았습니다. 그러나 잊힌 줄 알았던 형제의 인연을 하나님의 부르심이 다시 묶어 세우셨습니다.</p>
+                            </div>
+                        </div>
+                        <div class="point-card">
+                            <div class="point-number">2</div>
+                            <div class="point-content">
+                                <h4>하나님의 음성에 즉각 순종하다</h4>
+                                <p>"광야에 가서 모세를 맞으라." 이 말씀에 아론은 편한 자리에 앉아 기다리지 않고, 즉각 광야를 향해 걸어 나가 최고의 환대로 입을 맞췄습니다. 동역은 내가 먼저 움직이는 것입니다.</p>
+                            </div>
+                        </div>
+                        <div class="point-card">
+                            <div class="point-number">3</div>
+                            <div class="point-content">
+                                <h4>자신의 지위를 내려놓다 (장자권 포기)</h4>
+                                <p>아론은 애굽에서 83년을 살며 사람들에게 인정받는 리더였습니다. 그러나 그는 주저하지 않고 그 지위를 내려놓아 모세를 지도자로 추대해 주었습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <blockquote>
+                        "바울이 교회의 지도자 바나바가 후견인이 되어주었기에 인정받고 사역을 시작할 수 있었던 것처럼, 80세의 영향력 없는 이방인 모세가 지도자로 인정받을 수 있었던 것은 기득권을 내려놓은 아론 덕분입니다."
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">🌱</div>
+                    <h2 class="section-title">연합하여 선을 이루시는 계획</h2>
+                </div>
+                <div class="section-body">
+                    <p>이 모든 것이 하나님의 놀라운 계획하심입니다. 하나님의 구원 계획은 단순히 모세 혼자 하는 사역이 아니라, <strong>동역의 길 위</strong>에 있습니다.</p>
+                    <p>우리는 상대방을 인정하며 동역자로 세워주고 있습니까? 혹시 혼자 모든 것을 감당하려 하거나 반대로 떠넘기고 있지는 않습니까? 각자의 역할이 다름을 인정하고, 서로의 자리를 채워가며 교회를 세워가는 것이 바로 오늘 본문의 핵심 메시지입니다.</p>
+                </div>
+            </section>
+
+            <!-- 4. Word Cloud / Keywords -->
+            <div class="keywords">
+                <span class="keyword-tag">#준비된동역자</span>
+                <span class="keyword-tag">#즉각적인순종</span>
+                <span class="keyword-tag">#기득권내려놓기</span>
+                <span class="keyword-tag">#연합과환대</span>
+                <span class="keyword-tag">#라온동행</span>
+            </div>
+
+            <!-- 5. Conclusion Banner -->
+            <div class="conclusion-banner">
+                <h2>이 시대의 아론이 됩시다</h2>
+                <p>동행은 속력을 포기하는 것이 아니라 방향을 공유하는 것입니다.<br>나 혼자 하면 쉽고 빠를 수 있어도, 조금 느리더라도 서로의 손을 잡는<br>라온동행이 되기를 소망합니다. 혼자 잘하는 교회가 아니라,<br>함께 걸어가는 교회가 하나님이 기뻐하시는 교회입니다.</p>
+            </div>
+
+            <!-- 6. Action Checklist -->
+            <div class="action-section">
+                <h3 class="action-title">주간 실천 다짐 (Action Plan)</h3>
+                <ul class="checklist">
+                    <li class="check-item" onclick="this.classList.toggle('active')">
+                        <div class="check-box"></div>
+                        <span class="check-text">하나님께서 말씀하실 때, 상대방이 오기를 기다리지 않고 내가 먼저 움직여 환대하기</span>
+                    </li>
+                    <li class="check-item" onclick="this.classList.toggle('active')">
+                        <div class="check-box"></div>
+                        <span class="check-text">나의 기득권이나 자존심을 내려놓고, 공동체 지체를 진심으로 인정하고 높여주기</span>
+                    </li>
+                    <li class="check-item" onclick="this.classList.toggle('active')">
+                        <div class="check-box"></div>
+                        <span class="check-text">효율과 속도보다 방향을 공유하며, 주변 동역자의 손을 굳게 잡아주기</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 7. Footer & Prayer -->
+        <footer class="footer">
+            <div class="prayer-box">
+                <h4 class="prayer-title">함께 드리는 기도</h4>
+                <p class="prayer-text">"주님, 때로는 현실의 벽 앞에서 발걸음이 무거울 때가 있습니다. 하지만 혼자 두지 않으시고 준비된 동역자를 세워주심에 감사합니다. 저 또한 누군가에게 기득권을 내려놓고 환대하는 이 시대의 아론이 되게 하옵소서. 연합하여 선을 이루는 우리 교회가 되게 하옵소서. 예수님의 이름으로 기도합니다. 아멘."</p>
+            </div>
+            <div class="church-info">
+                ⓒ 라온동행교회 | 디지털 설교 리포트
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
