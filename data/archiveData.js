@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260419info.html",
+    "relativeURL": "2026/260419info.html",
+    "date": "2026-04-19",
+    "title": "슬픈 생각은 틀린 적이 (모세 6) - 설교 리포트",
+    "scripture": "출애굽기 5장 1, 2, 21절"
+  },
+  {
     "fileName": "260412info.html",
     "relativeURL": "2026/260412info.html",
     "date": "2026-04-12",
