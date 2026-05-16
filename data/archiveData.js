@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260516infi.html",
+    "relativeURL": "2026/260516infi.html",
+    "date": "2026-05-16",
+    "title": "디지털 설교 리포트 - 지팡이가 아닌 하나님을 보라",
+    "scripture": "출애굽기 4:1-20, 민수기 17:1-11"
+  },
+  {
     "fileName": "260509info.html",
     "relativeURL": "2026/260509info.html",
     "date": "2026-05-09",
