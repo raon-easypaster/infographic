@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 설교 리포트 - 우리 힘써 하나님을 알자</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Dynamic Color Palette - Theme: Deep Forest & Morning Light */
+            --bg-color: #F5F7F5;       /* Soft off-white with a hint of green */
+            --main-color: #2D5A46;     /* Deep Pine Green */
+            --sub-color: #8CA696;      /* Muted Sage */
+            --accent-color: #E0A96D;   /* Warm Sand / Muted Gold */
+            --surface-color: #FFFFFF;
+            --text-main: #2C3531;
+            --text-muted: #5C6E66;
+            --border-color: #DDE5E0;
+            
+            --font-body: 'Noto Sans KR', sans-serif;
+            --font-title: 'Gowun Batang', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.03);
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--sub-color) 100%);
+            color: #ffffff;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 30px rgba(45, 90, 70, 0.15);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+
+        .hero-date {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            font-family: var(--font-title);
+        }
+
+        .content-wrapper {
+            padding: 2rem 1.5rem;
+        }
+
+        .scripture-box {
+            background-color: var(--surface-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-top: -2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .scripture-label {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .scripture-text {
+            font-family: var(--font-title);
+            font-size: 1.05rem;
+            color: var(--text-main);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .scripture-ref {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .section-card {
+            background-color: var(--surface-color);
+            border-radius: 20px;
+            padding: 2.5rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 1rem;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            background: var(--bg-color);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--main-color);
+        }
+
+        .section-body p {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+
+        blockquote {
+            background-color: rgba(140, 166, 150, 0.1);
+            border-left: 4px solid var(--sub-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: var(--main-color);
+            line-height: 1.8;
+        }
+        
+        blockquote strong {
+            color: var(--accent-color);
+        }
+
+        .keyword-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .keyword-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background-color: var(--surface-color);
+            color: var(--main-color);
+            border: 1px solid var(--sub-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .conclusion-banner {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d49856 100%);
+            color: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 10px 25px rgba(224, 169, 109, 0.3);
+        }
+
+        .conclusion-banner h3 {
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .conclusion-banner p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .action-section {
+            background-color: var(--surface-color);
+            border-radius: 20px;
+            padding: 2.5rem 1.8rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .action-title {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .check-item:hover {
+            background-color: rgba(140, 166, 150, 0.15);
+        }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--sub-color);
+            border-radius: 6px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .check-item.active .check-box {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .check-item.active .check-box::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+
+        .check-text {
+            font-size: 1rem;
+            color: var(--text-main);
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        .check-item.active .check-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background-color: #2C3531;
+            color: rgba(255,255,255,0.7);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .prayer-box {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .prayer-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .prayer-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .church-info {
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body data-scripture="출애굽기 5:22-6:13, 호세아 6:1-3">
+    <div class="container">
+        
+        <!-- ① Hero Header -->
+        <header class="hero">
+            <div class="hero-date">260509 주일 설교 리포트</div>
+            <h1 class="hero-title">우리 힘써 하나님을 알자</h1>
+            <div class="hero-subtitle">모세 강해 7번째 이야기</div>
+        </header>
+
+        <main class="content-wrapper">
+            
+            <!-- ② Scripture Context -->
+            <div class="scripture-box">
+                <span class="scripture-label">오늘의 중심 말씀</span>
+                <p class="scripture-text">"그러므로 우리가 여호와를 알자 힘써 여호와를 알자 그의 나타나심은 새벽 빛 같이 어김없나니 비와 같이, 땅을 적시는 늦은 비와 같이 우리에게 임하시리라 하니라"</p>
+                <span class="scripture-ref">호세아 6장 3절</span>
+            </div>
+
+            <!-- ③ Main Logic Grid -->
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">🌊</div>
+                    <h2 class="section-title">환경에 흔들리는 인간, 변함없는 하나님</h2>
+                </div>
+                <div class="section-body">
+                    <p>모세는 바로 앞에 서서 이스라엘 백성을 해방 시켜줄 것을 요구했지만, 바로는 오히려 더 큰 고통을 주었습니다. 순식간에 백성들의 원망을 듣게 된 모세는 좌절과 낙심 속에 하나님께 탄식합니다. <strong>"어찌하여 나를 보내셨나이까"</strong></p>
+                    
+                    <p>이러한 모세의 반응은 그가 믿음이 없어서가 아니라, 지극히 일반적인 인간의 모습입니다. 사람은 환경의 영향을 크게 받으며, 예상과 다른 상황과 사람들의 원망 앞에서 낙심하기 마련입니다. 하지만 낙심한 모세를 향해 하나님은 <strong>당신의 명확한 계획을 다시 확인</strong>시켜 주십니다.</p>
+
+                    <blockquote>
+                        "이제 내가 바로에게 하는 일을 네가 보리라. 강한 손으로 말미암아 바로가 그들을 보내리라." <br><br>
+                        하나님은 이스라엘을 구원하시려는 계획을 처음부터 가지고 계셨습니다. 오늘 갑자기 강한 능력을 나타내시겠다고 하신 것이 아닙니다. <strong>문제는 하나님의 능력이 부족한 것이 아니라, 모세가 하나님을 온전히 알지 못해 오해했다는 데 있습니다.</strong>
+                    </blockquote>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">💡</div>
+                    <h2 class="section-title">안다고 착각하는 얕은 신앙</h2>
+                </div>
+                <div class="section-body">
+                    <p>하나님이 모세에게 다시 하신 말씀의 시작은 <strong>"나는 여호와이니라"</strong>입니다. 모세의 좌절은 하나님이 누구신지 명확히 인지하지 못했기 때문에 생긴 문제였습니다. 모세는 스스로 하나님을 안다고 생각했지만, 자신이 생각하는 한계 안에서 하나님을 이해하는 실수를 범했습니다.</p>
+                    
+                    <p>우리는 누군가와 몇 번 얼굴을 보고 커피를 마셨다고 해서 그 사람의 깊은 사상과 마음을 '안다'고 말할 수 없습니다. 마음과 생각, 삶을 나누지 않았다면 그것은 아는 것이 아니라 <strong>'안다고 착각하는 것'</strong>입니다. 관계가 깨어질 때 가장 많이 하는 말이 "네가 그럴 줄은 몰랐다"인 것처럼 말입니다.</p>
+
+                    <blockquote>
+                        '앎'이란 생각에서 머무는 것이 아니라 <strong>삶이라는 결과물, 혹은 고백의 결과물로 출력이 되어야 합니다.</strong> 머리로만 알며 삶으로 살아내지 못하는 신앙은 능력이 없습니다. 가장 큰 문제는 하나님을 안다고 착각하며 자신이 믿음 안에 있다고 스스로 속는 것입니다.
+                    </blockquote>
+                    <p>하나님의 뜻을 명확히 안다면, 세상의 거절이나 불평에 낙담하지 않습니다. 왜냐하면 하나님의 선하신 계획이 있음을 알고 있기 때문입니다.</p>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">✝️</div>
+                    <h2 class="section-title">십자가를 묵묵히 걷는 청지기의 삶</h2>
+                </div>
+                <div class="section-body">
+                    <p>여호와 하나님을 알고 믿는다면, 삶의 선택은 늘 하나님 중심이어야 합니다. <strong>"예수님이라면 어떻게 하셨을까?"</strong>가 우리 선택의 이정표가 되어야 합니다. 기독교는 승리를 쟁취하는 종교가 아니라, 이미 주어진 승리 위에 서서 오늘 벌어지는 고난과 축복을 하나님의 뜻 안에서 어떻게 살아낼 것인가 고민하는 종교입니다.</p>
+                    
+                    <p>우리는 스스로 연약하고 욕심이 많은 존재임을 알아야 합니다. 사람들은 더 큰 비즈니스, 더 큰 목회, 노후 걱정 없는 삶을 이야기하지만, 내게 주어진 모든 것(교회, 일터)은 <strong>내가 잠시 명의를 맡아두고 있는 청지기</strong>일 뿐임을 잊어선 안 됩니다.</p>
+
+                    <blockquote>
+                        예수를 몰랐다면 저는 세상의 성공에 집착하는 아주 이기적인 사람이 되었을 것입니다. <strong>예수를 알기에 하나님의 계획에 집착하고, 이타적인 사람으로 살려고 발버둥 치는 것입니다.</strong> 종은 자신의 얕은 생각을 내려놓고 십자가를 향해 묵묵히 걸어가야 합니다.
+                    </blockquote>
+                    <p>사람들에게 인정받는 것보다 하나님께 인정받는 것이, 큰 목회를 꿈꾸기보다 하나님이 원하시는 참된 교회를 세우는 것이, 풍요로운 삶보다 사명의 길을 걷는 것이 우리의 가장 큰 기쁨이 되어야 합니다.</p>
+                </div>
+            </section>
+
+            <!-- ④ Key Keywords -->
+            <div class="keyword-section">
+                <h4 class="keyword-title">Today's Keywords</h4>
+                <div class="tags">
+                    <span class="tag">여호와를 알자</span>
+                    <span class="tag">삶의 결과물</span>
+                    <span class="tag">착각의 신앙</span>
+                    <span class="tag">변함없는 계획</span>
+                    <span class="tag">청지기</span>
+                    <span class="tag">십자가의 길</span>
+                </div>
+            </div>
+
+            <!-- ⑤ Conclusion & One Message -->
+            <div class="conclusion-banner">
+                <h3>"내 안의 나를 비우고, 온전히 그분을 아는 삶"</h3>
+                <p>내 안에 하나님의 음성이 아닌 나의 욕심으로 가득 차 있지는 않습니까? <br>환경을 바라보지 않고, 나를 향한 선하신 하나님의 계획을 신뢰합시다. <br>매일매일 치열하게 힘써 여호와를 알아가는 삶을 결단합시다.</p>
+            </div>
+
+            <!-- ⑥ Action Checklist -->
+            <div class="action-section">
+                <h2 class="action-title">이번 주간 적용하기 (To-Do)</h2>
+                <ul class="checklist">
+                    <li class="check-item" onclick="this.classList.toggle('active')">
+                        <div class="check-box"></div>
+                        <span class="check-text">상황이 어려울 때 불평하기 전, 하나님의 명확한 계획이 있음을 먼저 기억하기</span>
+                    </li>
+                    <li class="check-item" onclick="this.classList.toggle('active')">
+                        <div class="check-box"></div>
+                        <span class="check-text">내가 지식으로만 아는 신앙인지, 삶의 결과물(행동)로 출력되는 신앙인지 스스로 점검하기</span>
+                    </li>
+                    <li class="check-item" onclick="this.classList.toggle('active')">
+                        <div class="check-box"></div>
+                        <span class="check-text">나의 소유와 직분은 내 것이 아님을 고백하며, 욕심을 내려놓고 청지기의 태도로 살아가기</span>
+                    </li>
+                </ul>
+            </div>
+
+        </main>
+
+        <!-- ⑦ Prayer & Footer -->
+        <footer class="footer">
+            <div class="prayer-box">
+                <h3 class="prayer-title">마침 기도</h3>
+                <p class="prayer-text">
+                    주님, 우리가 하나님을 잘 안다고 착각하며 내 생각의 한계 안에 주님을 가두었음을 회개합니다.<br>
+                    환경에 흔들리는 연약한 우리를 불쌍히 여기시고, 찢으셨으나 낫게 하시는 사랑을 경험하게 하소서.<br>
+                    지식이 아닌 삶의 결과물로 신앙을 증명하게 하시고, 세상의 성공보다 사명의 길을 묵묵히 걷는 청지기가 되게 하소서. 예수님의 이름으로 기도합니다. 아멘.
+                </p>
+            </div>
+            <div class="church-info">
+                <p>라온동행교회 주일 예배 리포트</p>
+                <p style="margin-top: 5px; opacity: 0.5; font-size: 0.75rem;">Clean, Structured & Rich Infographic Design</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
