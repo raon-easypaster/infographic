@@ -7,9 +7,9 @@ window.ARCHIVE_DATA = [
     "scripture": "출애굽기 4:1-20, 민수기 17:1-11"
   },
   {
-    "fileName": "260509info.html",
-    "relativeURL": "2026/260509info.html",
-    "date": "2026-05-09",
+    "fileName": "260510info.html",
+    "relativeURL": "2026/260510info.html",
+    "date": "2026-05-10",
     "title": "디지털 설교 리포트 - 우리 힘써 하나님을 알자",
     "scripture": "출애굽기 5:22-6:13, 호세아 6:1-3"
   },
