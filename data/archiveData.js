@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260905info.html",
+    "relativeURL": "2026/260905info.html",
+    "date": "2026-09-05",
+    "title": "디지털 설교 리포트 - 우리 힘써 하나님을 알자",
+    "scripture": "출애굽기 5:22-6:13, 호세아 6:1-3"
+  },
+  {
     "fileName": "260419info.html",
     "relativeURL": "2026/260419info.html",
     "date": "2026-04-19",
