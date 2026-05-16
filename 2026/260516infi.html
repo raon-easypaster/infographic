@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 설교 리포트 - 지팡이가 아닌 하나님을 보라</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --main-color: #2c4a3e; /* 숲의 평안함을 닮은 딥 그린 */
+            --sub-color: #e9edc9;  /* 부드러운 연두빛 */
+            --accent-color: #bc6c25; /* 광야와 지팡이를 상징하는 어스톤 브라운 */
+            --text-dark: #212529;
+            --text-light: #6c757d;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.8;
+            word-break: keep-all;
+        }
+
+        .font-serif {
+            font-family: 'Gowun Batang', serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--main-color) 0%, #1a2e26 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(circle at 2px 2px, var(--sub-color) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .scripture-box {
+            background-color: var(--sub-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        blockquote {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--main-color);
+            font-weight: 500;
+        }
+
+        .keyword-tag {
+            background: var(--white);
+            border: 1.5px solid var(--sub-color);
+            color: var(--main-color);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--main-color);
+            color: var(--white);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 10px;
+            background: #f1f3f5;
+            margin-bottom: 8px;
+            transition: background 0.2s;
+        }
+
+        .checkbox-container:hover {
+            background: #e9ecef;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            accent-color: var(--main-color);
+        }
+
+        .conclusion-banner {
+            background: var(--accent-color);
+            color: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 4:1-20, 민수기 17:1-11">
+
+    <div class="max-w-[700px] mx-auto min-h-screen shadow-2xl bg-white">
+        
+        <header class="hero-gradient text-white p-10 text-center relative">
+            <div class="hero-pattern"></div>
+            <div class="relative z-10">
+                <span class="inline-block px-4 py-1 rounded-full border border-white/30 text-sm mb-4 backdrop-blur-sm">Sermon Infographic Report</span>
+                <h1 class="text-3xl md:text-4xl font-bold font-serif leading-tight mb-4">내 손의 지팡이가 아닌,<br>하나님을 보라</h1>
+                <p class="text-white/80 font-light italic">"평범한 일상의 도구가 하나님의 능력이 되는 순간"</p>
+            </div>
+        </header>
+
+        <section class="p-8">
+            <div class="scripture-box mb-8">
+                <h2 class="font-bold text-lg mb-2 text-accent-color flex items-center">
+                    <span class="mr-2">📖</span> 오늘의 중심 말씀
+                </h2>
+                <p class="font-serif text-lg leading-relaxed text-slate-700">
+                    "모세가 그의 아내와 아들들을 나귀에 태우고 애굽으로 돌아가는데 모세가 <strong>하나님의 지팡이</strong>를 손에 잡았더라" 
+                    <br><small class="text-sm opacity-70">(출애굽기 4:20)</small>
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <section>
+                    <div class="flex items-center mb-4">
+                        <span class="w-10 h-10 bg-emerald-100 flex items-center justify-center rounded-full mr-3 text-2xl">🪵</span>
+                        <h3 class="text-2xl font-bold text-main-color font-serif">1. 평범한 '맛테'가 '하나님의 지팡이'로</h3>
+                    </div>
+                    <div class="content-card p-6 border-l-4 border-emerald-500">
+                        <p class="mb-4">
+                            모세가 광야 40년 동안 손에 쥐었던 지팡이는 대단한 성물이 아니었습니다. 양의 배설물이 묻고 흙바닥에 닳은 지극히 평범한 일상의 도구였습니다. 히브리어로 <strong>'맛테(מַטֶּה)'</strong>라 불리는 이 지팡이는 한 사람의 생계 수단이자 그의 <strong>권위와 정체성</strong>을 상징합니다.
+                        </p>
+                        <blockquote>
+                            "하나님은 가장 거룩한 부르심의 자리에, 가장 평범한 일상의 도구를 사용하십니다."
+                        </blockquote>
+                        <p>
+                            하나님은 그 지팡이를 땅에 던지라고 하십니다. 이는 자신의 권리와 능력을 내려놓는 <strong>'항복'</strong>의 의미입니다. 다시 그 지팡이를 잡았을 때, 성경은 그것을 더 이상 모세의 지팡이가 아닌 '하나님의 지팡이'라고 부릅니다. 지팡이의 재질은 변하지 않았으나, 그 <strong>소유권과 주권</strong>이 변한 것입니다.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center mb-4">
+                        <span class="w-10 h-10 bg-amber-100 flex items-center justify-center rounded-full mr-3 text-2xl">💎</span>
+                        <h3 class="text-2xl font-bold text-main-color font-serif">2. 신비로운 전승 vs 성경의 진실</h3>
+                    </div>
+                    <div class="content-card p-6 border-l-4 border-amber-500">
+                        <p class="mb-4">유대 전승(미드라시)은 모세의 지팡이를 매우 화려하게 묘사합니다.</p>
+                        <ul class="space-y-3 mb-4">
+                            <li class="flex items-start"><span class="text-amber-600 mr-2">✦</span> <span><strong>사파이어 성물:</strong> 천지창조 6일 황혼에 만들어진 신성한 푸른빛의 사파이어 지팡이.</span></li>
+                            <li class="flex items-start"><span class="text-amber-600 mr-2">✦</span> <span><strong>각인된 이름:</strong> 하나님의 거룩한 네 글자 이름과 이집트 10대 재항의 이니셜이 조각됨.</span></li>
+                            <li class="flex items-start"><span class="text-amber-600 mr-2">✦</span> <span><strong>엑스칼리버 모티프:</strong> 아담으로부터 요셉을 거쳐 이드로의 정원에 심겼던 것을 모세만이 뽑아냄.</span></li>
+                        </ul>
+                        <div class="bg-amber-50 p-4 rounded-xl text-sm italic border border-amber-100">
+                            하지만 성경은 지팡이의 화려함이 아니라, <strong>그 지팡이를 쥐고 계신 하나님의 손</strong>을 비춥니다. 지팡이 자체에는 능력이 없습니다. 홍해를 가른 것도, 반석에서 물을 낸 것도 지팡이가 아니라 하나님의 능력이었습니다.
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center mb-4">
+                        <span class="w-10 h-10 bg-blue-100 flex items-center justify-center rounded-full mr-3 text-2xl">🌸</span>
+                        <h3 class="text-2xl font-bold text-main-color font-serif">3. 샤케드(살구)와 샤카드(깨어있음)</h3>
+                    </div>
+                    <div class="content-card p-6 border-l-4 border-blue-500">
+                        <p class="mb-4">
+                            민수기 17장의 '아론의 싹 난 지팡이' 사건은 마른 막대기에 하나님이 생명을 불어넣으셔야만 의미가 있음을 보여줍니다. 죽은 나무에서 열린 살구 열매는 깊은 영적 의미를 담고 있습니다.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                <span class="block font-bold text-blue-700">샤케드(שָׁקֵד)</span>
+                                <span class="text-xs">살구 열매</span>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                <span class="block font-bold text-blue-700">샤카드(שָׁקַד)</span>
+                                <span class="text-xs">깨어 있다, 지키다</span>
+                            </div>
+                        </div>
+                        <p>
+                            마른 지팡이에서 살구 열매가 맺힌 것은, 하나님께서 <strong>친히 깨어 계셔서 자신의 언약을 신실하게 지키고 계심</strong>을 보여주는 시각적인 메시지입니다. 우리가 의지할 것은 상징(지팡이, 십자가 목걸이, 성경 종이 뭉치) 그 자체가 아니라 그 이면의 하나님입니다.
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h4 class="text-sm font-bold text-text-light uppercase tracking-widest mb-4">Main Keywords</h4>
+                <div class="flex flex-wrap justify-center">
+                    <span class="keyword-tag">#하나님의지팡이</span>
+                    <span class="keyword-tag">#맛테</span>
+                    <span class="keyword-tag">#주권의이동</span>
+                    <span class="keyword-tag">#샤케드</span>
+                    <span class="keyword-tag">#항복</span>
+                    <span class="keyword-tag">#일상의능력</span>
+                    <span class="keyword-tag">#십자가의본질</span>
+                </div>
+            </div>
+
+            <div class="mt-16 conclusion-banner">
+                <h3 class="text-xl font-bold font-serif mb-2">One Message</h3>
+                <p class="text-lg leading-relaxed opacity-90">
+                    "내 손의 지팡이를 자랑하지 말고,<br>내 손을 붙드시는 하나님을 자랑하십시오."
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-main-color font-serif mb-6 text-center">나의 지팡이 내려놓기 Checklist</h3>
+                <div class="bg-gray-50 p-6 rounded-2xl">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span>내 힘으로 쥐고 있던 '스펙'과 '재물'의 지팡이를 하나님 앞에 던지기</span>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span>눈에 보이는 '종교적 상징'보다 보이지 않는 '하나님의 임재'에 집중하기</span>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span>직장과 일터에서 정직하고 신실하게 일하며 '작은 예수'로 살아가기</span>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span>연약하고 소외된 이웃의 손을 잡아주는 '실천의 지팡이' 짚고 나아가기</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mt-16 border-t pt-8 pb-12 text-center">
+                <div class="mb-8 p-6 bg-slate-50 rounded-xl italic text-slate-600">
+                    "하나님, 내 손에 쥐어진 보잘것없는 일상의 지팡이를 주님께 드립니다. 
+                    나의 능력을 신뢰하지 않고, 마른 막대기에서 싹을 틔우시는 하나님의 주권을 신뢰하게 하소서. 
+                    오늘도 깨어 계셔서 언약을 지키시는 주님과 동행하는 삶이 되게 하옵소서. 아멘."
+                </div>
+                <p class="text-sm text-text-light">
+                    © 2024 Sermon Infographic Report<br>
+                    <span class="font-semibold text-main-color">지팡이가 아닌 하나님을 경험하는 삶</span>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if(this.checked) {
+                    this.parentElement.style.opacity = '0.5';
+                    this.parentElement.style.textDecoration = 'line-through';
+                } else {
+                    this.parentElement.style.opacity = '1';
+                    this.parentElement.style.textDecoration = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
