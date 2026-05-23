@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 설교 리포트: 모세가 이르되</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Randomly Generated Color Palette for this session: 'Midnight Ember' */
+            --bg-color: #F4F6F8;
+            --main-color: #1E293B;      /* Slate 800 - Deep, authoritative */
+            --sub-color: #334155;       /* Slate 700 */
+            --accent-color: #D97706;    /* Amber 600 - Warmth, light, the Lamb */
+            --accent-light: #FEF3C7;    /* Amber 100 */
+            
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --surface: #FFFFFF;
+            
+            --font-heading: 'Gowun Batang', serif;
+            --font-body: 'Noto Sans KR', sans-serif;
+            
+            --border-radius: 16px;
+            --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+        }
+
+        .report-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--sub-color) 100%);
+            color: white;
+            padding: 60px 30px 40px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content-wrapper {
+            padding: 0 20px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .scripture-box {
+            background-color: var(--surface);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--accent-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .scripture-box i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .scripture-text {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--main-color);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .scripture-ref {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .section-card {
+            background-color: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .section-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--main-color);
+            margin: 0;
+        }
+
+        .rich-text p {
+            margin-bottom: 1em;
+            color: #374151;
+        }
+        
+        .rich-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .rich-text strong {
+            color: var(--main-color);
+            background: linear-gradient(transparent 60%, var(--accent-light) 40%);
+            padding: 0 2px;
+        }
+
+        .sermon-quote {
+            position: relative;
+            padding: 20px 25px;
+            margin: 25px 0;
+            background-color: #F9FAFB;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 8px 8px 0;
+            font-style: normal;
+        }
+        
+        .sermon-quote::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 40px;
+            color: var(--accent-light);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+
+        .sermon-quote p {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--main-color);
+            margin-bottom: 10px !important;
+            line-height: 1.6;
+        }
+
+        .sermon-quote .ref {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            text-align: right;
+            display: block;
+        }
+
+        .illustration-box {
+            background-color: #F3F4F6;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            border: 1px dashed #D1D5DB;
+        }
+
+        .keyword-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .keyword-tag {
+            background-color: white;
+            color: var(--sub-color);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        
+        .keyword-tag:hover {
+            background-color: var(--sub-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .conclusion-banner {
+            background: linear-gradient(to right, var(--main-color), var(--sub-color));
+            color: white;
+            padding: 35px 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .conclusion-title {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .conclusion-text {
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+            line-height: 1.5;
+            margin-bottom: 0;
+            word-break: keep-all;
+        }
+
+        .checklist-container {
+            background-color: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .checklist-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--main-color);
+            font-size: 1.3rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #F9FAFB;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .checklist-item:hover {
+            background-color: var(--surface);
+            border-color: var(--accent-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .checklist-item.completed {
+            opacity: 0.6;
+            background-color: #F3F4F6;
+        }
+
+        .checklist-item.completed .item-text {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-muted);
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .checklist-item.completed .checkbox {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .checkbox i {
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .checklist-item.completed .checkbox i {
+            opacity: 1;
+        }
+
+        .item-text {
+            font-size: 1rem;
+            color: var(--text-main);
+            padding-top: 2px;
+            transition: all 0.2s;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .prayer-text {
+            font-family: var(--font-heading);
+            color: var(--sub-color);
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .church-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 12장 21절">
+
+    <div class="report-container">
+        
+        <header class="hero-header">
+            <span class="hero-date">26.05.24 주일설교 리포트</span>
+            <h1 class="hero-title">모세가 이르되 (모세 9)</h1>
+            <p class="hero-subtitle">라온동행교회</p>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <section class="scripture-box">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="heading-font" style="font-size: 1rem; color: var(--text-muted); margin-bottom: 8px;">오늘의 중심 말씀</h2>
+                <p class="scripture-text">"모세가 이스라엘 모든 장로를 불러서 그들에게 이르되 너희는 나가서 너희의 가족대로 어린 양을 택하여 유월절 양으로 잡고..."</p>
+                <span class="scripture-ref">출애굽기 12장 21절</span>
+            </section>
+
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h3 class="section-title">두려움을 마주한 '재진입(Reentry)'</h3>
+                </div>
+                <div class="rich-text">
+                    <p>모세는 궁중에서 40년, 그리고 미디안에서 40년을 보냈습니다. 비록 미디안 언어와 히브리어가 소통이 가능한 계열이었을지라도, 40년 만에 전혀 다른 환경인 애굽으로 돌아가 히브리어와 이집트어를 다시 사용해야 하는 것은 엄청난 장벽이었습니다.</p>
+                    
+                    <div class="illustration-box">
+                        <strong>💡 'Reentry' (재진입) 이란?</strong><br>
+                        우주비행사가 우주에 나갔다가 지구의 중력과 환경으로 다시 돌아오는 것만큼이나 극심한 적응의 어려움을 뜻합니다. 평생 오지에서 사역하던 선교사들이 급변한 고국으로 돌아올 때 겪는 두려움과 낯설음이 바로 '재진입'입니다. 한때 자신의 것이었던 세계로 돌아가는 것이 오히려 더 두려운 일이 될 수 있습니다.
+                    </div>
+
+                    <p>40년을 전혀 다른 문화 속에 살다가 격동의 폭풍 속으로 돌아가야 했던 모세에게도 애굽행은 극심한 <strong>'Reentry'</strong>였습니다. 환경, 언어, 상황 그 어느 것 하나 쉽지 않았습니다.</p>
+                    
+                    <blockquote class="sermon-quote">
+                        <p>"모세가 여호와께 아뢰되 오 주여 나는 본래 말을 잘 하지 못하는 자니이다... 나는 입이 뻣뻣하고 혀가 둔한 자니이다"</p>
+                        <span class="ref">출애굽기 4장 10절</span>
+                    </blockquote>
+
+                    <p>애굽에 도착한 모세는 이스라엘 백성과의 첫 대면 자리에서 아무 말도 하지 않고 아론에게 대언을 맡깁니다. 영적 지도자로서 첫 사역의 자리였지만, 스스로의 한계를 느끼며 두려움에 압도되어 있었던 것입니다.</p>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fa-solid fa-hammer"></i></div>
+                    <h3 class="section-title">침묵과 연단, 9번의 재앙</h3>
+                </div>
+                <div class="rich-text">
+                    <p>이후 모세는 용기를 내어 바로 앞에 서서 말씀을 전하지만, 결과는 이스라엘 백성들의 가혹한 노역이었습니다. 마음이 상한 백성들은 모세의 말을 듣지 않았습니다(출 6:9).</p>
+                    <p>40년 전, 지위와 힘으로 동족을 구하려다 철저히 깨어지고 도망쳤던 모세. 다시 돌아와 입을 떼었지만 현실은 바뀌지 않았습니다. 이후 <strong>9번의 재앙이 일어나는 동안 모세가 백성들에게 말을 했다는 기록은 없습니다.</strong> 그는 묵묵히 자신의 길을 걸어야 했습니다.</p>
+                    
+                    <blockquote class="sermon-quote">
+                        <p>"이것이 바로 하나님이 사람을 세우시는 방법입니다. 4장에서 떨며 말 못하던 모세가, 마침내 12장에서 담대히 선포하는 자로 세워지기까지... 그 모든 과정이 하나님이 모세 안에서 이루어 가신 성화의 여정이었습니다."</p>
+                    </blockquote>
+
+                    <p>9번의 재앙은 모세에게 시련이 아니라 훈련이었고, 실패는 좌절이 아니라 믿음의 연단이었습니다. 하나님은 급히 세우지 않으시고 충분히 깨어지고 능력을 확인한 후에 온전한 지도자로 세우셨습니다. 은혜는 한순간의 결단이 아니라, 고난과 순종을 통과하며 점진적으로 우리를 빚어갑니다.</p>
+
+                    <div class="illustration-box">
+                        <strong>목회자 예화: 질병의 시간과 하나님의 섭리</strong><br>
+                        네 가족 모두에게 건강의 큰 어려움(신생아 뇌경색, 디스크, 뇌 허혈증 등)이 닥쳤을 때, 원망하기보다 우리를 사랑하시며 아파하시는 하나님의 마음을 깨닫고 신뢰하는 시간을 보냈습니다. 고통은 절망이 아니라 <strong>하나님만 바라보도록 시선을 고정시켜 주는 은혜의 시간</strong>입니다.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="section-title">사명자의 담대한 선포</h3>
+                </div>
+                <div class="rich-text">
+                    <p>열 번째 재앙을 목전에 두고(D-day), 모세는 6장에서의 거절당한 경험에도 불구하고 장로들을 모아 담대히 하나님의 말씀을 전합니다.</p>
+                    
+                    <blockquote class="sermon-quote">
+                        <p>"모세가 이르되... 너희는 나가서 어린 양을 택하여 유월절 양으로 잡고 그 피를 문 인방과 좌우 설주에 뿌리고..."</p>
+                    </blockquote>
+
+                    <p><strong>"모세가 이르되"</strong>라는 단 한 마디가 담고 있는 무게는 생사를 가르는 하나님의 구원 선언이었습니다. 모세가 담대히 선포할 수 있었던 이유는 무엇입니까?</p>
+                    <p>첫째, 9번의 재앙을 통해 하나님의 능력과 섭리를 온전히 신뢰하게 되었기 때문입니다.<br>
+                    둘째, 사명자는 세상의 권위나 두려움에 상관없이 하나님의 말씀을 온전히 전해야 하기 때문입니다.</p>
+
+                    <p>세상은 학위나 성공으로 말의 권위를 얻으려 합니다. 카페를 운영하면서 세상적 기준(성공적인 외형)에 사람들의 시선이 달라지는 것을 보기도 합니다. 하지만 <strong>사명자의 목적은 세상의 성공이 아니라 복음을 전하는 것</strong>입니다.</p>
+                    <p>목사는 인기를 얻거나 자신의 생각을 관철시키는 자가 아니라, 오직 그리스도의 복음과 제자의 삶을 외치는 자여야 합니다. 성도 역시 세상의 성공이 아닌 하나님의 성공을 목표로 묵묵히 십자가의 길을 걷는 자입니다.</p>
+                </div>
+            </section>
+
+            <div class="keyword-container">
+                <div class="keyword-tag"># 재진입(Reentry)</div>
+                <div class="keyword-tag"># 유월절 어린 양</div>
+                <div class="keyword-tag"># 사명자</div>
+                <div class="keyword-tag"># 십자가의 길</div>
+                <div class="keyword-tag"># 하나님의 섭리</div>
+                <div class="keyword-tag"># 담대한 선포</div>
+                <div class="keyword-tag"># 나는 죽고 그리스도만</div>
+            </div>
+
+            <section class="conclusion-banner">
+                <h4 class="conclusion-title">오늘의 결론 메세지</h4>
+                <p class="conclusion-text">
+                    "오늘부터 다시 나는 죽고 그리스도만 살아,<br>
+                    삶으로 그리스도를 전하는 성도가 되길 축복합니다."
+                </p>
+            </section>
+
+            <section class="checklist-container">
+                <h3 class="heading-font checklist-title">삶의 적용 (Action Checklist)</h3>
+                
+                <div class="checklist-item" onclick="this.classList.toggle('completed')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">고통과 어려움 속에서도 원망보다 하나님의 완벽한 타이밍을 신뢰하기</div>
+                </div>
+                
+                <div class="checklist-item" onclick="this.classList.toggle('completed')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">선택의 순간에 "하나님이 기뻐하시는가? 나에게 부끄럽지 않은가?" 질문하기</div>
+                </div>
+                
+                <div class="checklist-item" onclick="this.classList.toggle('completed')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">나를 드러내기 위한 세상의 스펙이 아닌, 복음을 전하기 위한 삶 살기</div>
+                </div>
+                
+                <div class="checklist-item" onclick="this.classList.toggle('completed')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">매일 내 안의 이기적인 자아를 죽이고, 그리스도의 십자가 삶을 살아내기</div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p class="prayer-text">"두렵고 떨리는 마음으로 어린 양의 피를 문설주에 바르던 이스라엘 백성처럼, 오늘 우리도 그리스도의 보혈 앞에 서서 담대히 복음을 선포하게 하소서."</p>
+                <div class="church-info">
+                    <p><strong>라온동행교회</strong> | 주일 설교 요약 리포트</p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
