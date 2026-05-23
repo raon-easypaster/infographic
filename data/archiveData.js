@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260523info.html",
+    "relativeURL": "2026/260523info.html",
+    "date": "2026-05-23",
+    "title": "디지털 설교 리포트: 모세가 이르되",
+    "scripture": "출애굽기 12장 21절"
+  },
+  {
     "fileName": "260517info.html",
     "relativeURL": "2026/260517info.html",
     "date": "2026-05-17",
