@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260614info.html",
+    "relativeURL": "2026/260614info.html",
+    "date": "2026-06-14",
+    "title": "너는 왜? - 모세 시리즈 10 | 디지털 설교 리포트",
+    "scripture": "출애굽기 14:10-18"
+  },
+  {
     "fileName": "260523info.html",
     "relativeURL": "2026/260523info.html",
     "date": "2026-05-23",
