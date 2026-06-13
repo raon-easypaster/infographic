@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너는 왜? - 모세 시리즈 10 | 디지털 설교 리포트</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           Dynamic Color Palette (Randomly generated for this session: Ocean & Sand)
+           ========================================================================== */
+        :root {
+            --color-main: #1C3F60;    /* Deep Ocean Blue */
+            --color-sub: #3E7CB1;     /* Calm Sea Blue */
+            --color-accent: #D98324;  /* Warm Sand/Staff Gold */
+            --color-bg: #F4F7F6;      /* Soft Pearl White */
+            --color-surface: #FFFFFF; /* Pure White */
+            --color-text-dark: #2C3E50;
+            --color-text-body: #4A5568;
+            --color-text-light: #A0AEC0;
+            
+            --font-heading: 'Gowun Batang', serif;
+            --font-body: 'Noto Sans KR', sans-serif;
+            
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+        }
+
+        /* ==========================================================================
+           Base Styles
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text-body);
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--color-bg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4, .batang {
+            font-family: var(--font-heading);
+            color: var(--color-text-dark);
+            word-break: keep-all;
+        }
+
+        p { margin-bottom: 1.2rem; word-break: keep-all; }
+        p:last-child { margin-bottom: 0; }
+        
+        strong { font-weight: 700; color: var(--color-main); }
+        .highlight { background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(217, 131, 36, 0.2) 60%); }
+
+        /* ==========================================================================
+           1. Hero Header
+           ========================================================================== */
+        .hero {
+            background: linear-gradient(135deg, var(--color-main) 0%, var(--color-sub) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+            animation: pulse 10s infinite alternate;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        
+        .hero .series {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; color: white; line-height: 1.3; }
+        .hero .church { font-size: 1rem; opacity: 0.9; margin-top: 1rem; font-weight: 300; }
+
+        /* ==========================================================================
+           2. Scripture Context
+           ========================================================================== */
+        .scripture-wrapper { padding: 2rem; }
+        .scripture-box {
+            background-color: var(--color-surface);
+            border-left: 5px solid var(--color-accent);
+            padding: 2rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .scripture-title { font-size: 1.1rem; color: var(--color-accent); margin-bottom: 1rem; font-weight: bold; }
+        .scripture-text { font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.8; color: var(--color-text-dark); }
+        .scripture-text span { font-size: 0.8rem; color: var(--color-text-light); vertical-align: super; margin-right: 4px; }
+
+        /* ==========================================================================
+           3. Main Logic Grid
+           ========================================================================== */
+        .content-section { padding: 0 2rem 2rem 2rem; }
+        .logic-card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        .logic-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .logic-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-main);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--color-bg);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .blockquote {
+            background-color: rgba(62, 124, 177, 0.05); /* Sub color light */
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--color-main);
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--color-sub);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: sans-serif;
+        }
+
+        /* ==========================================================================
+           4. Word Cloud / Keywords
+           ========================================================================== */
+        .keywords-section { text-align: center; margin-bottom: 3rem; padding: 0 2rem; }
+        .keywords-title { font-size: 1rem; color: var(--color-text-light); margin-bottom: 1rem; letter-spacing: 1px; text-transform: uppercase; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+        .tag {
+            background-color: var(--color-surface);
+            color: var(--color-sub);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(62, 124, 177, 0.2);
+            transition: all 0.3s ease;
+        }
+        .tag:hover { background-color: var(--color-sub); color: white; transform: translateY(-2px); }
+
+        /* ==========================================================================
+           5. Conclusion Card
+           ========================================================================== */
+        .conclusion-card {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #C06B1A 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: var(--radius);
+            margin: 0 2rem 2rem 2rem;
+            box-shadow: 0 10px 20px rgba(217, 131, 36, 0.3);
+        }
+        .conclusion-card h2 { color: white; font-size: 1.8rem; margin-bottom: 1rem; }
+        .conclusion-card p { color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8; }
+
+        /* ==========================================================================
+           6. Action Checklist
+           ========================================================================== */
+        .checklist-section { background-color: var(--color-surface); padding: 3rem 2rem; margin-bottom: 0; }
+        .checklist-section h3 { font-size: 1.4rem; color: var(--color-main); margin-bottom: 2rem; text-align: center; }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .checklist-item:hover { background-color: #E8F0FE; }
+        .checklist-item input[type="checkbox"] {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--color-sub);
+            border-radius: 6px;
+            margin-right: 1rem;
+            margin-top: 2px;
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .checklist-item input[type="checkbox"]:checked { background-color: var(--color-sub); border-color: var(--color-sub); }
+        .checklist-item input[type="checkbox"]:checked::after {
+            content: '✓'; position: absolute; color: white; font-size: 16px; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        }
+        .checklist-item label { cursor: pointer; font-size: 1.05rem; color: var(--color-text-dark); flex-grow: 1; }
+        .checklist-item input[type="checkbox"]:checked + label { text-decoration: line-through; color: var(--color-text-light); }
+
+        /* ==========================================================================
+           7. Footer & Prayer
+           ========================================================================== */
+        .footer { background-color: var(--color-main); color: rgba(255,255,255,0.7); text-align: center; padding: 3rem 2rem; font-size: 0.9rem; }
+        .footer .prayer { margin-bottom: 2rem; font-family: var(--font-heading); font-size: 1.1rem; color: white; line-height: 1.8; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .scripture-box { padding: 1.5rem; }
+            .logic-card { padding: 2rem 1.5rem; }
+            .conclusion-card { padding: 2rem 1.5rem; margin: 0 1rem 2rem 1rem; }
+            .content-section { padding: 0 1rem 2rem 1rem; }
+            .scripture-wrapper { padding: 1rem; }
+            .checklist-section { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 14:10-18">
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="series">모세 시리즈 10</span>
+            <h1 class="batang">너는 왜?</h1>
+            <p class="church">출애굽기 14장 10-18절 · 라온동행교회</p>
+        </header>
+
+        <!-- Scripture Context -->
+        <div class="scripture-wrapper">
+            <div class="scripture-box">
+                <div class="scripture-title">오늘의 중심 말씀</div>
+                <div class="scripture-text">
+                    <span>13</span>모세가 백성에게 이르되 <strong>너희는 두려워하지 말고 가만히 서서 여호와께서 오늘 너희를 위하여 행하시는 구원을 보라</strong> 너희가 오늘 본 애굽 사람을 영원히 다시 보지 아니하리라<br><br>
+                    <span>14</span><strong>여호와께서 너희를 위하여 싸우시리니</strong> 너희는 가만히 있을지니라<br><br>
+                    <span>15</span>여호와께서 모세에게 이르시되 너는 어찌하여 내게 부르짖느냐 이스라엘 자손에게 명령하여 <strong>앞으로 나아가게 하고</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Logic Grid -->
+        <div class="content-section">
+            
+            <!-- Section 1 -->
+            <section class="logic-card">
+                <div class="logic-icon">😱</div>
+                <h3 class="batang">두려움에 함몰된 백성</h3>
+                <p>출애굽의 여정은 10가지 재앙과 유월절을 거치며 승리의 향연으로 시작되었습니다. 하지만 앞에는 홍해, 뒤에는 바로의 전차 부대가 턱밑까지 쫓아온 상황에 직면하자 이스라엘 백성은 <strong>패닉 상태에 빠져 울부짖습니다.</strong> (히브리어 '자아크')</p>
+                <p>며칠 전 하나님의 놀라운 섭리를 목도하고 기뻐했던 그들이지만, 당장 닥친 문제 속에서 전능하신 하나님을 신뢰하지 못하고 문제 자체에 함몰되어 모세를 원망하기 시작합니다.</p>
+                <div class="blockquote">
+                    "우리는 연약하기에, 상황에 정죄당하기보다 먼저 우리 자신을 돌아보고 전능하신 하나님을 의지하는 길을 걸어야 합니다."
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="logic-card">
+                <div class="logic-icon">👁️</div>
+                <h3 class="batang">모세의 시선: 가만히 서서 구원을 보라</h3>
+                <p>백성들과 같은 상황 속에 있었지만, 모세의 시선은 달랐습니다. 두려움에 떠는 백성들에게 그는 상황에 함몰되지 말고 중심을 잡으라고 외칩니다.</p>
+                <p>문제가 발등에 떨어져 마음이 빼앗기면 우리를 구원하실 놀라운 하나님의 섭리를 깨닫지 못합니다. 극도의 스트레스 상황일수록 우리는 <span class="highlight">하나님과 동행하며 그 시선을 하늘에 고정해야</span> 합니다.</p>
+                <div class="blockquote">
+                    "고개를 웅크리고 벌벌 떨지 마십시오. 고개를 들고 하나님이 우리를 위해 일하시는 것을 목도해야 합니다."
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="logic-card">
+                <div class="logic-icon">⛺</div>
+                <h3 class="batang">믿음의 역설: 바다가 열리기 전에 짐을 싸라</h3>
+                <p>하나님은 부르짖는 모세에게 "이스라엘 자손에게 명령하여 앞으로 나아가게 하라"고 하십니다. 구원은 이미 결정되었고, 목적지는 정해졌습니다. 비록 눈앞이 바다일지라도 믿음으로 발걸음을 내디뎌야 합니다.</p>
+                <p>특히 "앞으로 나아가게 하고"라는 말씀은 <strong>'텐트의 말뚝을 뽑다'</strong>라는 뜻입니다. 길이 열린 후 장막을 걷는 것이 아니라, <span class="highlight">바다가 열릴 것이라는 믿음으로 먼저 짐을 싸는 것.</span> 이것이 바로 신앙의 역설입니다.</p>
+                <div class="blockquote">
+                    "증거를 보고 믿는 것은 믿음이 아닙니다. 아직 바다가 열리지 않았는데 짐을 싸는 것, 그것이 믿음입니다."
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="logic-card">
+                <div class="logic-icon">🚶</div>
+                <h3 class="batang">무엇을 바라보느냐가 행동을 만든다</h3>
+                <p>이성적이고 효율을 따지는 삶의 방식 속에서도, 하나님의 섭리를 따를 때는 비합리적으로 보이는 믿음의 발걸음을 내디뎌야 할 때가 있습니다. (예: 완벽히 준비되기 전에 선교지 AI 교육을 결정하고 떠난 일)</p>
+                <p>라온동행교회의 비전 역시 마찬가지입니다. 내 삶에 함몰되어 하나님의 사역에서 소외되는 것이 아니라, 두렵고 떨리더라도 늘 <strong>"하나님도 원하시는 선택인가?"</strong>를 질문하며 나아갈 때 바다에 길이 열립니다.</p>
+            </section>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <div class="keywords-title">Today's Keywords</div>
+            <div class="tags">
+                <span class="tag">#홍해</span>
+                <span class="tag">#믿음의역설</span>
+                <span class="tag">#구원의섭리</span>
+                <span class="tag">#시선</span>
+                <span class="tag">#말뚝을뽑다</span>
+                <span class="tag">#순종의발걸음</span>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion-card">
+            <h2 class="batang">믿음의 지팡이를 내밀라</h2>
+            <p>우리를 에워싼 거대한 홍해와 애굽 군대 앞에서 두려워하지 마십시오.<br>여러분이 쥐고 있는 믿음의 지팡이를 내밀고 순종의 첫 발을 내디딜 때,<br>출렁이던 절망의 바다는 우리를 살리는 '구원의 마른 땅'이 될 것입니다.</p>
+        </div>
+
+        <!-- Action Checklist -->
+        <div class="checklist-section">
+            <h3 class="batang">이번 주 삶의 적용 Checklist</h3>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="chk1">
+                <label for="chk1">현재 내 삶을 가로막고 두렵게 하는 '홍해'가 무엇인지 적어보기</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="chk2">
+                <label for="chk2">문제가 닥칠 때, 패닉('자아크')에 빠지기 전 하나님께 시선 고정하기</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="chk3">
+                <label for="chk3">완벽한 상황이 아니어도 믿음으로 먼저 '장막'을 거두는 순종 실천하기</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="chk4">
+                <label for="chk4">선택의 순간마다 "하나님도 원하시는 선택인가?" 질문하기</label>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="prayer">
+                "주님, 절망의 바다 앞에서 두려움에 함몰되지 않고,<br>
+                구원을 행하시는 하나님을 바라보며<br>
+                믿음으로 장막을 걷어 전진하는 한 주가 되게 하옵소서."
+            </div>
+            <p>라온동행교회 | 모세 시리즈 10 설교 요약</p>
+        </footer>
+
+    </div>
+</body>
+</html>
