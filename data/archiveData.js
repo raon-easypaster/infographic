@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260621info.html",
+    "relativeURL": "2026/260621info.html",
+    "date": "2026-06-21",
+    "title": "통통한 삶 (모세 11) | 설교 리포트",
+    "scripture": "출애굽기 33:11, 민수기 7:89"
+  },
+  {
     "fileName": "260614info.html",
     "relativeURL": "2026/260614info.html",
     "date": "2026-06-14",
