@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통통한 삶 (모세 11) | 설교 리포트</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* * Dynamic Color Palette (Earthy & Warm Oasis Theme)
+         * 매번 렌더링 시 분위기에 맞는 컬러를 제안합니다.
+         */
+        :root {
+            --primary-color: #C05A3D; /* 따뜻한 테라코타 (모세의 열정, 대화의 온기) */
+            --primary-light: #F9EBE6;
+            --secondary-color: #DDA752; /* 사막/광야의 모래, 은혜의 빛 */
+            --secondary-light: #FBF4E8;
+            --accent-color: #557A60; /* 오아시스, 생명력, 일상 */
+            --bg-main: #FAFAF8; /* 눈이 편안한 웜 톤 화이트 */
+            --bg-card: #FFFFFF;
+            --text-main: #2C2A29;
+            --text-muted: #6B6865;
+            --border-color: #EAE6E1;
+            
+            --font-body: 'Noto Sans KR', sans-serif;
+            --font-title: 'Gowun Batang', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bg-main);
+            box-shadow: 0 0 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        /* ① Hero Header */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #A3482F 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 20% 150%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% -50%, rgba(221, 167, 82, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .series-tag {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
+        .hero h1 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            word-break: keep-all;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            word-break: keep-all;
+        }
+
+        /* ② Scripture Context */
+        .scripture-section {
+            padding: 0 2rem;
+            margin-top: -2.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        .scripture-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--secondary-color);
+        }
+        .scripture-title {
+            font-family: var(--font-title);
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .scripture-title::before {
+            content: '📖';
+            font-size: 1.2rem;
+        }
+        .scripture-text {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+            word-break: keep-all;
+        }
+        .scripture-ref {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            padding: 3rem 2rem;
+        }
+
+        /* Intro Text */
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            text-align: justify;
+            word-break: keep-all;
+        }
+        .intro-text strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* ③ Main Logic Grid */
+        .point-section {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .point-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--primary-light);
+            width: 60px; height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 16px;
+        }
+        .point-section h2 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            word-break: keep-all;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .point-body {
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+        .point-body p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            word-break: keep-all;
+        }
+        .highlight-quote {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--secondary-light);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 12px 12px 0;
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: #8C6218;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        /* ④ Word Cloud / Keywords */
+        .keywords-section {
+            padding: 3rem 2rem;
+            background-color: #F0F2ED;
+            text-align: center;
+            border-radius: 20px;
+            margin: 0 1rem 4rem 1rem;
+        }
+        .keywords-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        .tag {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .tag:hover {
+            transform: translateY(-2px);
+            color: var(--accent-color);
+        }
+
+        /* ⑤ Conclusion & One Message */
+        .conclusion-card {
+            background: var(--accent-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .conclusion-card h3 {
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+        .conclusion-card p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* ⑥ Action Checklist */
+        .action-section {
+            padding: 0 2rem 4rem 2rem;
+        }
+        .action-title {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .checklist {
+            list-style: none;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .check-item:last-child {
+            border-bottom: none;
+        }
+        .check-item:hover {
+            background-color: var(--primary-light);
+            border-radius: 8px;
+        }
+        .check-input {
+            display: none;
+        }
+        .check-box {
+            width: 24px; height: 24px;
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            margin-right: 1rem;
+            margin-top: 3px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        .check-input:checked + .check-box {
+            background-color: var(--primary-color);
+        }
+        .check-input:checked + .check-box::after {
+            content: '✓';
+            color: white;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .check-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            word-break: keep-all;
+            transition: all 0.2s ease;
+        }
+        .check-input:checked ~ .check-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            text-decoration-color: var(--primary-color);
+            text-decoration-thickness: 2px;
+        }
+
+        /* ⑦ Footer */
+        footer {
+            background-color: var(--text-main);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.9rem;
+        }
+        footer p { margin-bottom: 0.5rem; }
+        .footer-logo {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 500px) {
+            .hero h1 { font-size: 2.2rem; }
+            .scripture-card { padding: 1.5rem; }
+            .content-wrapper { padding: 2rem 1.5rem; }
+            .point-section h2 { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 33:11, 민수기 7:89">
+
+    <div class="container">
+        <!-- ① Hero Header -->
+        <header class="hero">
+            <div class="series-tag">모세 시리즈 11</div>
+            <h1>통통(通通)한 삶</h1>
+            <p>막힌 것 없이 하나님과 대화가 흐르는 삶</p>
+        </header>
+
+        <!-- ② Scripture Context -->
+        <section class="scripture-section">
+            <div class="scripture-card">
+                <div class="scripture-title">오늘의 중심 말씀</div>
+                <div class="scripture-text">
+                    "사람이 자기의 친구와 이야기함 같이 여호와께서는 모세와 대면하여 말씀하시며 모세는 진으로 돌아오나 눈의 아들 젊은 수종자 여호수아는 회막을 떠나지 아니하니라"
+                </div>
+                <div class="scripture-ref">- 출애굽기 33:11</div>
+                
+                <hr style="border:0; height:1px; background:var(--border-color); margin: 1.5rem 0;">
+                
+                <div class="scripture-text">
+                    "모세가 여호와께 말하려고 회막에 들어갈 때에 증거궤 위 속죄소 위의 두 그룹 사이에서 자기에게 말씀하시는 목소리를 들었으니 여호와께서 그에게 말씀하심이었더라"
+                </div>
+                <div class="scripture-ref">- 민수기 7:89</div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            
+            <div class="intro-text">
+                이 시대는 역사상 가장 많은 말이 오가는 시대입니다. SNS와 메신저에 수천 개의 말이 쏟아지지만, 사람들은 점점 더 외롭다고 말합니다. 말은 많은데 마음은 닫혀 있고, 진짜 대화는 사라지고 있기 때문입니다.<br><br>
+                오늘 설교 제목의 '통통'은 사람의 몸 상태가 아니라 <strong>소통(疏通)의 '통(通)'</strong>이 두 번 들어간 말입니다. 즉, <strong>서로가 서로에게 통(通)하는 삶, 하나님과 인간이 서로 이야기하는 통통한 삶</strong>을 모세의 이야기를 통해 살펴보고자 합니다.
+            </div>
+
+            <!-- ③ Main Logic Grid -->
+            <!-- Point 1 -->
+            <section class="point-section">
+                <div class="point-icon">🗣️</div>
+                <h2>첫째, 광야 40년은 방황이 아닌 대화의 장이었습니다.</h2>
+                <div class="point-body">
+                    <p>출애굽기부터 신명기까지 하나님과 모세 사이의 직접적인 소통이 기록된 횟수는 약 150회 정도입니다. 40년 동안 평균 100일에 한 번꼴로 성경에 기록되었으며, 실제로는 매일 매 순간 대화가 이루어졌을 것입니다.</p>
+                    <p>흥미로운 것은 하나님과 모세의 소통에 두 가지 핵심 동사가 사용되었다는 점입니다. 공식적이고 권위 있는 말씀의 선포를 나타내는 <strong>'다바르(דָּבַר)'</strong>와, 친구가 편안하게 일상적인 이야기를 나누는 <strong>'아마르(אָמַר)'</strong>입니다.</p>
+                    <p>하나님은 지시만 내리는 상관이 아니라, 일상의 대화를 나누는 동행자이셨습니다. 이스라엘의 계속되는 원망과 불평 속에서도 모세가 광야 40년을 버틸 수 있었던 힘은 바로 이 '하나님과의 쌍방향 대화'에 있었습니다.</p>
+                    
+                    <blockquote class="highlight-quote">
+                        "방황이 광야를 채우지 않았습니다. 대화가 광야를 채웠습니다.<br>하나님과 나누는 대화가 광야 같은 삶의 시간을 의미로 가득 채웠습니다."
+                    </blockquote>
+                    
+                    <p>당시 고대 근동의 신들은 불분명한 징조나 황홀경을 통해 뜻을 전했지만, 이스라엘의 하나님은 '언어'를 통해 명확하고, 지속적이며, 인격적으로 말을 거시는 분이셨습니다.</p>
+                </div>
+            </section>
+
+            <!-- Point 2 -->
+            <section class="point-section">
+                <div class="point-icon">🤝</div>
+                <h2>둘째, 친구와 이야기하듯 대면하여 교제하는 은혜입니다.</h2>
+                <div class="point-body">
+                    <p>출애굽기 33장 11절은 "사람이 자기의 친구와 이야기함 같이 여호와께서는 모세와 <strong>대면하여(파님 엘-파님)</strong> 말씀하시며"라고 기록합니다. 이는 물리적 얼굴이 아닌, 숨김없는 친밀함과 투명한 소통을 의미합니다.</p>
+                    <p>모세는 하나님께 상당히 직접적으로 항의하기도 하고("어찌하여 이 백성에게 이렇게 하셨나이까?"), 억울함을 토로하기도 했습니다. 하나님은 그런 모세를 꾸짖지 않으시고, 친구의 솔직한 고백처럼 받아주셨습니다.</p>
+                    <p>이러한 친밀함은 하루아침에 이루어지지 않았습니다. 처음 부르심을 받았을 때 5번이나 거절했던 모세가, 하나님과 함께 걷고 순종하는 경험이 쌓이면서 신뢰가 깊어진 것입니다. 친밀함은 공유된 경험과 시간에서 옵니다.</p>
+                    
+                    <blockquote class="highlight-quote">
+                        "모세는 말씀을 '듣기 위해서'만 회막에 들어간 것이 아닙니다. 하나님께 '말하러' 들어갔습니다. 이것이 진짜 대화입니다."
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Point 3 -->
+            <section class="point-section">
+                <div class="point-icon">✝️</div>
+                <h2>셋째, 예수 그리스도를 통해 우리에게 주어진 대화의 특권입니다.</h2>
+                <div class="point-body">
+                    <p>구약 시대에 이 '얼굴을 대면하는 대화의 특권'은 중보자인 모세에게만 허락된 특별한 것이었습니다. 그러나 신약 시대, 진정한 말씀(Logos)이신 예수 그리스도께서 육신을 입고 우리 가운데 오셨습니다.</p>
+                    <p>예수님이 십자가에서 돌아가실 때 성전의 휘장이 찢어졌습니다. 이로써 모세에게만 허락되었던 특권, 즉 <strong>'은혜의 보좌 앞에 담대히 나아가는 특권(히 4:16)'</strong>이 모든 성도에게 주어졌습니다. 모세가 평생을 걸려 쌓은 친밀함의 길을, 예수님이 십자가로 단번에 열어주신 것입니다.</p>
+                    <p>존 웨슬리는 기도를 '하나님과의 영적 호흡'으로 보았고, 존 스토트는 '하나님이 성경을 통해 먼저 건네신 말씀에 대한 우리의 대화적 응답'이라고 정의했습니다. 신비로운 음성을 좇는 것이 아니라, 완성된 특별 계시인 '성경'을 통해 듣고 일상을 열어 '기도'로 응답하는 것입니다.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ④ Word Cloud / Keywords -->
+        <section class="keywords-section">
+            <div class="keywords-title">🔑 오늘의 핵심 키워드</div>
+            <div class="tags-container">
+                <span class="tag">#통통한삶</span>
+                <span class="tag">#다바르와아마르</span>
+                <span class="tag">#파님엘파님</span>
+                <span class="tag">#친구같은대화</span>
+                <span class="tag">#십자가의특권</span>
+                <span class="tag">#말씀과응답</span>
+                <span class="tag">#일상의기도</span>
+            </div>
+        </section>
+
+        <!-- ⑤ Conclusion & One Message -->
+        <section class="conclusion-card">
+            <h3>"모세를 모세 되게 한 것은<br>하나님과의 대화였습니다"</h3>
+            <p>신앙생활은 특별한 장소에서 치르는 의식이 아닙니다.<br>일상의 모든 순간, 예수님과 걷고 묻고 대답하는<br>'쉬운 제자, 작은 예수'로 일상을 채워가십시오.<br>막힌 곳 없이 대화가 흐르는 '통통한 삶'이 되기를 소망합니다.</p>
+        </section>
+
+        <!-- ⑥ Action Checklist -->
+        <section class="action-section">
+            <div class="action-title">✨ 삶으로 살아내는 적용</div>
+            <ul class="checklist">
+                <label class="check-item">
+                    <input type="checkbox" class="check-input">
+                    <div class="check-box"></div>
+                    <div class="check-text">오늘 하루, 나에게 먼저 건네시는 하나님의 말씀(성경) 읽기</div>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" class="check-input">
+                    <div class="check-box"></div>
+                    <div class="check-text">출퇴근길, 식탁, 일터 등 일상 속에서 호흡하듯 예수님께 말 걸어보기</div>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" class="check-input">
+                    <div class="check-box"></div>
+                    <div class="check-text">내 안의 억울함, 두려움, 솔직한 감정을 포장하지 않고 기도하기</div>
+                </label>
+            </ul>
+        </section>
+
+        <!-- ⑦ Footer -->
+        <footer>
+            <div class="footer-logo">라온동행교회</div>
+            <p>주일 설교 리포트 | 통통한 삶 (모세 11)</p>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 1rem;">본 페이지는 설교 내용을 바탕으로 묵상과 실천을 돕기 위해 제작되었습니다.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
