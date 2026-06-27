@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260627info.html",
+    "relativeURL": "2026/260627info.html",
+    "date": "2026-06-27",
+    "title": "광야의 짐, 함께 짊어지는 사명 - 모세 시리즈 12",
+    "scripture": "민수기 11장 14-17절"
+  },
+  {
     "fileName": "260621info.html",
     "relativeURL": "2026/260621info.html",
     "date": "2026-06-21",
