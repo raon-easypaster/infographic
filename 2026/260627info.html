@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>광야의 짐, 함께 짊어지는 사명 - 모세 시리즈 12</title>
+  
+  <!-- Google Fonts: Noto Sans KR (본문용), Gowun Batang (제목/강조용) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       Dynamic Color Palette (Earth & Oasis Theme)
+       ========================================= */
+    :root {
+      --primary: #8D6E63;       /* 따뜻한 흙빛 (광야) */
+      --primary-dark: #5D4037;  /* 깊은 흙빛 */
+      --secondary: #D7CCC8;     /* 부드러운 모래빛 */
+      --accent: #2E7D32;        /* 오아시스 그린 (생명, 동역자) */
+      --accent-light: #E8F5E9;  /* 연한 그린 */
+      
+      --bg-color: #FDFBF7;      /* 전체 배경 (따뜻한 미색) */
+      --surface: #FFFFFF;       /* 카드 배경 */
+      
+      --text-main: #3E3E3E;     /* 본문 텍스트 */
+      --text-muted: #757575;    /* 보조 텍스트 */
+      
+      --font-body: 'Noto Sans KR', sans-serif;
+      --font-title: 'Gowun Batang', serif;
+    }
+
+    /* =========================================
+       Base Reset & Typography
+       ========================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      word-break: keep-all;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: var(--bg-color);
+      box-shadow: 0 0 40px rgba(0,0,0,0.03);
+      padding-bottom: 60px;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: var(--font-title);
+    }
+
+    b, strong {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* =========================================
+       ① Hero Header
+       ========================================= */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 80px 30px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      line-height: 1.3;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* =========================================
+       ② Scripture Context
+       ========================================= */
+    .scripture-box {
+      background-color: var(--surface);
+      margin: -30px 20px 40px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      border-top: 4px solid var(--accent);
+    }
+
+    .scripture-box h2 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .scripture-box p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+    }
+
+    .scripture-box .ref {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* =========================================
+       ③ Main Logic Grid (Sections)
+       ========================================= */
+    .section {
+      padding: 0 30px 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      background-color: var(--secondary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .section h3 {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+    }
+
+    .content-box {
+      background-color: var(--surface);
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .content-box p {
+      margin-bottom: 1.2rem;
+      color: var(--text-main);
+    }
+    
+    .content-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 인용구 / 예화 박스 */
+    blockquote {
+      background-color: #F9FAFB;
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 12px 12px 0;
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      line-height: 1.8;
+    }
+
+    .story-box {
+      background-color: #FFF8E1; /* 은은한 예화 배경 */
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, rgba(255,255,255,0) 60%, var(--secondary) 60%);
+      font-weight: bold;
+    }
+
+    /* =========================================
+       ④ Word Cloud / Keywords
+       ========================================= */
+    .keywords {
+      padding: 0 30px 40px;
+    }
+    
+    .keywords h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .tag {
+      background-color: var(--surface);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--secondary);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* =========================================
+       ⑤ Conclusion & One Message
+       ========================================= */
+    .conclusion {
+      padding: 0 30px 40px;
+    }
+
+    .banner-card {
+      background: linear-gradient(135deg, var(--accent) 0%, #1B5E20 100%);
+      color: white;
+      padding: 35px 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
+    }
+
+    .banner-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .banner-card p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* =========================================
+       ⑥ Action Checklist
+       ========================================= */
+    .action-plan {
+      padding: 0 30px 40px;
+    }
+
+    .action-plan h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+
+    .checklist {
+      background-color: var(--surface);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed var(--secondary);
+    }
+
+    .check-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+      margin-right: 12px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .check-item label {
+      flex: 1;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: color 0.3s;
+    }
+
+    .check-item input[type="checkbox"]:checked + label {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    /* =========================================
+       ⑦ Prayer & Footer
+       ========================================= */
+    .prayer-section {
+      padding: 0 30px 40px;
+      text-align: center;
+    }
+
+    .prayer-box {
+      background-color: var(--primary-dark);
+      color: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 16px;
+    }
+
+    .prayer-box h3 {
+      color: white;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .prayer-box p {
+      font-family: var(--font-title);
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body data-scripture="민수기 11장 14-17절">
+
+  <div class="container">
+    
+    <!-- ① Hero Header -->
+    <header class="hero">
+      <div class="badge">모세 시리즈 12</div>
+      <h1 class="serif">광야의 짐,<br>함께 짊어지는 사명</h1>
+      <p>은혜를 잊은 불평 속에서, 동역자와 함께 사명자로 다시 일어서기</p>
+    </header>
+
+    <!-- ② Scripture Context -->
+    <section class="scripture-box">
+      <h2 class="serif">오늘의 중심 말씀</h2>
+      <p class="serif">"내가 강림하여 거기서 너와 말하고 네게 임한 영을 그들에게 임하게 하리니 그들이 너와 함께 백성의 짐을 담당하고 너 혼자 담당하지 아니하리라"</p>
+      <span class="ref">민수기 11장 17절</span>
+    </section>
+
+    <!-- ③ Main Logic Grid -->
+    
+    <!-- Point 1 -->
+    <section class="section">
+      <div class="section-header">
+        <div class="icon-box">😟</div>
+        <h3>은혜를 잊은 불평</h3>
+      </div>
+      <div class="content-box">
+        <p>만나와 메추라기 자체는 너무나도 은혜로운 이야기입니다. 하지만 그것을 얻기까지 이스라엘 백성은 성숙함을 보이지 못했습니다. 만나의 은혜를 받고도 고기가 없음을 불평하며, 은혜를 기억하지 못하고 더 많은 걸 바라는 흔한 모습을 보입니다.</p>
+        
+        <div class="story-box">
+          <b>💡 주차장 예화</b><br>
+          교회 옆 주차장 주인이 주일마다 교회를 위해 주차장을 빌려주기로 했습니다. 단, 일 년 52주 중 '한 주'만 빼고요. 교인들은 처음엔 감사했지만, 곧 그 빌려주지 않는 '한 주'를 불편해하며 마저 빌려달라고 요구했습니다. 주인의 대답은 이러했습니다.<br><br>
+          <i>"그래야 제가 주인인지 알지요. 52주를 다 빌려드리면 사람들이 주차장의 주인이 누구인지 몰라요."</i>
+        </div>
+
+        <p><span class="highlight">우리도 하나님이 주신 52주의 은혜를 누리면서도, 뜻대로 되지 않는 단 하루의 결핍 때문에 '내 인생의 주인이 하나님이심'을 잊고 불평하고 있지는 않습니까?</span></p>
+      </div>
+    </section>
+
+    <!-- Point 2 -->
+    <section class="section">
+      <div class="section-header">
+        <div class="icon-box">🥀</div>
+        <h3>모세, 한계에 다다르다</h3>
+      </div>
+      <div class="content-box">
+        <p>"배려가 반복되면 권리인 줄 안다"는 말처럼, 이스라엘 백성은 열 번의 재앙, 홍해, 만나의 은혜를 경험하고도 오늘의 불편함에 불만을 쏟아냅니다. 반복되는 원망 속에 지도자 모세는 결국 심리적, 육체적 한계(번아웃)에 다다릅니다.</p>
+        
+        <blockquote>
+          "책임이 심히 중하여 나 혼자는 이 모든 백성을 감당할 수 없나이다... 내게 은혜를 베푸사 즉시 나를 죽여 내가 고난 당함을 내가 보지 않게 하옵소서" (민 11:14-15)
+        </blockquote>
+        
+        <p>여기서 "책임이 심히 중하다"는 표현의 원어 <b>'카베드'</b>는 바로의 마음이 완고해졌다고 할 때 쓰인 어근과 같습니다. 백성들의 원망이 영적으로 모세의 어깨를 짓눌렀던 것입니다.</p>
+      </div>
+    </section>
+
+    <!-- Point 3 -->
+    <section class="section">
+      <div class="section-header">
+        <div class="icon-box">🤝</div>
+        <h3>친밀함과 회피할 수 없는 짐</h3>
+      </div>
+      <div class="content-box">
+        <p>하나님은 포기하고 싶어하는 모세에게 친구가 되어 주십니다. '정말 힘들고 죽고 싶다'고 솔직하게 토로할 수 있는 <b>친밀함</b>이 모세가 40년을 버틸 수 있었던 힘이었습니다. 감당할 수 없는 파도를 막아 주는 방파제는 거창한 것이 아니라, 잠시 침묵하며 주님 앞에 서는 작은 자리에서 시작됩니다.</p>
+        <p>하지만 심리적인 친밀함만으로는 물리적인 문제가 해결되지 않습니다. <span class="highlight">회피나 외면은 대안이 될 수 없습니다.</span> 불기둥과 구름기둥이 움직이면 짐을 지고 나아가야 합니다.</p>
+        <p>친밀함 없이 짐만 지면 무너지고, 짐을 내려놓은 채 친밀함만 구하면 사명에서 멀어집니다. 하나님은 이 두 가지를 함께 붙들게 하십니다.</p>
+      </div>
+    </section>
+
+    <!-- Point 4 -->
+    <section class="section">
+      <div class="section-header">
+        <div class="icon-box">🦅</div>
+        <h3>혼자가 아닌 사명</h3>
+      </div>
+      <div class="content-box">
+        <p>하나님은 모세 혼자 감당할 수 없는 어려움을 아시고, 백성의 장로와 지도자 70명을 세우게 하십니다.</p>
+        
+        <blockquote>
+          "...네게 임한 영을 그들에게 임하게 하리니 그들이 너와 함께 백성의 짐을 <b>담당하고(나사)</b>..." (민 11:17)
+        </blockquote>
+        
+        <p>이 <b>"담당하다(나사)"</b>라는 동사는 하나님이 독수리가 새끼를 날개로 업어 나르듯 이스라엘을 메고 가셨다고 할 때 쓰인 단어입니다. 동역자가 짐을 나누는 것은 단순한 업무 분담이 아니라, 하나님의 돌보심을 함께 실어 나르는 거룩한 일입니다.</p>
+        <p>세상에 완전한 사람은 없습니다. 아담에게 하와를, 다윗에게 요나단을, 바울에게 바나바를 주셨듯, 성령께서 하나로 묶어 주시는 동역자들과 함께 감당해야 합니다.</p>
+      </div>
+    </section>
+
+    <!-- ④ Conclusion & One Message -->
+    <section class="conclusion">
+      <div class="banner-card">
+        <h3 class="serif">당신이 이 시대의 모세입니다</h3>
+        <p>불평하는 이스라엘 백성은 '나'이고, 고통받는 모세는 '교역자'라고 선을 그어 놓으셨습니까? 하나님은 "아니다. 네가 바로 이 시대의 모세다"라고 말씀하십니다.<br><br>편한 길, 넓은 길로 도망치려 하지 마십시오. 주님이 부르시는 좁은 문은 고행길이 아니라, <b>주님이 친히 동행하시며 동역자들과 연합하여 걷는 영광의 길</b>입니다. 지금, 이곳에서 당신의 사명을 감당하십시오!</p>
+      </div>
+    </section>
+
+    <!-- ⑤ Word Cloud / Keywords -->
+    <section class="keywords">
+      <h3 class="serif">설교 핵심 키워드</h3>
+      <div class="tags">
+        <span class="tag"># 만나와 메추라기</span>
+        <span class="tag"># 52주의 은혜</span>
+        <span class="tag"># 카베드 (무게)</span>
+        <span class="tag"># 번아웃</span>
+        <span class="tag"># 하나님과의 친밀함</span>
+        <span class="tag"># 나사 (함께 담당하다)</span>
+        <span class="tag"># 동역자</span>
+        <span class="tag"># 이 시대의 모세</span>
+        <span class="tag"># 지금 이곳에서</span>
+      </div>
+    </section>
+
+    <!-- ⑥ Action Checklist -->
+    <section class="action-plan">
+      <h3 class="serif">나의 결단과 실천 (Action Plan)</h3>
+      <div class="checklist">
+        <div class="check-item">
+          <input type="checkbox" id="chk1">
+          <label for="chk1">하루를 시작하기 전, 잠시 침묵하며 주님과 친밀한 시간 가지기</label>
+        </div>
+        <div class="check-item">
+          <input type="checkbox" id="chk2">
+          <label for="chk2">결핍에 불평하기보다, 52주의 은혜를 기억하며 감사 고백하기</label>
+        </div>
+        <div class="check-item">
+          <input type="checkbox" id="chk3">
+          <label for="chk3">나의 연약함을 털어놓고 기도를 부탁할 수 있는 동역자 찾기</label>
+        </div>
+        <div class="check-item">
+          <input type="checkbox" id="chk4">
+          <label for="chk4">미루던 사명의 자리(가정, 일터, 교회)에서 오늘 믿음의 한 걸음 내딛기</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑦ Prayer & Footer -->
+    <section class="prayer-section">
+      <div class="prayer-box">
+        <h3 class="serif">함께 드리는 기도</h3>
+        <p>주님, 은혜를 잊고 단 하루의 결핍에 불평했던 우리의 연약함을 용서하옵소서. 인생의 무거운 짐 앞에서도 도망치지 않고, 주님과의 깊은 친밀함으로 이겨내게 하옵소서. 또한 우리에게 붙여주신 동역자들과 함께 생명의 짐을 나누어 지며, '지금 이곳에서' 이 시대의 모세로 당당히 서게 하옵소서. 예수님의 이름으로 기도드립니다. 아멘.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>본 리포트는 주일 설교 원문을 바탕으로 성도들의 묵상과 실천을 돕기 위해 제작되었습니다.</p>
+      <p>&copy; Digital Sermon Report. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
