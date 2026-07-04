@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260705info.html",
+    "relativeURL": "2026/260705info.html",
+    "date": "2026-07-05",
+    "title": "모세가 손을 들면 - 설교 인포그래픽 리포트",
+    "scripture": "출애굽기 17:8-13"
+  },
+  {
     "fileName": "260627info.html",
     "relativeURL": "2026/260627info.html",
     "date": "2026-06-27",
