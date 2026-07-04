@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모세가 손을 들면 - 설교 인포그래픽 리포트</title>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           Dynamic Color Palette (Sunset & Stone Theme)
+           ========================================= */
+        :root {
+            --color-main: #374151;      /* Deep Gray (Stone/Mountain) */
+            --color-sub: #F3F4F6;       /* Light Gray (Background) */
+            --color-accent: #D97706;    /* Warm Amber (Sunset) */
+            --color-accent-light: #FEF3C7; 
+            --color-bg: #FAFAFA;        /* Base Background */
+            --color-text-dark: #1F2937;
+            --color-text-muted: #4B5563;
+            --color-white: #FFFFFF;
+            
+            --font-body: 'Noto Sans KR', sans-serif;
+            --font-title: 'Gowun Batang', serif;
+            
+            --border-radius-lg: 24px;
+            --border-radius-md: 16px;
+            --border-radius-sm: 8px;
+            
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        /* =========================================
+           Reset & Base Styles
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        h1, h2, h3, .quote-text {
+            font-family: var(--font-title);
+        }
+
+        /* =========================================
+           ① Hero Header
+           ========================================= */
+        .hero {
+            background: linear-gradient(135deg, var(--color-main), #111827);
+            color: var(--color-white);
+            padding: 80px 30px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            transform: rotate(30deg);
+        }
+        .hero-series {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-scripture {
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* =========================================
+           ② Scripture Context
+           ========================================= */
+        .section-wrapper { padding: 40px 30px; }
+        
+        .scripture-box {
+            background-color: var(--color-sub);
+            border-left: 5px solid var(--color-accent);
+            padding: 25px;
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow-sm);
+        }
+        .scripture-box p {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            word-break: keep-all;
+        }
+        .scripture-box strong { color: var(--color-main); }
+
+        /* =========================================
+           ③ Main Logic Grid
+           ========================================= */
+        .point-section {
+            margin-bottom: 50px;
+        }
+        .point-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .point-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--color-accent-light);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .point-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-main);
+        }
+        .point-body {
+            font-size: 1.05rem;
+            color: var(--color-text-dark);
+            margin-bottom: 25px;
+            word-break: keep-all;
+        }
+        .point-body p { margin-bottom: 15px; }
+        
+        .highlight-quote {
+            background-color: var(--color-white);
+            border: 1px solid #E5E7EB;
+            padding: 25px 30px;
+            border-radius: var(--border-radius-md);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+        .highlight-quote::before {
+            content: '“';
+            position: absolute;
+            top: 5px; left: 15px;
+            font-size: 4rem;
+            color: var(--color-accent-light);
+            font-family: var(--font-title);
+            line-height: 1;
+        }
+        .quote-text {
+            position: relative;
+            z-index: 1;
+            font-size: 1.25rem;
+            color: var(--color-main);
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           ④ Word Cloud / Keywords
+           ========================================= */
+        .keywords-container {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--color-sub);
+            border-radius: var(--border-radius-lg);
+            margin: 40px 30px;
+        }
+        .keywords-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .tag {
+            background-color: var(--color-white);
+            color: var(--color-main);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #E5E7EB;
+        }
+        .tag.highlight {
+            background-color: var(--color-main);
+            color: var(--color-white);
+            border: none;
+        }
+
+        /* =========================================
+           ⑤ Conclusion & One Message
+           ========================================= */
+        .conclusion-card {
+            background-color: var(--color-main);
+            color: var(--color-white);
+            padding: 50px 30px;
+            text-align: center;
+        }
+        .conclusion-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .conclusion-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .conclusion-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            word-break: keep-all;
+        }
+
+        /* =========================================
+           ⑥ Action Checklist
+           ========================================= */
+        .action-section { padding: 50px 30px; background-color: var(--color-white); }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-main);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .checklist { display: flex; flex-direction: column; gap: 15px; }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background-color: var(--color-sub);
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .check-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+        .check-item input[type="checkbox"] { display: none; }
+        .checkmark {
+            width: 24px; height: 24px;
+            border: 2px solid var(--color-text-muted);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            margin-top: 3px;
+            transition: all 0.2s ease;
+        }
+        .check-item input[type="checkbox"]:checked + .checkmark {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+        .check-item input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓'; color: white; font-size: 16px; font-weight: bold;
+        }
+        .check-text { font-size: 1.05rem; color: var(--color-text-dark); word-break: keep-all; }
+        .check-item input[type="checkbox"]:checked ~ .check-text {
+            color: var(--color-text-muted); text-decoration: line-through; opacity: 0.7;
+        }
+
+        /* =========================================
+           ⑦ Prayer & Footer
+           ========================================= */
+        .footer {
+            background-color: #F9FAFB;
+            padding: 50px 30px;
+            text-align: center;
+            border-top: 1px solid #E5E7EB;
+        }
+        .prayer-box {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            line-height: 2;
+            font-style: italic;
+        }
+        .church-info {
+            font-size: 0.9rem;
+            color: #9CA3AF;
+            font-weight: 500;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 500px) {
+            .hero-title { font-size: 2.2rem; }
+            .point-title { font-size: 1.3rem; }
+            .quote-text { font-size: 1.1rem; }
+            .section-wrapper { padding: 30px 20px; }
+            .hero { padding: 60px 20px 50px; }
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 17:8-13">
+
+<div class="container">
+    
+    <!-- ① Hero Header -->
+    <header class="hero">
+        <div class="hero-series">모세 시리즈 13</div>
+        <h1 class="hero-title">모세가 손을 들면</h1>
+        <div class="hero-scripture">출애굽기 17:8-13</div>
+    </header>
+
+    <div class="section-wrapper">
+        <!-- ② Scripture Context -->
+        <div class="scripture-box">
+            <p><strong>[11절]</strong> 모세가 손을 들면 이스라엘이 이기고 손을 내리면 아말렉이 이기더니<br>
+            <strong>[12절]</strong> 모세의 팔이 피곤하매 그들이 돌을 가져다가 모세의 아래에 놓아 그가 그 위에 앉게 하고 <strong>아론과 훌이 한 사람은 이쪽에서, 한 사람은 저쪽에서 모세의 손을 붙들어 올렸더니</strong> 그 손이 해가 지도록 내려오지 아니한지라</p>
+        </div>
+    </div>
+
+    <div class="section-wrapper" style="padding-top: 0;">
+        <!-- ③ Main Logic Grid -->
+        
+        <!-- Point 1 -->
+        <section class="point-section">
+            <div class="point-header">
+                <div class="point-icon">🧍‍♂️</div>
+                <h2 class="point-title">지쳐야 정상입니다</h2>
+            </div>
+            <div class="point-body">
+                <p>모세는 120세까지 기력이 쇠하지 않았던 인물입니다. 그가 처음 지팡이를 들 때는 충분히 감당할 수 있으리라 생각했을 것입니다. 그러나 전투는 예측보다 훨씬 길어졌고, 결국 해가 지도록 치열한 싸움이 계속되자 에너지가 한정된 인간 모세는 지치고 맙니다.</p>
+                <p>아무리 위대한 지도자라도, 하나님께 크게 쓰임받는 사람이라도 반드시 지칠 수밖에 없습니다. 이것은 믿음이 부족해서가 아니라, 사명의 무게가 때론 우리의 능력보다 더 큰 힘을 필요로 하기 때문입니다.</p>
+            </div>
+            <div class="highlight-quote">
+                <p class="quote-text">하나님께 크게 쓰임받는 사람도 지칩니다. 지치는 것은 믿음이 부족해서가 아닙니다. 목회자의 연약함도, 성도의 연약함도 지극히 당연한 것입니다.</p>
+            </div>
+        </section>
+
+        <!-- Point 2 -->
+        <section class="point-section">
+            <div class="point-header">
+                <div class="point-icon">🤲</div>
+                <h2 class="point-title">하나님의 지팡이와 우리 손</h2>
+            </div>
+            <div class="point-body">
+                <p>모세가 든 것은 단순한 나무가 아닌 홍해를 가른 '하나님의 지팡이'였습니다. 산 꼭대기에서 손을 든다는 것(히브리어 '룸')은 전적인 의존과 간구, 곧 기도를 의미합니다.</p>
+                <p>하나님 혼자 하시면 훨씬 쉽게 끝날 이 아말렉과의 전투를, 하나님은 굳이 연약한 인간들의 '순종'과 '동역'이라는 통로를 통해 일하기로 결정하셨습니다. 능력을 주시되, 우리의 믿음과 순종을 통해 역사하시려는 하나님의 기다림입니다.</p>
+            </div>
+            <div class="highlight-quote">
+                <p class="quote-text">능력의 근원은 온전히 하나님께만 있습니다. 우리는 그저 허락해 주신 그 자리에서, 명령을 따라 손을 들 뿐입니다.</p>
+            </div>
+        </section>
+
+        <!-- Point 3 -->
+        <section class="point-section">
+            <div class="point-header">
+                <div class="point-icon">🛡️</div>
+                <h2 class="point-title">보이지 않는 곳의 치열함</h2>
+            </div>
+            <div class="point-body">
+                <p>전쟁의 승리는 여호수아의 칼날만으로 이루어지지 않았습니다. 눈에 띄지 않는 곳에서 돌을 가져다 놓고 지친 모세의 팔을 끝까지 붙든 아론과 훌이 있었습니다. 이들의 화려하지 않은 섬김이 없었다면 이스라엘의 승리도 없었습니다.</p>
+                <p>무대 위 스포트라이트를 받는 자리만 중요한 것이 아닙니다. 누군가의 지친 손을 붙들어주는 중보기도의 무릎이야말로 가장 치열한 영적 최전방입니다. 우리는 영웅이 되려 하기보다, 함께 승리를 완성해가는 동역자가 되어야 합니다.</p>
+            </div>
+            <div class="highlight-quote">
+                <p class="quote-text">주인공이 아니어도 괜찮습니다. 지친 이를 위해 조용히 돌 하나를 가져다 놓는 것으로 충분한 순간입니다.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ④ Word Cloud / Keywords -->
+    <div class="keywords-container">
+        <h3 class="keywords-title">오늘 말씀의 핵심 키워드</h3>
+        <div class="tags">
+            <span class="tag highlight">#연합과 동역</span>
+            <span class="tag">#인간의 연약함</span>
+            <span class="tag">#여호와 닛시</span>
+            <span class="tag highlight">#중보자 예수님</span>
+            <span class="tag">#아론과 훌</span>
+            <span class="tag">#하나님의 지팡이</span>
+            <span class="tag">#순종과 기도</span>
+        </div>
+    </div>
+
+    <!-- ⑤ Conclusion & One Message -->
+    <div class="conclusion-card">
+        <div class="conclusion-icon">✝️</div>
+        <h2 class="conclusion-title">결코 내려오지 않는 팔</h2>
+        <p class="conclusion-text">
+            산 위에서 팔을 벌리고 중보하는 모세는 참된 대제사장이신 <strong>예수 그리스도의 그림자</strong>입니다.<br><br>
+            인간 모세의 팔은 지쳐서 내려왔지만, 우리를 위해 십자가에서 팔을 벌리신 예수님의 팔은 결코 내려오지 않으셨습니다. 지금도 하나님 우편에서 지치지 않고 우리를 위해 간구하시는 예수님의 중보 덕분에 우리는 마침내 승리합니다.<br><br>
+            <strong>서로의 손을 잡고, 함께 하나님의 지팡이를 붙드십시오.</strong>
+        </p>
+    </div>
+
+    <!-- ⑥ Action Checklist -->
+    <div class="action-section">
+        <h3 class="section-title">오늘의 삶 적용 포인트 (Action List)</h3>
+        <div class="checklist">
+            <label class="check-item">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="check-text">나의 연약함과 한계를 인정하고, 내 능력이 아닌 하나님께 온전히 의지하기</span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="check-text">보이지 않는 곳에서 교회와 공동체를 위해 묵묵히 섬기는 지체들에게 감사 격려하기</span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="check-text">영적 전투 최전방에 서서 지쳐있는 누군가(목회자, 가족, 이웃)의 '아론과 훌'이 되어 중보기도 시작하기</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- ⑦ Prayer & Footer -->
+    <footer class="footer">
+        <div class="prayer-box">
+            "주님, 혼자서 짐을 지려다 지쳐가는 우리를 긍휼히 여겨 주옵소서. 우리 공동체가 서로의 아론과 훌이 되어 지친 팔을 붙들어주게 하시고, 결코 팔을 내리지 않으시는 참된 중보자 예수님만을 바라보며 날마다 영적 전투에서 승리하게 하옵소서. 예수님의 이름으로 기도합니다. 아멘."
+        </div>
+        <div class="church-info">
+            ⓒ 라온동행교회 설교 인포그래픽 리포트
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
