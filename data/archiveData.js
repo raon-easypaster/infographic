@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260712info.html",
+    "relativeURL": "2026/260712info.html",
+    "date": "2026-07-12",
+    "title": "평안히 가도록 · 디지털 설교 리포트",
+    "scripture": "출애굽기 18:13-23"
+  },
+  {
     "fileName": "260705info.html",
     "relativeURL": "2026/260705info.html",
     "date": "2026-07-05",
