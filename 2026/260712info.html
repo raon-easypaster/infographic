@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>평안히 가도록 · 디지털 설교 리포트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 설교 정서: 지침과 회복, 샬롬의 평온 — 세이지 그린 + 라벤더 톤 */
+  --main:#3f6f63;        /* 깊은 세이지 그린 */
+  --main-dark:#2c4f47;
+  --sub:#7d6ca6;         /* 라벤더 퍼플 */
+  --accent:#d9a441;      /* 따뜻한 골드 */
+  --bg:#f4f1ea;          /* 따뜻한 아이보리 */
+  --card:#ffffff;
+  --ink:#2a2a2a;
+  --ink-soft:#555;
+  --line:#e3ddd0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:700px;margin:0 auto;padding:0 18px 60px;}
+h1,h2,h3,.serif{font-family:'Gowun Batang',serif;}
+
+/* ── Hero ── */
+.hero{
+  position:relative;
+  margin:0 -18px 34px;
+  padding:64px 30px 56px;
+  background:linear-gradient(135deg,var(--main-dark) 0%,var(--main) 55%,var(--sub) 130%);
+  color:#fff;
+  overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 18% 22%,rgba(255,255,255,.10) 0,transparent 42%),
+                   radial-gradient(circle at 82% 78%,rgba(217,164,65,.18) 0,transparent 46%);
+}
+.hero .series{position:relative;display:inline-block;font-size:13px;letter-spacing:3px;
+  background:rgba(255,255,255,.15);padding:6px 16px;border-radius:20px;margin-bottom:20px;font-weight:500;}
+.hero h1{position:relative;font-size:46px;font-weight:700;line-height:1.25;margin-bottom:16px;text-shadow:0 2px 12px rgba(0,0,0,.18);}
+.hero .ref{position:relative;font-size:15px;opacity:.92;letter-spacing:1px;}
+.hero .sub-line{position:relative;margin-top:22px;font-size:14px;opacity:.85;font-style:italic;}
+
+/* ── Scripture box ── */
+.scripture{
+  background:var(--card);border-radius:16px;padding:28px 26px;margin-bottom:34px;
+  border-left:6px solid var(--accent);box-shadow:0 6px 22px rgba(60,52,73,.07);
+  position:relative;
+}
+.scripture .label{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--accent);margin-bottom:10px;}
+.scripture .verse{font-family:'Gowun Batang',serif;font-size:19px;color:var(--main-dark);line-height:1.85;}
+.scripture .verse-ref{display:block;margin-top:12px;font-size:13px;color:var(--ink-soft);font-family:'Noto Sans KR';text-align:right;}
+
+/* ── Section ── */
+.section{
+  background:var(--card);border-radius:16px;padding:30px 26px;margin-bottom:24px;
+  border:1px solid var(--line);box-shadow:0 4px 16px rgba(60,52,73,.05);
+}
+.section .head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.section .icon{
+  flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  font-size:26px;background:linear-gradient(135deg,var(--main) 0%,var(--sub) 120%);color:#fff;
+  box-shadow:0 4px 12px rgba(63,111,99,.3);
+}
+.section .num{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--sub);}
+.section h2{font-size:22px;color:var(--main-dark);line-height:1.35;font-weight:700;}
+.section p{margin-bottom:14px;color:var(--ink);}
+.section p:last-child{margin-bottom:0;}
+.section strong{color:var(--main);font-weight:700;}
+
+blockquote{
+  margin:20px 0;padding:18px 22px;border-radius:0 12px 12px 0;
+  background:linear-gradient(90deg,rgba(125,108,166,.08),rgba(125,108,166,.02));
+  border-left:5px solid var(--sub);
+  font-family:'Gowun Batang',serif;font-size:17px;color:var(--main-dark);line-height:1.8;
+}
+blockquote .cite{display:block;margin-top:8px;font-family:'Noto Sans KR';font-size:12px;color:var(--ink-soft);}
+
+/* 원어 카드 */
+.word-card{
+  display:flex;gap:16px;align-items:flex-start;
+  background:var(--bg);border-radius:12px;padding:16px 18px;margin:14px 0;border:1px dashed var(--line);
+}
+.word-card .heb{flex:none;font-size:24px;font-weight:700;color:var(--sub);min-width:76px;text-align:center;
+  font-family:'Gowun Batang',serif;}
+.word-card .meaning{font-size:14.5px;color:var(--ink-soft);}
+.word-card .meaning b{color:var(--main-dark);}
+
+/* 성품 3요소 */
+.trait-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 4px;}
+.trait{background:var(--bg);border-radius:12px;padding:16px 18px;border-left:4px solid var(--accent);}
+.trait .t-title{font-weight:700;color:var(--main-dark);font-size:15.5px;margin-bottom:6px;}
+.trait .t-title span{color:var(--accent);}
+.trait .t-body{font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* ── Keywords ── */
+.keywords{margin-bottom:34px;text-align:center;}
+.keywords .k-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--sub);margin-bottom:16px;}
+.tag{display:inline-block;margin:5px;padding:9px 18px;border-radius:24px;font-size:14px;font-weight:500;
+  background:var(--card);color:var(--main);border:1.5px solid var(--main);transition:.2s;}
+.tag.alt{background:var(--sub);color:#fff;border-color:var(--sub);}
+.tag.gold{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* ── Conclusion banner ── */
+.banner{
+  margin-bottom:34px;padding:36px 30px;border-radius:20px;text-align:center;color:#fff;
+  background:linear-gradient(120deg,var(--main-dark),var(--sub));position:relative;overflow:hidden;
+}
+.banner::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 20%,rgba(217,164,65,.25),transparent 50%);}
+.banner .b-label{position:relative;font-size:12px;letter-spacing:3px;opacity:.85;margin-bottom:14px;}
+.banner .b-msg{position:relative;font-family:'Gowun Batang',serif;font-size:25px;font-weight:700;line-height:1.5;}
+.banner .b-sub{position:relative;margin-top:16px;font-size:14.5px;opacity:.9;line-height:1.75;}
+
+/* ── Checklist ── */
+.checklist{background:var(--card);border-radius:16px;padding:28px 26px;margin-bottom:34px;border:1px solid var(--line);}
+.checklist h3{font-size:20px;color:var(--main-dark);margin-bottom:6px;}
+.checklist .desc{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;}
+.check-item{display:flex;align-items:flex-start;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer;}
+.check-item:last-child{border-bottom:none;}
+.check-item input{display:none;}
+.check-item .box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid var(--main);margin-top:2px;
+  display:grid;place-items:center;transition:.2s;font-size:15px;color:#fff;}
+.check-item input:checked + .box{background:var(--main);border-color:var(--main);}
+.check-item input:checked + .box::after{content:"✓";}
+.check-item .txt{font-size:15px;line-height:1.65;transition:.2s;}
+.check-item input:checked ~ .txt{color:var(--ink-soft);text-decoration:line-through;}
+
+/* ── Prayer ── */
+.prayer{background:linear-gradient(135deg,rgba(63,111,99,.06),rgba(125,108,166,.06));
+  border-radius:16px;padding:30px 28px;margin-bottom:30px;border:1px solid var(--line);}
+.prayer .p-label{text-align:center;font-size:13px;letter-spacing:2px;color:var(--sub);font-weight:700;margin-bottom:16px;}
+.prayer p{font-family:'Gowun Batang',serif;font-size:16.5px;color:var(--main-dark);line-height:1.95;text-align:center;}
+
+footer{text-align:center;padding-top:22px;border-top:2px solid var(--line);}
+footer .church{font-family:'Gowun Batang',serif;font-size:18px;color:var(--main-dark);font-weight:700;}
+footer .tag-line{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+</style>
+</head>
+<body data-scripture="출애굽기 18:13-23">
+<div class="wrap">
+
+  <!-- ① Hero -->
+  <header class="hero">
+    <div class="series">모세 시리즈 · 14</div>
+    <h1>평안히 가도록</h1>
+    <div class="ref">출애굽기 18장 13절 ~ 23절</div>
+    <div class="sub-line">"느리더라도 함께 걸으며" — 짐을 나누는 공동체의 샬롬</div>
+  </header>
+
+  <!-- ② Scripture -->
+  <div class="scripture">
+    <div class="label">오늘의 중심 말씀</div>
+    <div class="verse">"네가 만일 이 일을 하고 하나님께서도 네게 허락하시면, 네가 이 일을 감당하고 이 모든 백성도 자기 곳으로 평안히 가리라"
+      <span class="verse-ref">— 출애굽기 18:23</span>
+    </div>
+  </div>
+
+  <!-- ③ Main Logic Grid -->
+  <div class="section">
+    <div class="head">
+      <div class="icon">🕯️</div>
+      <div><div class="num">POINT 01</div><h2>모세의 피로감은 누구에게나 오는 한계입니다</h2></div>
+    </div>
+    <p>인간은 언젠가 한계 앞에 도달합니다. <strong>육체의 한계, 이성의 한계, 감정의 한계</strong>에 도달합니다. 신이 아닌 이상 우리는 누구나 다 한계를 가집니다. 목사도 마찬가지로 감정이 있고 한계가 있기에 실수도 하고 낙망하거나 넘어지기도 합니다.</p>
+    <p>때로는 머리로 이해하면서도 한계에 도달한 마음과 육체로 인하여 행동하지 못하는 경우가 나타납니다. 40대 부목사들이 과로사로 죽음을 맞이했다는 소식, 무리한 대출로 인한 재정의 무게로 극단적 선택을 한 소식을 종종 접합니다. 혼자서만 너무 많은 짐을 감당하려다 그 짐을 감당할 수 없는 상황에 내몰린 것입니다.</p>
+    <p>성도도 마찬가지입니다. 삶에는 즐겁고 좋은 때보다 자신을 가로막는 장벽 앞에 마주할 때가 많습니다. 그럼에도 다시 힘을 내 용기를 내는 가장 큰 이유는 <strong>가족</strong>입니다. 지지해 주는 가족이 있기에, 지켜야 하는 가족이 있기에 다시 힘을 냅니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="head">
+      <div class="icon">🔥</div>
+      <div><div class="num">POINT 02</div><h2>모세는 그 피로함 속에서도 사역을 멈추지 않았습니다</h2></div>
+    </div>
+    <p>모세는 주님의 부르심을 확고히 들은 사람입니다. 호렙산 떨기나무에서 만난 하나님의 부르심은 남은 삶 40년을 모두 하나님께 헌신하게 만들었습니다. 그리고 모세는 <strong>멈춘다는 생각을 하지 못했습니다.</strong></p>
+    <p>18장 2절은 "모세가 돌려보냈던 그의 아내 십보라"를 언급합니다. 아내 십보라는 출애굽 당시에 함께하지 않았습니다. 모세는 이 사역을 자신의 생명을 걸어야 할 일이라 여겨, 오던 길에 아내를 돌려보냈던 것으로 추측됩니다. 사명에 모든 것을 걸기로 결정한 모습입니다.</p>
+    <blockquote>주님이 나를 목회자로 부르셨다는 그 소명 앞에서, 내 몸이 부서져도 사역을 위해서라면 모든 것을 감당해야 한다고 생각했습니다.
+      <span class="cite">— 목회자로서의 고백</span>
+    </blockquote>
+    <p>그런데 이 생각이 틀리지 않았음에도 일정 부분 왜곡을 만들고 있음을 깨달았습니다. 많은 이들이 이 헌신을 <strong>자기 의(義)</strong>로 해석하기 시작했습니다. 하나님을 위한다 했지만 자기만족인 경우가, 다른 사람을 평가하는 잣대가 되어 버렸습니다. 방향이 맞건 틀리건 최대 속력으로 달리기만 하는 <strong>폭주 기관차</strong>처럼 말입니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="head">
+      <div class="icon">🧭</div>
+      <div><div class="num">POINT 03</div><h2>이드로는 신앙의 경험과 연륜으로 조언합니다</h2></div>
+    </div>
+    <p>이드로의 방문은 모세를 객관적으로 평가할 귀한 시간이었습니다. 그는 단순한 연장자가 아니라 <strong>제사장으로서 하나님의 음성에 귀 기울이던 사람</strong>이었습니다. 사위 모세가 아니라, 하나님이 부르신 영적 리더 모세를 객관적으로 평가해 주었습니다.</p>
+    <p>당시 왕이나 제사장의 권력은 절대적이어서 반문할 수 없었습니다. 그런데 그 절대 권력을 아는 이드로가 오히려 <strong>권한을 나누라</strong>는 반대되는 이야기를 합니다. 하나님께 헌신하되, 그 헌신이 나를 죽이는 헌신이라면 그건 욕심일 수 있습니다. 그래서 동역자를 구해야 합니다.</p>
+    <blockquote>먼저 성경의 말씀에 귀를 기울이는 태도가 가장 현명하고, 그 후에는 영적 리더들의 이야기에 귀를 기울이는 지혜가 있어야 합니다.
+      <span class="cite">— 듣는 귀에 대하여</span>
+    </blockquote>
+  </div>
+
+  <div class="section">
+    <div class="head">
+      <div class="icon">💎</div>
+      <div><div class="num">POINT 04</div><h2>'하일'을 가진 동역자 — 성품이 곧 능력입니다</h2></div>
+    </div>
+    <p>이드로는 능력 있는 사람을 세우라 합니다. 그런데 여기서 '능력'은 세상적 행정력·재력·언변이 아닙니다.</p>
+    <div class="word-card">
+      <div class="heb">חַיִל<br><small style="font-size:13px;">하일</small></div>
+      <div class="meaning">재력이나 스펙이 아니라 <b>용기, 힘, 도덕적 고결함</b>을 뜻합니다. 하나님 나라의 유능함은 속력이 아니라 <b>방향</b>이며, 스펙이 아니라 <b>성품</b>입니다. 하일을 가진 사람은 빨리 달리는 사람이 아니라, 옳은 방향으로 함께 걷는 사람입니다.</div>
+    </div>
+    <div class="trait-grid">
+      <div class="trait">
+        <div class="t-title"><span>①</span> 하나님을 경외하는 사람</div>
+        <div class="t-body">하나님이 우리를 보고 계신다 믿는 사람이라면, 자신의 말과 행동을 조심하고 또 조심하려 노력합니다. 경외가 곧 삶의 태도가 됩니다.</div>
+      </div>
+      <div class="trait">
+        <div class="t-title"><span>②</span> 참되어 거짓이 없는 사람 <small style="color:var(--sub);">에메트(אֱמֶת)</small></div>
+        <div class="t-body">기도 끝의 '아멘'과 뿌리가 같은 단어로, 하나님의 신실하심을 묘사합니다. 상황·이익에 따라 말이 바뀌지 않고, 내가 온 무게를 실어 기대도 넘어지지 않는 <b>바위 같은 사람</b>입니다.</div>
+      </div>
+      <div class="trait">
+        <div class="t-title"><span>③</span> 부정직한 소득을 싫어하는 사람</div>
+        <div class="t-body">돈은 선악이 없고 어떻게 벌고 쓰느냐가 중요합니다. 낮은 자를 돌아보고 재정에 휘둘리지 않는 것, 나보다 남을 낫게 여기는 이타심과 도덕성이 리더의 자격입니다.</div>
+      </div>
+    </div>
+    <p style="margin-top:18px;">천부장·백부장·오십부장·십부장을 세우라 함은 <strong>계급을 세우라는 것이 아니라</strong>, 일을 규모에 맞게 나누라는 지혜입니다. 직분은 권력이 아니라 <strong>섬김의 자리이며, 지위가 아니라 감당할 무게</strong>입니다. 더 많은 권한에는 당연히 더 많은 의무가 따릅니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="head">
+      <div class="icon">🕊️</div>
+      <div><div class="num">POINT 05</div><h2>샬롬 — 모두가 평안히 가는 공동체</h2></div>
+    </div>
+    <div class="word-card">
+      <div class="heb">שָׁלוֹם<br><small style="font-size:13px;">샬롬</small></div>
+      <div class="meaning">그저 조용하거나 갈등이 없는 상태가 아니라, <b>모든 질서가 제자리를 찾은 완전한 조화와 회복의 상태</b>입니다. 백성과 리더 모두가 평안해야 합니다.</div>
+    </div>
+    <p>예수 그리스도의 임재는 우리에게 평안입니다. 천사들은 "하늘에는 영광, 땅에는 평화"라 외쳤고, 부활하신 예수님이 제자들에게 처음 하신 말씀도 <strong>"너희에게 평강이 있을지어다"</strong>였습니다. 하나님의 공동체는 평안에 거하는 곳이어야 합니다.</p>
+    <p>그러나 이 샬롬에는 조건이 있습니다. <strong>모세 혼자 짐을 질 때 공동체는 멈추거나 깨집니다.</strong> 우리가 짐을 나누어 질 때, 비로소 라온동행교회에 참된 샬롬이 임합니다.</p>
+    <blockquote>라온동행교회가 목사 한 사람의 어깨 위에 세워진 교회가 되지 않도록, 여러분 한 사람 한 사람이 교회의 든든한 기둥과 동역자가 되어 주십시오.
+      <span class="cite">— 공동체를 향한 부탁</span>
+    </blockquote>
+  </div>
+
+  <!-- ④ Keywords -->
+  <div class="keywords">
+    <div class="k-label">핵심 키워드</div>
+    <span class="tag">한계</span>
+    <span class="tag alt">동역자</span>
+    <span class="tag">하일(성품)</span>
+    <span class="tag gold">샬롬</span>
+    <span class="tag alt">짐을 나눔</span>
+    <span class="tag">함께 걸음</span>
+    <span class="tag gold">하나님 나라</span>
+  </div>
+
+  <!-- ⑤ Conclusion banner -->
+  <div class="banner">
+    <div class="b-label">ONE MESSAGE</div>
+    <div class="b-msg">"우리가 짐을 나누어 질 때,<br>비로소 참된 샬롬이 임합니다"</div>
+    <div class="b-sub">한 명의 독단적 영웅이 아니라, 12제자처럼 각자의 분량을 감당하며 함께 걷는 공동체.<br>느리더라도 함께 걸으면, 우리는 평안히 하나님 나라를 향해 걸어갈 수 있습니다.</div>
+  </div>
+
+  <!-- ⑥ Action Checklist -->
+  <div class="checklist">
+    <h3>이번 주 삶의 적용</h3>
+    <div class="desc">한 주 동안 실천하며 하나 하나 체크해 보세요. (체크 상태는 이 브라우저에 저장됩니다)</div>
+    <label class="check-item"><input type="checkbox" data-k="c1"><span class="box"></span><span class="txt">내가 혼자 짊어지고 있는 짐이 무엇인지 돌아보고, 나눌 수 있는 한 가지를 적어 본다.</span></label>
+    <label class="check-item"><input type="checkbox" data-k="c2"><span class="box"></span><span class="txt">내 생각만 고집하지 않고, 이번 주 최소 한 사람의 조언에 진심으로 귀를 기울인다.</span></label>
+    <label class="check-item"><input type="checkbox" data-k="c3"><span class="box"></span><span class="txt">공동체에서 소외되거나 지쳐 보이는 한 사람에게 먼저 다가가 안부를 묻는다.</span></label>
+    <label class="check-item"><input type="checkbox" data-k="c4"><span class="box"></span><span class="txt">속력(빨리)이 아닌 방향(옳게)을 기준으로 이번 주 나의 결정 하나를 점검한다.</span></label>
+    <label class="check-item"><input type="checkbox" data-k="c5"><span class="box"></span><span class="txt">교회의 한 자리에서 '이드로·모세·천부장'의 역할을 맡겠다고 결단하고 기도한다.</span></label>
+  </div>
+
+  <!-- ⑦ Prayer & Footer -->
+  <div class="prayer">
+    <div class="p-label">함께 드리는 기도</div>
+    <p>신실하신 하나님,<br>
+    혼자 모든 것을 감당하려던 우리의 마음을 내려놓습니다.<br>
+    나의 한계를 인정하게 하시고, 곁에 있는 동역자에게 짐을 나누는 용기를 주소서.<br>
+    속력이 아닌 방향으로, 스펙이 아닌 성품으로 서로를 세우게 하시고,<br>
+    라온동행교회 위에 온전한 샬롬을 부어 주소서.<br>
+    느리더라도 함께 걸어, 이미 시작된 하나님 나라를 향해 평안히 나아가게 하소서.<br>
+    예수님의 이름으로 기도합니다. 아멘.</p>
+  </div>
+
+  <footer>
+    <div class="church">라온동행교회</div>
+    <div class="tag-line">하나님 나라 유토피아를 꿈꾸는 · 쉬운목사 이광복</div>
+  </footer>
+
+</div>
+
+<script>
+// 체크박스 상태 저장 (GitHub Pages 정적 호스팅에서 동작 — localStorage 사용)
+(function(){
+  var boxes = document.querySelectorAll('.check-item input[type=checkbox]');
+  boxes.forEach(function(b){
+    var key = 'raon_pyeongan_' + b.dataset.k;
+    try{ if(localStorage.getItem(key)==='1') b.checked = true; }catch(e){}
+    b.addEventListener('change',function(){
+      try{ localStorage.setItem(key, b.checked?'1':'0'); }catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
