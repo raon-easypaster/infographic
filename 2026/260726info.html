@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시내산에 오르다 (모세 15) | 라온동행교회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main: #2E2A4A;      /* 깊은 인디고 - 임재/신비 */
+    --sub: #EDEAF6;       /* 연라벤더 배경 */
+    --accent: #C9A24B;    /* 골드 - 영광 */
+    --accent2: #7A6FB0;   /* 보라 포인트 */
+    --bg: #FBF9F5;        /* 아이보리 배경 */
+    --text: #2b2b33;
+    --gray: #767388;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.75;
+    word-break:keep-all;
+    font-size:16px;
+  }
+  .wrap{max-width:700px; margin:0 auto; padding:0 0 60px;}
+
+  /* ① Hero Header */
+  .hero{
+    position:relative;
+    padding:64px 28px 56px;
+    background: linear-gradient(160deg, var(--main) 0%, #3D3768 55%, var(--accent2) 100%);
+    color:#fff;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(201,162,75,0.18) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(201,162,75,0.15) 0%, transparent 45%);
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .church-name{
+    font-size:13px; letter-spacing:4px; font-weight:700; color:var(--accent);
+    text-transform:uppercase; margin-bottom:18px;
+  }
+  .series-tag{
+    display:inline-block; font-size:12px; font-weight:700; color:#fff;
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.3);
+    padding:5px 16px; border-radius:99px; margin-bottom:20px; letter-spacing:1px;
+  }
+  .hero h1{
+    font-family:'Gowun Batang', serif;
+    font-size:34px; font-weight:700; line-height:1.4; margin-bottom:14px;
+  }
+  .hero .scripture-ref{
+    font-size:15px; font-weight:500; color:#e7e2f5; margin-bottom:8px;
+  }
+  .hero .date{font-size:13px; color:rgba(255,255,255,0.65);}
+
+  /* ② Scripture Context */
+  .scripture-box{
+    margin:-30px 20px 0; position:relative; z-index:2;
+    background:#fff; border-radius:18px; padding:32px 28px;
+    box-shadow:0 12px 32px rgba(46,42,74,0.15);
+    border-left:6px solid var(--accent);
+  }
+  .scripture-label{
+    font-size:12px; font-weight:900; color:var(--accent2); letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:12px;
+  }
+  .scripture-text{
+    font-family:'Gowun Batang', serif;
+    font-size:18px; line-height:1.9; color:var(--main); font-weight:400;
+  }
+  .scripture-text .src{display:block; margin-top:10px; font-size:13px; color:var(--gray); font-family:'Noto Sans KR', sans-serif; font-weight:700;}
+
+  section{padding:48px 24px 0;}
+  .sec-label{
+    font-size:12px; font-weight:900; color:var(--accent2); letter-spacing:3px;
+    text-transform:uppercase; margin-bottom:10px; text-align:center;
+  }
+  .sec-title{
+    font-family:'Gowun Batang', serif;
+    font-size:24px; font-weight:700; color:var(--main); text-align:center; margin-bottom:32px;
+  }
+
+  /* ③ Main Logic Grid */
+  .point-card{
+    background:#fff; border-radius:20px; padding:28px 26px; margin-bottom:20px;
+    box-shadow:0 4px 18px rgba(46,42,74,0.07);
+    border:1px solid #ece8f5;
+  }
+  .point-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:36px; height:36px; border-radius:50%;
+    background:var(--main); color:var(--accent); font-weight:900; font-size:15px;
+    margin-bottom:14px;
+  }
+  .point-card h3{
+    font-family:'Gowun Batang', serif;
+    font-size:20px; color:var(--main); margin-bottom:12px; font-weight:700;
+  }
+  .point-card p{font-size:15px; color:#3f3d4a; margin-bottom:12px;}
+  .point-card p:last-child{margin-bottom:0;}
+  blockquote{
+    margin:16px 0; padding:16px 20px;
+    background:var(--sub); border-left:4px solid var(--accent2);
+    border-radius:0 12px 12px 0;
+    font-family:'Gowun Batang', serif; font-style:normal;
+    font-size:15px; color:var(--main); line-height:1.8;
+  }
+  .word-note{
+    display:inline-block; font-size:12px; background:#fff7e6; color:#8a6a1f;
+    border:1px solid #f0dfae; padding:3px 10px; border-radius:8px; margin:6px 0; font-weight:700;
+  }
+
+  /* ④ Keywords */
+  .tags{display:flex; flex-wrap:wrap; gap:10px; justify-content:center;}
+  .tag{
+    background: var(--main); color:#fff; font-size:13px; font-weight:700;
+    padding:9px 18px; border-radius:99px;
+  }
+  .tag.gold{background:var(--accent); color:#2b2205;}
+  .tag.light{background:var(--sub); color:var(--main); border:1px solid #ded7ef;}
+
+  /* ⑤ Conclusion Banner */
+  .banner{
+    margin-top:24px;
+    background: linear-gradient(120deg, var(--main), var(--accent2));
+    border-radius:20px; padding:36px 28px; text-align:center; color:#fff;
+  }
+  .banner .label{font-size:12px; letter-spacing:2px; color:var(--accent); font-weight:900; margin-bottom:12px; text-transform:uppercase;}
+  .banner p{font-family:'Gowun Batang', serif; font-size:19px; line-height:1.8; font-weight:700;}
+
+  /* ⑥ Checklist */
+  .checklist{background:#fff; border-radius:20px; padding:8px 24px; box-shadow:0 4px 18px rgba(46,42,74,0.07); border:1px solid #ece8f5;}
+  .check-item{
+    display:flex; align-items:flex-start; gap:14px;
+    padding:18px 0; border-bottom:1px dashed #e5e1f0;
+    cursor:pointer;
+  }
+  .check-item:last-child{border-bottom:none;}
+  .check-box{
+    flex:0 0 24px; height:24px; width:24px; border-radius:7px;
+    border:2px solid var(--accent2); margin-top:2px;
+    display:flex; align-items:center; justify-content:center;
+    transition:all .2s;
+  }
+  .check-item.done .check-box{background:var(--accent2); border-color:var(--accent2);}
+  .check-box svg{width:14px; height:14px; opacity:0; transition:opacity .15s;}
+  .check-item.done .check-box svg{opacity:1;}
+  .check-text{font-size:15px; color:#3f3d4a; line-height:1.6; transition:color .2s;}
+  .check-item.done .check-text{color:#b3afc4; text-decoration:line-through;}
+
+  /* ⑦ Prayer & Footer */
+  .prayer-box{
+    background: var(--sub); border-radius:20px; padding:32px 28px; text-align:center;
+  }
+  .prayer-box .sec-label{color:var(--accent2);}
+  .prayer-box p{
+    font-family:'Gowun Batang', serif; font-size:16px; line-height:2; color:var(--main);
+  }
+  footer{
+    text-align:center; padding:48px 24px 16px; color:var(--gray); font-size:13px;
+  }
+  footer .church{font-weight:700; color:var(--main); font-size:14px; margin-bottom:4px;}
+
+  @media (max-width:480px){
+    .hero h1{font-size:27px;}
+    .scripture-text{font-size:16px;}
+  }
+</style>
+</head>
+<body data-scripture="출애굽기 24:12-18">
+<div class="wrap">
+
+  <!-- ① Hero Header -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="church-name">라온동행교회 · 쉬운목사 이광복</div>
+      <div class="series-tag">모세의 길을 따라가는 열다섯 번째 시간</div>
+      <h1>시내산에 오르다<br>(모세 15)</h1>
+      <div class="scripture-ref">출애굽기 24장 12–18절</div>
+      <div class="date">2026. 7. 26</div>
+    </div>
+  </div>
+
+  <!-- ② Scripture Context -->
+  <div class="scripture-box">
+    <div class="scripture-label">오늘의 중심 말씀</div>
+    <div class="scripture-text">
+      "여호와께서 모세에게 이르시되 너는 산에 올라 내게로 와서 거기 있으라 네가 그들을 가르치도록 내가 율법과 계명을 친히 기록한 돌판을 네게 주리라"
+      <span class="src">출애굽기 24장 12절</span>
+    </div>
+  </div>
+
+  <!-- 도입 -->
+  <section>
+    <div class="sec-label">Prologue</div>
+    <div class="sec-title">인스턴트 시대, 우리는 기다릴 수 있는가</div>
+    <div class="point-card">
+      <p>사람들은 현대사회를 인스턴트 사회라고 부릅니다. 모든 것을 쉽게 구하고 쉽게 소비하기 때문입니다. 급변하는 AI 시대 속에서 우리는 전통과 관습의 중요성을, 오랜 시간을 들여 쌓아야 하는 것들의 가치를 쉽게 잊고 살아갑니다.</p>
+      <blockquote>여러분은 이렇게 빠르게 변하는 시대에 어떤 방식으로 적응하며 살아가고 계십니까?</blockquote>
+      <p>하나님은 모세에게 돌판을 그냥 주실 수도 있었습니다. 그런데 무려 <strong>46일</strong>에 걸쳐 건네주셨습니다. 이 46일 속에, 오늘 우리에게 필요한 세 가지 초청이 담겨 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ③ Main Logic Grid -->
+  <section>
+    <div class="sec-label">Three Points</div>
+    <div class="sec-title">오늘의 말씀 — 세 가지 초청</div>
+
+    <div class="point-card">
+      <div class="point-num">1</div>
+      <h3>하나님의 영광을 보라</h3>
+      <p>모세가 산에 오르매 구름이 산을 가렸습니다. 구름은 히브리어로 <span class="word-note">עָנָן (아난)</span>, 하나님과 그리스도의 임재를 상징합니다. 재미있는 것은, 이 구름이 하나님을 감추면서 동시에 하나님을 드러낸다는 점입니다.</p>
+      <blockquote>구름은 하나님의 영광을 다 보여주지 않습니다. 그러나 동시에 하나님이 거기 계심을 분명하게 보여줍니다. 신비와 확신, 이 둘은 함께 갑니다.</blockquote>
+      <p>하나님의 영광은 <span class="word-note">כָּבוֹד (카보드)</span> — '무거움, 영광, 존귀'라는 뜻입니다. 값없이 주신 은혜이지 값싼 은혜가 아닙니다. 예배 오시기 전, 단 5분이라도 "하나님을 만나러 간다"는 마음으로 숨을 고르셨습니까?</p>
+    </div>
+
+    <div class="point-card">
+      <div class="point-num">2</div>
+      <h3>하나님과의 특별한 동행이 필요합니다</h3>
+      <p>모세는 40일을 산에 머물며 하나님과 교제했습니다. 율법은 히브리어로 <span class="word-note">תּוֹרָה (토라)</span>, 본래 "규정집"이 아니라 "가르침"이라는 뜻입니다. 하나님이 모세에게 주려 하신 것은 차가운 규정집이 아니라, 관계 안에서 주어지는 가르침이었습니다.</p>
+      <blockquote>모르는 것보다 위험한 것은, 안다고 착각하는 것입니다.</blockquote>
+      <p>기도 응답에는 세 가지가 있습니다 — YES, NO, Wait. 우리는 하나님과의 교제 가운데 짧은 시간에 빠른 응답만 원하고 있지는 않습니까?</p>
+    </div>
+
+    <div class="point-card">
+      <div class="point-num">3</div>
+      <h3>모세의 위임</h3>
+      <p>모세는 산에 오를 때, 장로들에게 자신을 대신하여 아론과 훌에게 권한을 위임합니다. 모세가 하나님과 깊은 교제를 할 수 있었던 이유는 그를 돕는 동역자가 있었고, 모세가 그들을 전적으로 신뢰했기 때문입니다.</p>
+      <blockquote>낮은 자의 하나님으로 오신 예수님처럼, 인간의 몸을 입어 죽기까지 낮아지셔서 복종하셨던 예수님처럼 그렇게 살아가길 소망합니다.</blockquote>
+      <p>우리는 지금 이 교회에서 누군가의 동역자가 되고 있습니까? 그리고 함께 동역할 수 있도록 다른 이를 신뢰하고 있습니까?</p>
+    </div>
+  </section>
+
+  <!-- ④ Keywords -->
+  <section>
+    <div class="sec-label">Keywords</div>
+    <div class="sec-title">오늘의 핵심 단어</div>
+    <div class="tags">
+      <span class="tag gold">#구름_아난</span>
+      <span class="tag">#영광_카보드</span>
+      <span class="tag light">#토라_가르침</span>
+      <span class="tag">#기다림</span>
+      <span class="tag light">#위임과신뢰</span>
+      <span class="tag">#값싼은혜아닌</span>
+      <span class="tag light">#섬김</span>
+    </div>
+  </section>
+
+  <!-- ⑤ Conclusion Banner -->
+  <section>
+    <div class="banner">
+      <div class="label">One Message</div>
+      <p>모세를 부르셨던 하나님이 오늘 우리를 부르십니다.<br>주님을 만나는 자리로, 나와 함께 교제하자고 말씀하십니다.</p>
+    </div>
+  </section>
+
+  <!-- ⑥ Action Checklist -->
+  <section>
+    <div class="sec-label">Action</div>
+    <div class="sec-title">오늘 내 삶에</div>
+    <div class="checklist" id="checklist">
+      <div class="check-item" data-key="c1">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="4 12 9 18 20 6"/></svg></div>
+        <div class="check-text">예배 오기 전, 단 5분이라도 "하나님을 만나러 간다"는 마음으로 숨을 고르기</div>
+      </div>
+      <div class="check-item" data-key="c2">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="4 12 9 18 20 6"/></svg></div>
+        <div class="check-text">빠른 응답을 조급하게 구하기보다, 하나님과의 교제 시간을 이번 주에 따로 떼어놓기</div>
+      </div>
+      <div class="check-item" data-key="c3">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="4 12 9 18 20 6"/></svg></div>
+        <div class="check-text">이번 주, 내가 신뢰하고 함께 동역할 수 있는 한 사람에게 감사와 신뢰를 표현하기</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ Prayer & Footer -->
+  <section>
+    <div class="sec-label" style="color:var(--accent2)">Prayer</div>
+    <div class="sec-title">마무리 기도</div>
+    <div class="prayer-box">
+      <p>
+        하나님 아버지, 구름 속에서도 분명히 계셨던 주님을<br>
+        오늘 저희도 신비와 확신 가운데 만나게 하소서.<br>
+        빠르고 쉬운 것에 익숙한 저희가 주님과의 교제만큼은<br>
+        서두르지 않고 기다릴 줄 아는 자 되게 하시고,<br>
+        서로를 신뢰하며 낮은 자리에서 섬기는 라온동행교회 되게 하소서.<br>
+        예수님의 이름으로 기도합니다. 아멘.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="church">라온동행교회</div>
+    <div>담임목사 이광복 (쉬운목사) · 기독교 대한성결교회</div>
+  </footer>
+
+</div>
+
+<script>
+  // 체크리스트 상태는 localStorage에 저장됩니다 (정적 페이지이므로 사용 — 필요 없으면 이 스크립트를 지워도 무방합니다).
+  document.querySelectorAll('.check-item').forEach(item => {
+    const key = 'sermon260726_' + item.dataset.key;
+    if (localStorage.getItem(key) === '1') item.classList.add('done');
+    item.addEventListener('click', () => {
+      item.classList.toggle('done');
+      localStorage.setItem(key, item.classList.contains('done') ? '1' : '0');
+    });
+  });
+</script>
+</body>
+</html>
