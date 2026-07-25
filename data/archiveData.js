@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260726info.html",
+    "relativeURL": "2026/260726info.html",
+    "date": "2026-07-26",
+    "title": "시내산에 오르다 (모세 15) | 라온동행교회",
+    "scripture": "출애굽기 24:12-18"
+  },
+  {
     "fileName": "260712info.html",
     "relativeURL": "2026/260712info.html",
     "date": "2026-07-12",
