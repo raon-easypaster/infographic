@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법궤 — 라온동행교회 디지털 설교 리포트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main:#0F3D3E;      /* 깊은 청록 */
+    --main-dark:#092626;
+    --sub:#3E7C7B;       /* 서브 청록 */
+    --accent:#C9A227;    /* 법궤의 금 */
+    --accent-light:#E9CE7B;
+    --bg:#FBF7EE;        /* 따뜻한 아이보리 */
+    --card:#FFFFFF;
+    --ink:#22302F;
+    --ink-soft:#5A6B69;
+    --line:#E4DCC6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans KR',sans-serif;
+    line-height:1.7;
+    font-size:16px;
+  }
+  .wrap{max-width:700px;margin:0 auto;padding:0 0 60px;}
+  h1,h2,h3,.serif{font-family:'Gowun Batang',serif;}
+
+  /* ① Hero */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(201,162,39,0.35), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(62,124,123,0.5), transparent 50%),
+      linear-gradient(160deg, var(--main) 0%, var(--main-dark) 100%);
+    color:#fff;
+    padding:56px 32px 40px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 40px);
+  }
+  .hero-series{
+    display:inline-block;
+    font-size:13px; letter-spacing:2px; font-weight:700;
+    color:var(--accent-light);
+    border:1px solid rgba(233,206,123,0.5);
+    border-radius:20px; padding:5px 14px;
+    margin-bottom:18px;
+    position:relative;
+  }
+  .hero h1{
+    font-size:44px; margin:0 0 14px; font-weight:700; color:#fff;
+    position:relative;
+  }
+  .hero .scripture-ref{
+    font-size:16px; color:#D8E9E8; margin:0 0 4px; position:relative;
+  }
+  .hero .date{
+    font-size:14px; color:rgba(255,255,255,0.6); position:relative;
+  }
+
+  /* ② Scripture context */
+  .scripture-box{
+    margin:-26px 20px 36px;
+    background:var(--card);
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(15,61,62,0.15);
+    padding:26px 24px;
+    position:relative;
+    border-top:4px solid var(--accent);
+  }
+  .scripture-box .label{
+    font-size:12px; letter-spacing:2px; font-weight:700; color:var(--accent);
+    text-transform:uppercase; margin-bottom:10px;
+  }
+  .scripture-box p{
+    font-family:'Gowun Batang',serif;
+    font-size:18px; color:var(--ink); margin:0 0 6px;
+  }
+  .scripture-box .ref{ font-size:13px; color:var(--ink-soft); }
+
+  section{ padding:6px 20px; }
+  .section-title{
+    font-size:22px; font-weight:700; color:var(--main);
+    margin:34px 0 18px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title .emoji{font-size:24px;}
+
+  /* Main message */
+  .main-message{
+    background:linear-gradient(135deg, var(--main) 0%, var(--sub) 100%);
+    color:#fff; border-radius:14px; padding:30px 26px; margin:10px 20px 30px;
+    text-align:center;
+  }
+  .main-message .tag{font-size:12px; letter-spacing:2px; color:var(--accent-light); margin-bottom:10px; font-weight:700;}
+  .main-message p{
+    font-family:'Gowun Batang',serif; font-size:22px; line-height:1.6; margin:0;
+  }
+
+  /* ③ Points */
+  .point-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 22px 20px;
+    margin-bottom:18px;
+    box-shadow:0 4px 14px rgba(15,61,62,0.06);
+  }
+  .point-card .head{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .point-num{
+    flex:0 0 auto;
+    width:38px; height:38px; border-radius:50%;
+    background:var(--main); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:16px; font-family:'Gowun Batang',serif;
+  }
+  .point-card .head h3{ margin:0; font-size:19px; color:var(--main); }
+  .point-card .body p{ margin:0 0 12px; font-size:15.5px; color:var(--ink); }
+  .point-card blockquote{
+    margin:14px 0 0; padding:14px 16px;
+    background:var(--bg);
+    border-left:3px solid var(--accent);
+    border-radius:6px;
+    font-family:'Gowun Batang',serif;
+    font-style:italic; color:#3a4a48; font-size:15px;
+  }
+
+  /* ④ Keywords */
+  .keywords{ display:flex; flex-wrap:wrap; gap:10px; padding:4px 20px 10px; }
+  .tag{
+    background:var(--main); color:#fff;
+    padding:8px 16px; border-radius:20px;
+    font-size:13.5px; font-weight:500;
+  }
+  .tag.gold{ background:var(--accent); color:#3a2c00; }
+
+  /* ⑤ Quote emphasis */
+  .quote-banner{
+    margin:34px 20px; padding:34px 26px;
+    background:var(--main-dark); color:#fff;
+    border-radius:16px; text-align:center;
+    position:relative;
+  }
+  .quote-banner::before{
+    content:"“"; font-family:'Gowun Batang',serif; font-size:70px; color:var(--accent);
+    position:absolute; top:-6px; left:20px; opacity:0.6;
+  }
+  .quote-banner p{
+    font-family:'Gowun Batang',serif; font-size:19px; line-height:1.7; margin:0;
+  }
+
+  /* Conclusion banner */
+  .conclusion-banner{
+    margin:10px 20px 30px;
+    background:var(--accent);
+    border-radius:14px;
+    padding:26px 24px;
+    color:#3a2c00;
+  }
+  .conclusion-banner .label{font-size:12px; letter-spacing:2px; font-weight:700; margin-bottom:8px; text-transform:uppercase;}
+  .conclusion-banner p{ font-family:'Gowun Batang',serif; font-size:19px; margin:0; line-height:1.6;}
+
+  /* ⑥ Checklist */
+  .checklist{ list-style:none; padding:0; margin:0 20px; }
+  .checklist li{
+    display:flex; align-items:flex-start; gap:12px;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:12px; padding:16px 18px; margin-bottom:12px;
+    font-size:15px;
+    cursor:pointer;
+  }
+  .checklist input{ margin-top:3px; width:18px; height:18px; accent-color:var(--main); flex:0 0 auto; }
+  .checklist .txt b{ color:var(--main); }
+  .checklist input:checked ~ .txt{ text-decoration:line-through; color:var(--ink-soft); }
+
+  /* ⑦ Prayer & footer */
+  .prayer-box{
+    margin:34px 20px 20px;
+    background:var(--card);
+    border:1.5px dashed var(--sub);
+    border-radius:14px;
+    padding:26px 24px;
+  }
+  .prayer-box .label{
+    font-size:13px; font-weight:700; color:var(--sub); letter-spacing:2px; margin-bottom:12px;
+  }
+  .prayer-box p{ font-family:'Gowun Batang',serif; font-size:15.5px; line-height:1.85; color:var(--ink); margin:0;}
+
+  footer{
+    text-align:center; padding:30px 20px 10px; color:var(--ink-soft); font-size:13px;
+  }
+  footer .church{ font-weight:700; color:var(--main); font-size:15px; margin-bottom:4px;}
+
+  @media (max-width:480px){
+    .hero h1{font-size:32px;}
+    .main-message p{font-size:19px;}
+  }
+
+  @media print{
+    body{background:#fff;}
+    .checklist li{break-inside:avoid;}
+    .hero, .quote-banner, .conclusion-banner{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body data-scripture="출애굽기 25:10~22; 민수기 10:33~36">
+<div class="wrap">
+
+  <!-- ① Hero Header -->
+  <div class="hero">
+    <span class="hero-series">모세 시리즈 16</span>
+    <h1>법궤</h1>
+    <p class="scripture-ref">출애굽기 25:10~22 · 민수기 10:33~36</p>
+    <p class="date">2026. 8. 2. 주일예배 · 라온동행교회</p>
+  </div>
+
+  <!-- ② Scripture Context -->
+  <div class="scripture-box">
+    <div class="label">오늘의 중심 말씀</div>
+    <p>“거기서 내가 너와 만나고 속죄소 위 곧 증거궤 위에 있는 두 그룹 사이에서 내가 이스라엘 자손을 위하여 네게 명령할 모든 일을 네게 이르리라”</p>
+    <div class="ref">출애굽기 25:22, 개역개정</div>
+  </div>
+
+  <div class="main-message">
+    <div class="tag">핵심 메시지</div>
+    <p>법궤는 하나님이 세워주신 영적 기준이며, 그 위 속죄소는 우리의 자격이 아닌 전적인 은혜로 하나님께 나아가는 길입니다.</p>
+  </div>
+
+  <!-- ③ Main Logic Grid -->
+  <section>
+    <div class="section-title"><span class="emoji">🧭</span>법궤가 말하는 네 가지</div>
+
+    <div class="point-card">
+      <div class="head"><div class="point-num">하나</div><h3>하나님이 세워주신 영적 기준</h3></div>
+      <div class="body">
+        <p>출애굽기 1장 8절, "요셉을 알지 못하는 새 왕이 일어나 애굽을 다스리더니." 400년의 시간 속에서 이스라엘도 언약의 기억을 잃어가고 있었습니다. 24년 전 월드컵도, 76년 전 6.25도 쉽게 잊는 우리처럼요. 광야로 나선 백성에게는 분명한 영적 네비게이션, 곧 하나님과의 언약을 새길 기준이 필요했습니다.</p>
+        <blockquote>"법궤라는 외형적인 것에 너무 치우치게 되면 이 상자에 매몰되어 버립니다. 법궤를 가지고 있는 건 껍데기만 가지고 있는 것뿐입니다."</blockquote>
+      </div>
+    </div>
+
+    <div class="point-card">
+      <div class="head"><div class="point-num">둘</div><h3>속죄소 — 은혜의 자리</h3></div>
+      <div class="body">
+        <p>법궤 위 케루빔(그룹)은 창세기 3장 24절에서 에덴 동산 길을 막아섰던 바로 그 존재입니다. 그런데 법궤 위에서는 정반대로, 날개를 펴 속죄소를 덮고 고개 숙여 그곳을 바라봅니다. 심판의 파수꾼이 은혜의 증인으로 바뀐 것입니다. 속죄소(카파르)는 70인역에서 '힐라스테리온'으로 번역되었고, 바울은 로마서 3:25에서 예수님을 바로 이 화목제물로 부릅니다.</p>
+        <blockquote>"이 자격을 우리가 노력하여 얻었습니까? 아닙니다. 이것은 우리에게 주님께서 아무런 대가 없이 주신 것입니다."</blockquote>
+      </div>
+    </div>
+
+    <div class="point-card">
+      <div class="head"><div class="point-num">셋</div><h3>증거판 — 말씀을 귀히 여기라</h3></div>
+      <div class="body">
+        <p>돌판 자체에는 능력이 없습니다. 능력은 그 위에 새겨진 말씀, 곧 언약에 있습니다. 성경을 부적처럼 가지고 다니는 것은 아무 의미가 없습니다. 읽어도 삶에서 살아내지 않으면 소용이 없습니다.</p>
+        <blockquote>"아기가 첫발을 내딛으면 모두 박수를 칩니다. 그런데 다 큰 아이가 걷는다고 박수를 쳐 주지 않습니다. 여러분은 아직도 걷는 것만으로 박수받고 싶어 하는 신앙은 아닙니까?"</blockquote>
+      </div>
+    </div>
+
+    <div class="point-card">
+      <div class="head"><div class="point-num">넷</div><h3>법궤가 앞서가게 하라</h3></div>
+      <div class="body">
+        <p>선발대가 먼저 가서 상황을 살피듯, 법궤는 언제나 이스라엘의 맨 앞에서 광야 길을 열었습니다. 우리 역시 우리의 생각과 계획이 아니라, 그리스도께서 먼저 걸어가신 길을 따라 걸어야 합니다.</p>
+        <blockquote>"주님이 걸어가신 길을 따를 때, 광야는 안식처가 됩니다. 힘들어 보이는 그 길, 우리 주님이 먼저 걸어가 주셨습니다."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ Keywords -->
+  <section>
+    <div class="section-title"><span class="emoji">🏷️</span>핵심 키워드</div>
+    <div class="keywords">
+      <span class="tag gold">#선행은총</span>
+      <span class="tag">#속죄소</span>
+      <span class="tag gold">#전적인은혜</span>
+      <span class="tag">#증거판</span>
+      <span class="tag gold">#성화</span>
+      <span class="tag">#케루빔</span>
+      <span class="tag">#영적네비게이션</span>
+    </div>
+  </section>
+
+  <!-- ⑤ Quote / Emphasis -->
+  <div class="quote-banner">
+    <p>여러분의 인생은 누구의 뒤를 따라가고 있습니까?<br>주님과 함께 그 길을 걷는 하나님의 자녀들이 되길 축복합니다.</p>
+  </div>
+
+  <!-- Conclusion Banner -->
+  <div class="conclusion-banner">
+    <div class="label">오늘의 결론</div>
+    <p>법궤(그리스도)를 따라 걸을 때, 광야 같은 인생길이 안식처가 됩니다. 형식이 아니라 그 안에 담긴 하나님의 은혜와 말씀을 붙들고, 주님이 먼저 걸어가신 길을 뒤따라갑시다.</p>
+  </div>
+
+  <!-- ⑥ Action Checklist -->
+  <section>
+    <div class="section-title"><span class="emoji">✅</span>오늘 내 삶에</div>
+    <ul class="checklist">
+      <li>
+        <input type="checkbox" id="c1"><label for="c1" class="txt"><b>겸손히 은혜를 기억하기</b> — 나의 자격이 아니라, 주님이 값없이 주신 대속의 은혜로 지금 여기 있음을 기억합니다.</label>
+      </li>
+      <li>
+        <input type="checkbox" id="c2"><label for="c2" class="txt"><b>말씀을 삶으로 살아내기</b> — 성경을 들고 다니는 것을 넘어, 이번 주 한 구절이라도 삶으로 살아냅니다.</label>
+      </li>
+      <li>
+        <input type="checkbox" id="c3"><label for="c3" class="txt"><b>법궤를 따라 걷기</b> — 내 계획과 다르더라도, 주님이 먼저 걸어가신 그 길을 이번 주 한 걸음 따라갑니다.</label>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ⑦ Prayer & Footer -->
+  <div class="prayer-box">
+    <div class="label">🙏 기도</div>
+    <p>하나님, 우리에게 법궤를 주셔서 영적 기준을 세워주시고, 속죄소를 통해 값없는 은혜로 나아갈 길을 열어주심을 감사합니다. 말씀을 귀히 여기며 살아내게 하시고, 우리 삶의 걸음이 언제나 주님을 뒤따르게 하옵소서. 예수님의 이름으로 기도합니다. 아멘.</p>
+  </div>
+
+  <footer>
+    <div class="church">라온동행교회</div>
+    <div>담임목사 이광복 (쉬운목사)</div>
+  </footer>
+
+</div>
+<!-- 체크박스 상태는 localStorage에 저장되지 않으며, 새로고침 시 초기화됩니다. (정적 페이지 특성상 세션 내에서만 유지) -->
+</body>
+</html>
