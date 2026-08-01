@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260802info.html",
+    "relativeURL": "2026/260802info.html",
+    "date": "2026-08-02",
+    "title": "법궤 — 라온동행교회 디지털 설교 리포트",
+    "scripture": "출애굽기 25:10~22; 민수기 10:33~36"
+  },
+  {
     "fileName": "260726info.html",
     "relativeURL": "2026/260726info.html",
     "date": "2026-07-26",
