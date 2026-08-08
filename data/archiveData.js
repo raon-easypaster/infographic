@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260809info.html",
+    "relativeURL": "2026/260809info.html",
+    "date": "2026-08-09",
+    "title": "나를 지워주십시오 | 라온동행교회 디지털 설교 리포트",
+    "scripture": "출애굽기 32:30-32"
+  },
+  {
     "fileName": "260802info.html",
     "relativeURL": "2026/260802info.html",
     "date": "2026-08-02",
