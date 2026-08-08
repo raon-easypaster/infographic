@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나를 지워주십시오 | 라온동행교회 디지털 설교 리포트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main:#2C3454;
+    --main-deep:#1D2340;
+    --sub:#565F82;
+    --accent:#D9A44A;
+    --accent-soft:#F1DDAC;
+    --bg:#F7F5EF;
+    --card:#FFFFFF;
+    --text:#2A2A2E;
+    --text-soft:#6B6B72;
+    --line:#E7E2D6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans KR',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+  }
+  .wrap{max-width:700px;margin:0 auto;padding:0 0 60px;}
+
+  /* Hero */
+  .hero{
+    background:radial-gradient(circle at 20% 20%, var(--sub) 0%, var(--main) 45%, var(--main-deep) 100%);
+    color:#fff;padding:56px 28px 44px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;
+    border:2px solid rgba(255,255,255,.12);border-radius:50%;
+  }
+  .hero::after{
+    content:"";position:absolute;bottom:-80px;left:-40px;width:180px;height:180px;
+    border:2px solid rgba(217,164,74,.25);border-radius:50%;
+  }
+  .hero .series{
+    display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;
+    color:var(--main-deep);background:var(--accent);
+    padding:5px 14px;border-radius:20px;margin-bottom:18px;
+  }
+  .hero .scripture{font-size:14px;letter-spacing:.05em;opacity:.85;margin-bottom:10px;}
+  .hero h1{
+    font-family:'Gowun Batang',serif;
+    font-size:34px;line-height:1.35;font-weight:700;margin-bottom:14px;
+    position:relative;z-index:1;
+  }
+  .hero .date{font-size:13px;opacity:.75;}
+
+  /* Scripture context */
+  .scripture-context{
+    margin:-20px 20px 0;background:var(--card);border-radius:16px;
+    padding:22px 24px;box-shadow:0 10px 30px rgba(44,52,84,.14);
+    position:relative;z-index:2;border-left:5px solid var(--accent);
+  }
+  .scripture-context .label{
+    font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.1em;margin-bottom:10px;
+  }
+  .scripture-context p{
+    font-family:'Gowun Batang',serif;font-size:15.5px;line-height:1.9;color:var(--main-deep);
+  }
+  .scripture-context .verse-num{color:var(--accent);font-weight:700;margin-right:2px;}
+
+  section{padding:44px 24px 0;}
+  .section-title{
+    font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:8px;text-align:center;
+  }
+  .section-heading{
+    font-family:'Gowun Batang',serif;font-size:22px;text-align:center;color:var(--main-deep);
+    margin-bottom:30px;font-weight:700;
+  }
+
+  /* Main message */
+  .main-message{
+    background:var(--main-deep);color:#fff;border-radius:18px;padding:32px 26px;
+    text-align:center;
+  }
+  .main-message p{
+    font-family:'Gowun Batang',serif;font-size:19px;line-height:1.75;
+  }
+
+  /* Points grid */
+  .point-card{
+    background:var(--card);border-radius:16px;padding:26px 24px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(44,52,84,.07);border:1px solid var(--line);
+  }
+  .point-card .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;background:var(--accent-soft);
+    color:var(--main-deep);font-weight:900;font-size:15px;margin-bottom:12px;
+  }
+  .point-card h3{
+    font-size:17px;color:var(--main-deep);margin-bottom:10px;font-weight:700;
+  }
+  .point-card p{font-size:14.5px;color:var(--text-soft);margin-bottom:8px;}
+  .point-card blockquote{
+    margin-top:12px;background:var(--bg);border-left:3px solid var(--accent);
+    padding:10px 14px;border-radius:6px;font-size:13.5px;color:var(--main-deep);
+    font-family:'Gowun Batang',serif;
+  }
+
+  /* Keywords */
+  .keywords{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+  .tag{
+    background:var(--main);color:#fff;font-size:13.5px;font-weight:500;
+    padding:8px 16px;border-radius:20px;
+  }
+  .tag.gold{background:var(--accent);color:var(--main-deep);font-weight:700;}
+
+  /* Conclusion banner */
+  .conclusion-banner{
+    background:linear-gradient(120deg,var(--accent-soft),#fff);
+    border:1.5px solid var(--accent);border-radius:18px;padding:28px 26px;text-align:center;
+  }
+  .conclusion-banner .kicker{font-size:12.5px;font-weight:700;color:var(--main-deep);letter-spacing:.08em;margin-bottom:10px;}
+  .conclusion-banner p{
+    font-family:'Gowun Batang',serif;font-size:18px;color:var(--main-deep);line-height:1.7;font-weight:700;
+  }
+
+  /* Checklist */
+  .checklist{background:var(--card);border-radius:16px;padding:24px;border:1px solid var(--line);}
+  .check-item{
+    display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line);
+  }
+  .check-item:last-child{border-bottom:none;}
+  .check-item input[type=checkbox]{
+    width:22px;height:22px;margin-top:2px;accent-color:var(--main);flex-shrink:0;
+  }
+  .check-item label{font-size:14.5px;color:var(--text);cursor:pointer;}
+  .check-item .desc{display:block;font-size:12.5px;color:var(--text-soft);margin-top:3px;}
+
+  /* Prayer */
+  .prayer-box{
+    background:var(--main-deep);color:#fff;border-radius:18px;padding:30px 26px;
+  }
+  .prayer-box .label{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.1em;margin-bottom:14px;text-align:center;}
+  .prayer-box p{font-family:'Gowun Batang',serif;font-size:14.5px;line-height:2;opacity:.92;}
+
+  footer{
+    text-align:center;padding:40px 24px 10px;color:var(--text-soft);font-size:13px;
+  }
+  footer .church{font-weight:700;color:var(--main-deep);font-size:14.5px;margin-bottom:4px;}
+
+  @media (max-width:480px){
+    .hero{padding:44px 20px 36px;}
+    .hero h1{font-size:26px;}
+    .scripture-context{margin:-16px 14px 0;padding:18px 18px;}
+    section{padding:36px 16px 0;}
+  }
+
+  @media print{
+    body{background:#fff;}
+    .hero::before,.hero::after{display:none;}
+  }
+</style>
+</head>
+<body data-scripture="출애굽기 32:30-32">
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="series">모세 시리즈 17</span>
+    <div class="scripture">출애굽기 32장 30-32절</div>
+    <h1>나를 지워주십시오</h1>
+    <div class="date">라온동행교회 · 2026. 8. 9</div>
+  </div>
+
+  <div class="scripture-context">
+    <div class="label">오늘의 중심 말씀</div>
+    <p>
+      <span class="verse-num">30</span>이튿날 모세가 백성에게 이르되 너희가 큰 죄를 범하였도다 내가 이제 여호와께로 올라가노니 혹 너희를 위하여 속죄가 될까 하노라 하고
+      <span class="verse-num">31</span>모세가 여호와께로 다시 나아가 여짜오되 슬프도소이다 이 백성이 자기들을 위하여 금 신을 만들었사오니 큰 죄를 범하였나이다
+      <span class="verse-num">32</span>그러나 이제 그들의 죄를 사하시옵소서 그렇지 아니하시오면 원하건대 주께서 기록하신 책에서 내 이름을 지워 버려 주옵소서
+    </p>
+  </div>
+
+  <section>
+    <div class="section-title">Main Message</div>
+    <div class="main-message">
+      <p>모세는 백성의 죄를 축소하지 않으면서도 그들을 버리지 않았고,<br>예수 그리스도께서는 모세가 이루지 못한 속죄를 십자가에서 완성하셨습니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Three Points</div>
+    <div class="section-heading">오늘의 말씀 — 세 가지</div>
+
+    <div class="point-card">
+      <div class="num">1</div>
+      <h3>모세는 백성의 죄를 축소하지 않았습니다</h3>
+      <p>모세는 백성에게, 그리고 하나님 앞에서 두 번이나 "큰 죄"라고 분명히 말했습니다. 불안 때문이라고 변명하지 않았고, 자신에게 책임을 돌리지도 않았습니다. 참된 사랑은 죄를 무조건 덮어 주는 것이 아니라, 정직하게 마주하는 데서 시작됩니다.</p>
+      <blockquote>"얼굴이 깨끗한지 확인하려면 거울을 보아야 합니다. 우리는 말씀이라는 거울 앞에 자신을 자주 비추어 보아야 합니다."</blockquote>
+    </div>
+
+    <div class="point-card">
+      <div class="num">2</div>
+      <h3>모세는 죄를 지은 백성을 버리지 않았습니다</h3>
+      <p>모세는 "혹 너희를 위하여 속죄가 될까"라며 확신 없이도 다시 하나님께 나아갔습니다. 자신의 이름을 생명책에서 지워 달라고 간구할 만큼, 백성의 죄를 자신의 슬픔으로 품었습니다. 이것이 중보자의 마음입니다.</p>
+      <blockquote>"그러나 이제 그들의 죄를 사하시옵소서... 원하건대 주께서 기록하신 책에서 내 이름을 지워 버려 주옵소서."</blockquote>
+    </div>
+
+    <div class="point-card">
+      <div class="num">3</div>
+      <h3>모세가 이루지 못한 속죄를 그리스도께서 이루셨습니다</h3>
+      <p>모세는 자신도 죄인이었기에 다른 사람의 죄를 대신 담당할 수 없었습니다. 그러나 예수 그리스도는 죄가 없으신 분이셨기에 우리의 죄를 실제로 담당하실 수 있었습니다. 모세는 속죄를 간구했지만, 예수님은 십자가 위에서 속죄를 완성하셨습니다.</p>
+      <blockquote>"모세는 '혹 너희를 위하여 속죄가 될까'라고 말했지만, 예수님은 십자가 위에서 '다 이루었다'고 선언하셨습니다."</blockquote>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Keywords</div>
+    <div class="keywords">
+      <span class="tag gold">#중보자</span>
+      <span class="tag">#회개</span>
+      <span class="tag">#정직함</span>
+      <span class="tag gold">#속죄</span>
+      <span class="tag">#성화</span>
+      <span class="tag">#사회적성결</span>
+      <span class="tag gold">#예수그리스도</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Conclusion</div>
+    <div class="conclusion-banner">
+      <div class="kicker">이번 주, 누구의 이름을 하나님 앞에 올려놓으시겠습니까?</div>
+      <p>죄를 축소하지 않으면서도, 그 이름을 포기하지 않고<br>하나님 앞으로 가져가는 한 주가 되기를 소망합니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Action Checklist</div>
+    <div class="section-heading">오늘 내 삶에</div>
+    <div class="checklist">
+      <div class="check-item">
+        <input type="checkbox" id="c1">
+        <label for="c1">하나님 앞에서 내 모습을 정직하게 살피기
+          <span class="desc">"이 정도면 괜찮다"고 넘기지 않고, 말씀의 거울 앞에 나를 비추어 봅니다.</span>
+        </label>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c2">
+        <label for="c2">포기하고 싶었던 사람을 위해 기도하기
+          <span class="desc">그 사람의 이름을 하나님 앞에 조용히 올려놓습니다.</span>
+        </label>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c3">
+        <label for="c3">내 능력이 아닌 그리스도께 맡기기
+          <span class="desc">내가 해결할 수 없는 사람과 문제를 완전한 중보자이신 예수님께 맡깁니다.</span>
+        </label>
+      </div>
+    </div>
+    <!-- 체크 상태는 저장하지 않습니다 (정적 페이지, localStorage 미사용) -->
+  </section>
+
+  <section>
+    <div class="section-title">Prayer</div>
+    <div class="prayer-box">
+      <div class="label">함께 기도하겠습니다</div>
+      <p>
+        하나님 아버지, 우리는 불안을 견디지 못하고 우리 손으로 붙들 수 있는 것들을 만들어 하나님보다 더 의지할 때가 많았습니다.
+        우리의 죄를 축소하고 다른 사람과 비교하며 스스로를 속였던 모습을 용서하여 주십시오.
+        모세처럼 죄를 죄라고 말하면서도 죄인을 포기하지 않는 사랑을 허락하여 주십시오.
+        그러나 우리가 다른 사람의 구원자가 될 수 없다는 사실도 잊지 않게 하시고, 우리가 감당할 수 없는 모든 사람과 문제를 완전한 중보자이신 예수 그리스도께 맡기게 하여 주십시오.
+        우리를 위해 십자가에서 죄와 저주를 담당하시고 속죄를 완성하신 예수님만 의지하며, 이번 한 주도 정직함과 중보의 자리를 지키며 살아가게 하여 주십시오.
+        예수님의 이름으로 기도합니다. 아멘.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="church">라온동행교회</div>
+    <div>담임목사 쉬운목사 이광복</div>
+  </footer>
+
+</div>
+</body>
+</html>
