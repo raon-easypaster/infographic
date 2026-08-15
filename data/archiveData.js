@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260816info.html",
+    "relativeURL": "2026/260816info.html",
+    "date": "2026-08-16",
+    "title": "제목 없음",
+    "scripture": ""
+  },
+  {
     "fileName": "260809info.html",
     "relativeURL": "2026/260809info.html",
     "date": "2026-08-09",
