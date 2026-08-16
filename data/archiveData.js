@@ -3,8 +3,8 @@ window.ARCHIVE_DATA = [
     "fileName": "260816info.html",
     "relativeURL": "2026/260816info.html",
     "date": "2026-08-16",
-    "title": "제목 없음",
-    "scripture": ""
+    "title": "얼굴의 광채 - 디지털 설교 리포트",
+    "scripture": "출애굽기 34장 29-35절"
   },
   {
     "fileName": "260809info.html",
