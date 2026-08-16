@@ -1,142 +1,528 @@
-## 260817 출 34장 29-35절 얼굴의 광채(모세시리즈 18)
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>얼굴의 광채 - 디지털 설교 리포트</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-> 29 모세가 그 증거의 두 판을 모세의 손에 들고 시내 산에서 내려오니 그 산에서 내려올 때에 모세는 자기가 여호와와 말하였음으로 말미암아 얼굴 피부에 광채가 나나 깨닫지 못하였더라  
-> 30 아론과 온 이스라엘 자손이 모세를 볼 때에 모세의 얼굴 피부에 광채가 남을 보고 그에게 가까이 하기를 두려워하더니  
-> 31 모세가 그들을 부르매 아론과 회중의 모든 어른이 모세에게로 오고 모세가 그들과 말하니  
-> 32 그 후에야 온 이스라엘 자손이 가까이 오는지라 모세가 여호와께서 시내 산에서 자기에게 이르신 말씀을 다 그들에게 명령하고  
-> 33 모세가 그들에게 말하기를 마치고 수건으로 자기 얼굴을 가렸더라  
-> 34 그러나 모세가 여호와 앞에 들어가서 함께 말할 때에는 나오기까지 수건을 벗고 있다가 나와서는 그 명령하신 일을 이스라엘 자손에게 전하며  
-> 35 이스라엘 자손이 모세의 얼굴의 광채를 보므로 모세가 여호와께 말하러 들어가기까지 다시 수건으로 자기 얼굴을 가렸더라
+    <!-- 동적 컬러 팔레트 생성 스크립트 (렌더링 전 적용하여 깜빡임 방지) -->
+    <script>
+        const setRandomTheme = () => {
+            const h = Math.floor(Math.random() * 360);
+            const root = document.documentElement;
+            
+            // HSL 기반 동적 컬러 팔레트 생성
+            const mainColor = `hsl(${h}, 45%, 35%)`;
+            const subColor = `hsl(${h}, 30%, 85%)`;
+            const accentColor = `hsl(${(h + 30) % 360}, 65%, 45%)`;
+            const bgColor = `hsl(${h}, 15%, 97%)`;
+            const cardBg = `#ffffff`;
+            const textMain = `hsl(${h}, 30%, 15%)`;
+            const textMuted = `hsl(${h}, 15%, 40%)`;
+            const borderColor = `hsl(${h}, 20%, 85%)`;
 
-### 도입: 뿔 달린 모세
+            root.style.setProperty('--main-color', mainColor);
+            root.style.setProperty('--sub-color', subColor);
+            root.style.setProperty('--accent-color', accentColor);
+            root.style.setProperty('--bg-color', bgColor);
+            root.style.setProperty('--card-bg', cardBg);
+            root.style.setProperty('--text-main', textMain);
+            root.style.setProperty('--text-muted', textMuted);
+            root.style.setProperty('--border-color', borderColor);
+        };
+        setRandomTheme();
+    </script>
 
-이탈리아 로마, 산 피에트로 인 빈콜리 성당에는 미켈란젤로가 조각한 모세상이 있습니다. 흰 대리석으로 만든 근육질의 노년 모세인데, 자세히 보면 머리에 뿔이 두 개 솟아 있습니다. 신학생 시절 자료를 검색하다가 이 사진을 처음 접했을 때, "엥! 왜 뿔이 나 있지?"라고 생각했습니다. 분명 미켈란젤로가 실수했을 리는 없는데, 왜 모세 머리에 뿔이 나 있을까 궁금했습니다.
+    <style>
+        /* Base Reset & Variables */
+        :root {
+            --font-body: 'Noto Sans KR', sans-serif;
+            --font-heading: 'Gowun Batang', serif;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 3rem;
+            --border-radius: 16px;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
+        }
 
-자료를 찾아보니 이유가 있었습니다. 4세기 히에로니무스가 히브리어 성경을 라틴어로 번역하면서, 오늘 본문의 “광채가 나나”라는 표현을 “뿔이 났다(cornuta)”로 옮겼습니다. 히브리어 ‘카란(קָרַן)’은 본래 “빛을 뻗다, 광채가 나다”는 뜻인데, ‘뿔’을 뜻하는 ‘케렌’과 연결될 수 있는 표현이었습니다. 이 번역 전통이 서양 미술 속에 뿔 달린 모세의 이미지를 남겼습니다.
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-저도 모르게 ‘피식’ 웃었던 기억이 납니다. 그런데 다시 생각해보면, 이건 마냥 웃을 일만은 아닙니다. 사람들은 왜 하필 ‘뿔’을 떠올렸을까요. 당시 뿔은 힘의 상징이었습니다. 위엄, 권력, 남들과 다른 특별함을 나타냅니다. 그렇기에 너무나도 당연하게 받아 들였으리라 생각합니다. 그리고 어쩌면 우리 마음 어딘가에도 이런 생각이 있는지 모릅니다. 우리의 욕망을 가지고 성경을 해석하고 하나님을 받아 들이는 실수를 하는 모습이 비일 비재 하니깐요. 아마도 가장 대표적인 부분은 기복신앙일테고, 우리 안에 욕망이 이뤄지길 간절히 원하는 마음이겠죠.
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
 
-그래서 이렇게 생각합니다. “하나님을 진짜로 만난 사람이라면, 뭔가 남다른 표식이 있어야 하지 않을까?”
-이 말이 완전히 틀린 말은 아니지만 여차하면 잘못된 신앙으로 치닫을 수 있습니다.
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
 
-오늘 본문은 이런 생각과는 전혀 다른 이야기를 합니다. 모세의 얼굴에 난 것은 뿔이 아니라 빛입니다. 그리고 이 빛은 힘의 상징이 아니라 은혜의 흔적입니다. 사람들은 오랫동안 뿔을 조각했지만, 정작 본문이 우리에게 보여주려는 것은 뿔이 아니라 빛이었다는 사실이 참 아이러니합니다.
+        /* ① Hero Header */
+        .hero {
+            position: relative;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-color) 100%);
+            color: #ffffff;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10%),
+                        radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.3;
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
 
-저는 이 본문을 묵상하며 세 가지 궁금증이 떠올랐습니다. 
-'이 빛은 어디서 왔는가, 모세는 왜 그 빛을 몰랐는가, 그리고 모세는 왜 얼굴을 가렸는가.'
-오늘은 이 세 질문을 따라가 보겠습니다.
+        .hero-date {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
 
----
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
 
-### 첫째, 빛은 만든 것이 아니라 흘러나온 것입니다
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
 
-29절을 보면,
-> “모세는 자기가 여호와와 말하였음으로 말미암아 얼굴 피부에 광채가 나나.”
+        /* ② Scripture Context */
+        .scripture-box {
+            margin: -2rem 2rem 3rem;
+            padding: 2.5rem 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 10;
+            border-top: 4px solid var(--main-color);
+        }
 
-광채의 원인을 분명하게 기록하고 있습니다. 모세가 특별해서가 아닙니다. 모세가 사십 일 동안 금식했다는 사실을 내세우지 않습니다. 분명 40일 금식은 대단한 일입니다. 목숨을 담보로 하는 금식입니다. 제가 일주일 금식은 해봤는데 40일은 엄두조차 못 내봤습니다. 그러나 40일 금식을 한 것이 공로가 되어서는 안 됩니다. 간혹 내가 40일 금식기도한 사람이야 라고 뽐내던 사람들을 보았습니다. 그들의 금식은 단순히 자기를 드러내기 위한 굶식이었습니다.
-그렇다면 본문은 무엇이 광채가 났다고 기록하나요.
-그 원은인 모세가 여호와와 말하였다는 점입니다.
+        .scripture-title {
+            font-family: var(--font-heading);
+            color: var(--main-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
 
-히브리어로 광채를 나타내는 동사가 ‘카란’입니다. 이 말은 얼굴에서 빛이 뻗어 나왔다는 뜻입니다. 본문은 모세가 스스로 빛을 만들어냈다고 말하지 않습니다. 여호와와 대화한 결과, 그의 얼굴에 하나님의 영광이 나타났다고 말할 뿐입니다.
+        .scripture-text {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+        
+        .scripture-text sup {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 4px;
+        }
 
-그런데 이 빛에는 또 하나의 의미가 있습니다. 모세의 얼굴은 개인적으로 경건한 사람에게 붙는 훈장이 아닙니다. 하나님의 말씀을 백성에게 전할 사람, 곧 언약의 중보자라는 사실을 나타내는 표지였습니다.
+        /* ③ Main Logic Grid */
+        .section-wrapper {
+            padding: 0 2rem;
+        }
 
-모세는 빛나는 얼굴로 산에 머물지 않았습니다. 광채가 나는 얼굴을 하고 내려와 아론과 회중의 어른들을 부르고, 여호와께서 이르신 말씀을 다 그들에게 명령했습니다. 빛은 혼자 누리라고 주어진 상이 아니라, 말씀을 전하라고 주어진 사명의 증표입니다. 모세가 산에서 내려온 것은 자기 혼자 빛나기 위해서가 아니라, 그 말씀을 짊어지고 백성에게로 내려오기 위해서였습니다.
+        .intro-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
 
-저는 목회를 시작하던 초기에 오해했던 부분이 있습니다. 설교를 잘 준비하면, 기도를 오래 하면, 제가 다른 이들보다 더 영적 리더의 역량을 갖추는 것이라 생각했습니다. 물론 훈련을 통해 우리가 성장하는 것은 당연합니다. 하지만 저는 그 성장을 착각했습니다. 성장해야 하는 것은 맞지만, 그 성장은 제가 쌓아 올리는 공로가 아니라 하나님이 은혜로 빚어 가시는 결과입니다. 이 사실을 착각했었습니다. 그러다 보니 저는 제 자신에게 집중하며 ‘어떻게 하면 빛나 보일까’를 더 고민했습니다. 이는 선후가 바뀐 모양입니다.
+        .intro-section p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
 
-본문은 이를 명확히 보여줍니다. 모세는 빛나 보이려고 애쓴 적이 없습니다. 그는 산 위에서 여호와와 말씀을 나누었고, 그 만남의 흔적이 얼굴에 나타났을 뿐입니다. 빛은 모세가 만들어낸 장식이 아니라 하나님께서 남기신 흔적이었습니다. 제가 목회자가 되려고 애쓴 점이 잘못은 아니지만 그것이 목적이 되어서는 안 되었습니다. 내가 하나님과 깊은 교제를 위해 해야했던 행동들일 뿐이고 하나님과의 교제가 깊어지면 자연스레 하나님의 영광이, 은혜가 드러나지는 것 뿐입니다.
+        .logic-card {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-오늘 본문 바로 앞, 32장부터 34장까지의 흐름을 보면 이 광채의 무게가 더 선명해집니다. 이스라엘은 금송아지를 만들어 언약을 깨뜨렸습니다. 모세는 그 배신한 백성을 위해 하나님 앞에 엎드려 중보했습니다. 그리고 하나님은 34장에서 다시 십계명을 새겨 주시며 자신의 이름을 선포하십니다.
+        .logic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
 
-> “여호와라 여호와라 자비롭고 은혜롭고 노하기를 더디하고 인자와 진실이 많은 하나님이라”(출 34:6).
+        .logic-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--sub-color);
+            width: 60px; height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+        }
 
-모세의 얼굴에 난 빛은 바로 이 자비와 은혜를 대면한 사람의 얼굴입니다. 배신한 백성을 끝까지 붙들고 중보한 사람, 하나님의 말씀을 들고 다시 백성에게 내려온 사람의 얼굴에 남은 흔적입니다.
+        .logic-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
 
-여러분, 우리 삶에도 빛이 있어야 한다면 그 빛의 출처는 하나님과 함께 머무는 자리여야 합니다. 다만 오해하지 않기를 바랍니다. 단순히 골방에서 기도를 많이 한다고 자동으로 얼굴에 광채가 나는 것은 아닙니다. 말씀과 기도는 우리를 빛나게 만드는 기술이 아닙니다. 하나님의 은혜를 바라보며 그분 앞에 머무는 자리일 뿐입니다. 변화는 우리의 성취가 아니라 성령께서 맺으시는 열매입니다.
+        .logic-content p {
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
 
-우리가 하나님 앞에 머물지 않으면서도 남들과 달라 보이려고 애쓰면, 빛이 아니라 뿔을 키우게 됩니다. 힘, 과시, 특별함을 붙들게 됩니다. 사람들 앞에 자기를 드러내기 위해 애씁니다. 제가 늘 강조하듯이 '호랑이는 죽어서 가죽을 남기고, 사람은 죽어서 이름을 남기고, 성도는 죽어서 그리스도를 남긴다.'는 말을 기억하십시오. 우리를 통해 그리스도가 나타나야 합니다. 자기의 의를 드러내기 위해 노력하는 사람에게는 그리스도가, 하나님의 은혜가 나타나지 않습니다. 그러나 하나님 앞에 머문 사람에게서는 자기 영광이 아니라 하나님의 은혜가 흘러나옵니다.
+        .logic-content strong {
+            color: var(--main-color);
+            font-weight: 700;
+            background: linear-gradient(180deg, transparent 60%, var(--sub-color) 40%);
+        }
 
----
+        .blockquote {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            background: var(--card-bg);
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--text-main);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
 
-### 둘째, 모세는 몰랐지만 분명히 달라졌습니다
+        /* ④ Word Cloud */
+        .keyword-section {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
 
-29절은 모세가 “깨닫지 못하였다”고 말합니다. 그런데 이 말이 “달라지지 않았다”고 말하지는 않습니다. 이 둘은 전혀 다른 이야기입니다. 모세의 얼굴 피부는 실제로 변했습니다. 다만 모세 자신이 그 변화를 인식하지 못했을 뿐입니다.
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
 
-반면 아론과 온 이스라엘은 똑똑히 보았습니다. 그들은 모세의 얼굴에서 광채를 보았고, 두려워 가까이 오지 못했습니다(30절). 모세 자신은 몰랐지만, 공동체는 그에게 일어난 변화를 보았습니다.
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
 
-여기서 우리가 흔히 빠지는 착각이 있습니다.
+        .tag {
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
+            background-color: var(--sub-color);
+            color: var(--main-color);
+            transition: all 0.3s ease;
+        }
+        
+        .tag.large { font-size: 1.3rem; font-weight: 700; background-color: var(--main-color); color: #fff;}
+        .tag.medium { font-size: 1.1rem; border: 1px solid var(--main-color); background: transparent; }
 
-“내가 괜찮으면 괜찮은 것이다.”
+        /* ⑤ Conclusion */
+        .conclusion {
+            margin: 2rem;
+            padding: 3rem 2rem;
+            background: var(--main-color);
+            color: #ffffff;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
 
-그런데 모세를 보면, 정작 자기 상태를 가장 늦게 아는 사람이 자기 자신일 수 있습니다. 요즘 이런 말이 있습니다.
+        .conclusion h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
 
-“주변에 빌런이 없으면 내가 빌런이다.”
+        .conclusion p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
 
-조금 과격한 말이지만, 이런 뜻입니다. 주변 사람 모두가 문제처럼 보인다면 정작 문제는 나 자신일 수 있다는 것입니다. 자기만 모르고 주변은 다 아는 경우가 실제로 있습니다.
+        /* ⑥ Action Checklist */
+        .action-section {
+            padding: 3rem 2rem;
+            background: var(--bg-color);
+            margin-top: 2rem;
+        }
 
-2026년 2월 27일, 기독교윤리실천운동이 발표한 ‘2026년 한국교회의 사회적 신뢰도 여론조사’를 보면 이 문제가 통계로도 드러납니다. 전체 국민 중 한국교회를 신뢰한다는 응답은 19.0%에 그쳤고, 신뢰하지 않는다는 응답은 75.4%였습니다. 그런데 더 눈여겨봐야 할 숫자가 있습니다. 무종교인의 한국교회 신뢰도는 6.8%에 불과했는데, 기독교인 스스로는 67.8%가 한국교회를 신뢰한다고 응답했습니다.
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-외부에서는 신뢰가 매우 낮은데, 안에서는 우리끼리 아직도 빛난다고 믿고 있는 겁니다.
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-저는 이 통계를 보며 뜨끔했습니다. 저도 목회자이기 전에 이 숫자 안에 들어가는 한 사람입니다. 제가 성도 앞에서, 가족 앞에서, 이웃 앞에서 정말 그리스도의 향기를 풍기고 있는지, 아니면 저 혼자만 “나는 괜찮은 목사다”라고 착각하고 있는지, 자신 있게 대답하기 어려운 순간들이 있었기 때문입니다.
+        .check-item:hover {
+            border-color: var(--main-color);
+            box-shadow: var(--shadow-sm);
+        }
 
-목회를 하면 상담을 하는 경우가 종종 있습니다. 그중에 자기 자신을 가장 정확히 안다고 자부하는 분일수록 오히려 주변 사람들의 이야기와 크게 어긋나 있는 경우를 보게 됩니다. 반대로 “저는 아직도 많이 부족합니다”라고 말씀하시는 분들 중에는, 정작 주변에서 은혜롭다고 인정받는 분들도 있습니다. 자기 인식과 실제 모습 사이의 간극은 우리 모두에게 있을 수 있는 사각지대입니다.
+        .check-item input[type="checkbox"] {
+            margin-top: 0.3rem;
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+            cursor: pointer;
+        }
 
-우리는 어떻습니까. 나의 변화를 나만 모르는 것, 그것은 괜찮습니다. 그런데 나의 부족함을 나만 모르는 것, 이것은 위험합니다. 오늘 여러분 곁에 있는 믿을 만한 한 사람에게 솔직하게 물어보십시오.
+        .check-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            line-height: 1.5;
+        }
 
-“내게서 그리스도의 성품이 보입니까? 아니면 내가 착각하고 있는 부분이 있습니까?”
+        .check-item input[type="checkbox"]:checked + .check-text {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
 
-그리고 그 대답을 들을 때는 먼저 방어하지 마십시오. 그렇다고 그 말을 그대로 다 받아들이라는 뜻은 아닙니다. 그 말을 하나님 앞에 가져가 기도하며, 회개할 부분과 오해를 분별하십시오. 이 질문을 견디고 분별할 수 있는 용기, 이것이 오늘 본문이 우리에게 요구하는 정직함입니다.
+        /* ⑦ Prayer & Footer */
+        .prayer-section {
+            padding: 4rem 2rem;
+            background: var(--sub-color);
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
 
----
+        .prayer-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
 
-### 셋째, 수건을 썼지만 하나님 앞에서는 벗었습니다
+        .prayer-text {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-main);
+            max-width: 80%;
+            margin: 0 auto;
+            font-style: italic;
+        }
 
-처음 성경을 보았을 때, 세 번째 지점에서는 저도 오해를 했습니다. 모세가 수건으로 얼굴을 가린 이유를 저는 “자기 자랑을 하지 않으려는 겸손”이라고 생각했습니다. 그러나 본문이 말하는 이유는 따로 있습니다. 30절이 말하는 것처럼 백성이 모세의 얼굴을 보고 두려워했기 때문입니다. 수건은 두려워하는 백성 앞에서 취할 수 있는 조치였을 뿐입니다.
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: var(--card-bg);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-그런데 바울은 훗날 고린도후서 3장에서 이 장면을 다르게 표현합니다.
+        /* Animation Delays */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
 
-> 고린도 후서 3장 13절
-> “이스라엘 자손들로 그 없어질 것의 결국을 주목하지 못하게 하려 함이라”.
+    </style>
+</head>
+<body data-scripture="출애굽기 34장 29-35절">
+    <div class="container">
+        
+        <!-- ① Hero Header -->
+        <header class="hero">
+            <span class="hero-date">2026. 08. 17</span>
+            <div class="hero-subtitle">모세시리즈 18</div>
+            <h1 class="hero-title">얼굴의 광채</h1>
+        </header>
 
-출애굽기는 그날 백성이 두려워했던 실제적인 상황을 말하고, 바울은 그 사건에서 옛 언약의 영광이 일시적이었음을 강조합니다. 같은 수건을 말하지만, 출애굽기와 고린도후서는 서로 다른 관점에서 이 사건을 바라봅니다. 얼굴의 광채가 놀라운 일이지만 이 모세의 영광은 결국 사라질 영광입니다.
-그 순간에는 알 수 없는 일이지만, 시간이 지나면서 알 수 있는 내용입니다.
+        <!-- ② Scripture Context -->
+        <section class="scripture-box fade-in">
+            <div class="scripture-title">오늘의 중심 말씀</div>
+            <div class="scripture-text">
+                <sup>29</sup> 모세가 그 증거의 두 판을 모세의 손에 들고 시내 산에서 내려오니 그 산에서 내려올 때에 모세는 자기가 여호와와 말하였음으로 말미암아 얼굴 피부에 광채가 나나 깨닫지 못하였더라<br>
+                <sup>30</sup> 아론과 온 이스라엘 자손이 모세를 볼 때에 모세의 얼굴 피부에 광채가 남을 보고 그에게 가까이 하기를 두려워하더니<br>
+                <sup>31</sup> 모세가 그들을 부르매 아론과 회중의 모든 어른이 모세에게로 오고 모세가 그들과 말하니<br>
+                <sup>32</sup> 그 후에야 온 이스라엘 자손이 가까이 오는지라 모세가 여호와께서 시내 산에서 자기에게 이르신 말씀을 다 그들에게 명령하고<br>
+                <sup>33</sup> 모세가 그들에게 말하기를 마치고 수건으로 자기 얼굴을 가렸더라<br>
+                <sup>34</sup> 그러나 모세가 여호와 앞에 들어가서 함께 말할 때에는 나오기까지 수건을 벗고 있다가 나와서는 그 명령하신 일을 이스라엘 자손에게 전하며<br>
+                <sup>35</sup> 이스라엘 자손이 모세의 얼굴의 광채를 보므로 모세가 여호와께 말하러 들어가기까지 다시 수건으로 자기 얼굴을 가렸더라
+            </div>
+        </section>
 
-그래서 저는 오늘 본문의 진짜 핵심은 겸손이라는 도덕적 교훈이 아님을 알았습니다.
-> 34절 후반부
-  “그러나 모세가 여호와 앞에 들어가서 함께 말할 때에는 나오기까지 수건을 벗고 있다가.”
+        <!-- ③ Main Logic Grid -->
+        <div class="section-wrapper">
+            
+            <div class="intro-section fade-in delay-1">
+                <p>이탈리아 로마의 산 피에트로 인 빈콜리 성당에는 미켈란젤로가 조각한 모세상이 있습니다. 흥미롭게도 이 근육질의 노년 모세 머리에는 <strong>'뿔'</strong>이 두 개 솟아 있습니다. 4세기 히에로니무스가 히브리어 성경을 라틴어로 번역하면서 “광채가 나나”라는 표현을 “뿔이 났다(cornuta)”로 옮긴 번역의 오류 때문입니다.</p>
+                <p>그런데 우리는 다시 생각해 보아야 합니다. 사람들은 왜 뿔을 어색해하지 않았을까요? 뿔은 힘, 위엄, 권력, 특별함의 상징이기 때문입니다. 어쩌면 우리 마음속에도 <strong>"하나님을 진짜로 만난 사람이라면 뭔가 남다른 뿔(권력과 특별함)이 있어야 하지 않을까?"</strong> 하는 욕망과 기복신앙이 자리잡고 있는지도 모릅니다. 그러나 오늘 본문은 뿔이 아니라 <strong>'빛'</strong>에 대해 이야기합니다. 이 빛은 힘의 상징이 아니라 은혜의 흔적입니다.</p>
+            </div>
 
-모세는 백성 앞에서는 수건을 썼지만, 하나님 앞에서는 벗었다고 기록합니다. 모세가 백성들 앞에서는 백성들이 두려워 하기에 수건을 쓰며 자신을 과시하지 않았지만, 하나님 앞에서는 자신을 감추지 않았습니다.
+            <section class="logic-card fade-in delay-2">
+                <div class="logic-icon">💡</div>
+                <h2 class="logic-title">첫째, 빛은 만든 것이 아니라 흘러나온 것입니다.</h2>
+                <div class="logic-content">
+                    <blockquote class="blockquote">
+                        “모세는 자기가 여호와와 말하였음으로 말미암아 얼굴 피부에 광채가 나나”
+                    </blockquote>
+                    <p>본문은 광채의 원인을 분명히 밝힙니다. 모세가 40일 금식을 한 공로나 그가 특별해서가 아닙니다. 빛이 난 이유는 오직 하나, <strong>모세가 여호와와 말하였기 때문</strong>입니다. 히브리어 ‘카란’은 빛이 뻗어 나왔다는 뜻으로, 모세가 스스로 빛을 만들어낸 것이 아닙니다. 하나님과 깊이 교제한 결과, 그 영광이 자연스레 흔적으로 남은 것입니다.</p>
+                    <p>또한 이 빛은 혼자 누리라고 주어진 훈장이 아니라, 하나님의 말씀을 백성에게 전할 사명의 증표였습니다. 이스라엘 백성이 금송아지를 만들어 언약을 깨뜨렸을 때, 모세는 배신한 백성을 위해 엎드려 중보했습니다. 모세의 빛나는 얼굴은 바로 자비와 은혜의 하나님을 대면하고, 그 은혜를 짊어진 채 백성에게로 내려온 사람의 얼굴입니다.</p>
+                    <p>우리 삶에도 빛이 필요하다면 그 출처는 오직 '하나님과 함께 머무는 자리'여야 합니다. <strong>변화는 우리의 성취가 아니라 성령께서 맺으시는 열매입니다.</strong> 자기 영광을 드러내려 애쓰면 빛이 아니라 뿔을 키우게 됩니다.</p>
+                </div>
+            </section>
 
-많은 그리스도인들이 종종 반대의 선택을 하며 삽니다. 하나님 앞에서는 적당히 가리고, 사람 앞에서는 애써 드러내려 합니다. 기도는 형식적으로 하면서, SNS나 사람 모인 자리에서는 신앙이 좋아 보이려고 애씁니다. 모세는 그 반대였습니다. 하나님 앞에서는 정직 했고, 사람 앞에서는 자신을 감추었습니다.
+            <section class="logic-card fade-in delay-3">
+                <div class="logic-icon">🔍</div>
+                <h2 class="logic-title">둘째, 모세는 몰랐지만 분명히 달라졌습니다.</h2>
+                <div class="logic-content">
+                    <p>성경은 모세가 자신의 얼굴에 광채가 나는 것을 “깨닫지 못하였다”고 말합니다. 모세 자신은 몰랐지만, 아론과 온 이스라엘은 그의 변화를 똑똑히 보고 두려워했습니다. 우리는 흔히 "내가 괜찮으면 괜찮은 것이다"라고 착각하지만, <strong>자기 상태를 가장 늦게 아는 사람이 바로 자기 자신일 수 있습니다.</strong></p>
+                    <blockquote class="blockquote">
+                        2026년 한국교회의 사회적 신뢰도 조사 결과:<br>무종교인의 신뢰도는 6.8%에 불과하나, 기독교인 스스로는 67.8%가 신뢰한다고 응답했습니다.
+                    </blockquote>
+                    <p>외부의 시선은 차가운데 우리끼리만 아직도 빛난다고 믿는 사각지대입니다. 나의 부족함을 나만 모르는 것은 매우 위험합니다. 오늘 곁에 있는 믿을 만한 사람에게 정직하게 물어보십시오. <strong>"내게서 그리스도의 성품이 보입니까?"</strong> 방어하지 않고 분별할 수 있는 용기가 바로 정직함입니다.</p>
+                </div>
+            </section>
 
-교회 안에서 오래 봉사하고, 헌금 많이 하고, 직분을 받으면 어느새 그것을 권력처럼 생각하는 분들이 있습니다. 그러나 성령의 열매는 우리 안에서 시작되지만, 결국 공동체를 향한 태도와 관계 속에서 드러납니다. 사랑, 희락, 화평, 오래 참음, 자비, 양선, 충성, 온유, 절제는 모두 우리의 삶을 통해 다른 사람에게 흘러가야 하는 열매입니다.
+            <section class="logic-card fade-in">
+                <div class="logic-icon">🎭</div>
+                <h2 class="logic-title">셋째, 수건을 썼지만 하나님 앞에서는 벗었습니다.</h2>
+                <div class="logic-content">
+                    <blockquote class="blockquote">
+                        “그러나 모세가 여호와 앞에 들어가서 함께 말할 때에는 나오기까지 수건을 벗고 있다가...” (34절)
+                    </blockquote>
+                    <p>모세가 수건을 쓴 것은 단순한 도덕적 겸손이 아닙니다. 백성이 두려워했기 때문에 그들을 배려한 조치였습니다. 중요한 것은 백성들 앞에서는 수건을 쓰며 자신을 과시하지 않았지만, <strong>하나님 앞에서는 자신을 감추지 않고 정직하게 수건을 벗었다는 점</strong>입니다.</p>
+                    <p>우리는 종종 반대로 살아갑니다. 사람 앞에서는 신앙이 좋아 보이려 애쓰며 드러내고, 하나님 앞에서는 적당히 가립니다. 성령의 열매는 내 안에서 시작되어 결국 공동체를 향한 태도와 배려로 드러나야 합니다. 산 위에서 받은 은혜는 산 아래 이웃을 향한 섬김으로 이어져야 합니다. 우리가 겸손해서 구원받는 것은 아니지만, <strong>구원받은 자의 은혜는 우리를 자기 과시가 아닌 겸손과 사랑의 방향으로 이끌어 갑니다.</strong></p>
+                </div>
+            </section>
 
-예수님도 그러셨습니다. 하나님이 종의 모습으로 오셨고, 죽기까지 자신을 낮추셨습니다(빌 2:6-8). 우리가 예수를 믿는다면, 겸손해지는 것이 이상한 일이 아니라 은혜가 우리 안에서 일하고 있다는 증거입니다.
+        </div>
 
-모세는 산 위에서 빛을 받았지만, 그 빛을 산 위에 머물러 두지 않았습니다. 죄 지은 백성 속으로 내려가, 두려워하는 그들 앞에 섰습니다. 산 위에서 받은 은혜는 산 아래 이웃을 향한 배려와 섬김으로 이어져야 합니다. 개인의 거룩이 나 혼자만의 골방에서 끝나면 반쪽짜리로 끝나 버립니다. 그 거룩은 결국 내 곁의 사람을 배려하는 삶으로, 세상이 우리를 보고 다시 신뢰할 수 있는 열매로 이어져야 합니다. 저는 수도사들이 대단하다고 생각하지만 성경은 세상 속으로 내려오라고 말합니다. 때가 되면 내려와야 합니다. 때가 되면 세상으로 파송되어야 합니다. 교회 안의 그리스도인에서만 멈추지 말고 세상에서 빛을 내며 그리스도인의 삶을 살아내야 합니다.
-교회는 전초기지 같은 곳입니다. 여기서 회복되고, 공급받고 세상으로 나아가야 합니다.
-아내와 주중에 선생님들 이야기를 했습니다. 위계로 그들을 교회에 끌고 나올 필요는 없지만, 그들이 당신의 삶을 통해 교회를 찾게 만드는 건 너무나 좋은 일입니다.
-여러분 주변에 나를 통해 그리스도의 향기가 흘러나오고 그 향기를 통해 주변에 사람들이 그리스도를 찾아 라온동행교회 공동체로 발걸음을 향하게 해야 합니다.
+        <!-- ④ Key Keywords -->
+        <section class="keyword-section fade-in">
+            <h3 class="section-title">Message Keywords</h3>
+            <div class="tags">
+                <span class="tag large">#얼굴의광채</span>
+                <span class="tag medium">#뿔이아니라빛</span>
+                <span class="tag">#은혜의흔적</span>
+                <span class="tag large">#하나님과대화</span>
+                <span class="tag">#사명의증표</span>
+                <span class="tag medium">#겸손과배려</span>
+                <span class="tag">#영광에서영광으로</span>
+            </div>
+        </section>
 
-우리 라온동행교회가 지향하는 신앙이 바로 이것입니다. 하나님과의 교제를 통해 흘러내려 온 그 은혜가 결국 우리가 살아가는 삶의 자리에서 낮아짐과 배려로 흘러가야 합니다.
+        <!-- ⑤ Conclusion -->
+        <section class="conclusion fade-in">
+            <h3>"뿔을 키우기 위해 노력하지 마십시오. 대신 하나님 앞에 머무십시오."</h3>
+            <p>모세와 스데반은 자기 영광을 드러내려 하지 않고, 하나님의 영광을 반사했습니다. 힘, 권력, 남과 다른 특별함(뿔)을 얻으려 애쓰지 마십시오.</p>
+            <p>십자가에서 죽기까지 낮아지신 그리스도의 얼굴을 바라볼 때, 우리는 영광에서 영광으로 변화되어 갈 것입니다.</p>
+        </section>
 
-다만 한 가지 오해하지 말아야 하는 부분이 있습니다. 겸손이 우리를 구원하지 못합니다. 우리가 겸손해서 구원받지 않습니다. 오직 그리스도의 은혜로 구원받습니다(엡 2:8-9). 다만 그 은혜는 우리를 자기 과시가 아니라 겸손과 사랑의 방향으로 이끌어 가야합니다. 은혜를 받은 사람은 완벽한 사람이 되는 것이 아니라, 점점 그리스도의 마음을 닮아 가는 사람입니다.
+        <!-- ⑥ Action Checklist -->
+        <section class="action-section fade-in">
+            <h3 class="section-title" style="text-align: left;">이번 주 Action Plan</h3>
+            <div class="checklist">
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span class="check-text">하루 10분, 아무도 모르게 하나님과 단둘이 말씀과 기도로 머무는 시간을 갖겠습니다.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span class="check-text">내 곁의 믿을 만한 사람에게 "내게서 그리스도의 성품이 보입니까?"라고 정직하게 묻고 듣겠습니다.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span class="check-text">교회 안에만 머무는 것이 아니라, 세상 속에서 내 곁의 사람을 배려하고 섬기는 빛으로 살겠습니다.</span>
+                </label>
+            </div>
+        </section>
 
----
+        <!-- ⑦ Prayer & Footer -->
+        <section class="prayer-section fade-in">
+            <h3 class="prayer-title">오늘의 기도</h3>
+            <p class="prayer-text">
+                "하나님, 내 안의 자기 과시와 뿔을 키우려는 욕망을 내려놓습니다. 나를 대단하게 포장하려 애쓰기보다, 그저 주님 앞에 머물며 깊이 교제하게 하소서. 산 위에서 누린 은혜가 산 아래 이웃을 향한 겸손과 배려로 흘러가, 나를 통해 그리스도의 향기가 전해지게 하옵소서. 예수님의 이름으로 기도합니다. 아멘."
+            </p>
+        </section>
 
-### 나오며
+        <footer>
+            <p>라온동행교회 디지털 설교 리포트 | Clean, Structured & Rich Infographic</p>
+        </footer>
 
-말씀을 마무리합니다.
-모세의 얼굴빛은 결국 사라져 가는 영광입니다. 바울의 말대로 옛 언약의 영광은 없어질 영광입니다(고후 3:7, 11). 그러나 예수 그리스도 안에서 우리에게 주어진 영광은 다릅니다.
-> 고후 3장 18절 “우리가 다 수건을 벗은 얼굴로 거울을 보는 것 같이 주의 영광을 보매 그와 같은 형상으로 변화하여 영광에서 영광에 이르니 곧 주의 영으로 말미암음이니라”.
-
-스데반도 공회 앞에서 복음을 증언할 때, 그의 얼굴은 천사의 얼굴 같았습니다(행 6:15). 모세와 스데반 모두 자기 영광을 드러내려 한 것이 아니라, 하나님께 받은 말씀을 증언하는 자리에서 하나님의 영광을 드러냈습니다.
-
-미켈란젤로의 모세는 뿔을 단 채로 오백 년 넘게 로마의 한 성당에 서 있습니다. 사람들은 힘과 권위의 상징인 뿔을 모세에게 달아주었습니다. 그러나 성경은 우리에게 다른 길을 보여 줍니다.
-뿔을 키우기 위해 노력하지 마십시오.(주어진 삶의 자리를 대충 살라고 말하는 것이 아닙니다. 우리는 주어진 삶의 자리에서 공부든, 일이든, 관계든 최선을 다해야 합니다.) 다만, 힘, 권력, 남과 다른 특별함을 얻으려 애쓰지 말아야 합니다. 대신 하나님 앞에 나아가는데 노력하십시오. 말씀과 기도로 그분 앞에 머무는 시간을 만드십시오. 그 시간이 우리를 대단하게 만드는 기술이 아니라는 것을 기억하십시오. 우리는 하나님과의 깊은 교제를 할 뿐이고, 변화는 성령께서 하실 일입니다.
-
-이번 한 주간, 하루 십 분이라도 아무도 모르게 하나님과 단둘이 말씀과 기도로 머무는 시간을 정해 지켜보십시오.
-그리고 사람들의 입술을 통해서 “당신을 통해 그리스도를 봅니다."라는 고백을 들을 수 있는 주의 자녀가 되길 축복합니다.
-
-십자가에서 죽기까지 자신을 낮추신 그리스도의 얼굴을 날마다 바라보는 우리 라온동행교회 성도들이 되기를 바랍니다. 그래서 나도 모르는 사이에 영광에서 영광으로 변화되어 가는 은혜가 있기를 주님의 이름으로 축복합니다.
+    </div>
+</body>
+</html>
+```eof
