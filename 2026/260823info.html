@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모세 19 — 시내산을 떠나라</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 동적 컬러 팔레트 - 본 생성 시점의 랜덤 테마: [광야의 밤하늘과 모래] */
+        :root {
+            --main-color: #1A365D;     /* Deep Navy (하나님의 임재, 밤하늘) */
+            --sub-color: #D9834F;      /* Desert Clay (광야, 시내산) */
+            --accent-color: #C0392B;   /* Crimson (결단, 경고) */
+            --bg-color: #F9F8F6;       /* Sand White (기본 배경) */
+            --surface-color: #FFFFFF;  /* 카드 배경 */
+            --text-main: #2C3E50;      /* 기본 텍스트 */
+            --text-light: #596A7B;     /* 서브 텍스트 */
+            --border-color: #E2E0D9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .batang {
+            font-family: 'Gowun Batang', serif;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--surface-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* ① Hero Header */
+        .hero {
+            background: linear-gradient(135deg, var(--main-color) 0%, #0F203A 100%);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--sub-color), var(--accent-color));
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            word-break: keep-all;
+        }
+        .hero-series {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ② Scripture Context */
+        .scripture-section {
+            padding: 3rem 2rem;
+            background-color: var(--surface-color);
+        }
+        .scripture-box {
+            border-left: 5px solid var(--sub-color);
+            background-color: var(--bg-color);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .scripture-label {
+            color: var(--sub-color);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scripture-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+        .scripture-text highlight {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(217,131,79,0.3) 60%);
+            font-weight: 700;
+        }
+        .scripture-ref {
+            text-align: right;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ③ Main Logic Grid */
+        .content-section {
+            padding: 0 2rem 3rem 2rem;
+        }
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .point-card {
+            margin-bottom: 3rem;
+        }
+        .point-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        .point-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--bg-color);
+            border: 2px solid var(--main-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            color: var(--main-color);
+        }
+        .point-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--main-color);
+            margin-top: 5px;
+        }
+        .point-body {
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+        .point-body p {
+            margin-bottom: 1.2rem;
+        }
+        .point-body strong {
+            color: var(--main-color);
+            font-weight: 700;
+        }
+        
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.15rem;
+            color: var(--main-color);
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(217,131,79,0.2);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        /* ④ Word Cloud / Key Keywords */
+        .keywords-section {
+            padding: 2rem;
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+        .keywords-title {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .tag {
+            background-color: var(--surface-color);
+            color: var(--main-color);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .tag:hover {
+            background-color: var(--main-color);
+            color: #fff;
+        }
+
+        /* ⑤ Conclusion & One Message */
+        .conclusion-banner {
+            background-color: var(--main-color);
+            color: #ffffff;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .conclusion-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--sub-color);
+        }
+        .conclusion-banner p {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            word-break: keep-all;
+        }
+
+        /* ⑥ Action Checklist */
+        .action-section {
+            padding: 3rem 2rem;
+            background-color: var(--surface-color);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--main-color);
+            margin-bottom: 0.5rem;
+        }
+        .checklist {
+            list-style: none;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 1.2rem;
+            background-color: var(--bg-color);
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .checklist-item:hover {
+            border-color: var(--sub-color);
+        }
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-light);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s;
+        }
+        .checklist-item.checked .check-box {
+            background-color: var(--sub-color);
+            border-color: var(--sub-color);
+        }
+        .checklist-item.checked .check-box::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+        .checklist-item.checked .check-text {
+            text-decoration: line-through;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+        .check-text {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            transition: all 0.2s;
+        }
+
+        /* ⑦ Prayer & Footer */
+        .prayer-section {
+            padding: 3rem 2rem;
+            background-color: var(--bg-color);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        .prayer-title {
+            font-family: 'Gowun Batang', serif;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .prayer-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-main);
+            font-style: italic;
+        }
+        .footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero { padding: 3rem 1.5rem; }
+            .hero-title { font-size: 2rem; }
+            .scripture-section, .content-section, .action-section, .prayer-section { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body data-scripture="출애굽기 33:1-3 / 민수기 10:11-13">
+
+    <div class="container">
+        <!-- ① Hero Header -->
+        <header class="hero">
+            <div class="hero-series">모세 시리즈 열아홉 번째</div>
+            <h1 class="hero-title batang">시내산을 떠나라</h1>
+            <p class="hero-subtitle">완전에서 불완전으로 향하는 순종의 발걸음</p>
+        </header>
+
+        <!-- ② Scripture Context -->
+        <section class="scripture-section">
+            <div class="scripture-box">
+                <div class="scripture-label batang">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                    오늘의 중심 말씀
+                </div>
+                <p class="scripture-text batang">
+                    "...너희를 젖과 꿀이 흐르는 땅에 이르게 하려니와 <highlight>나는 너희와 함께 올라가지 아니하리니</highlight> 너희는 목이 곧은 백성인즉 내가 길에서 너희를 진멸할까 염려함이니라..."<br><br>
+                    "둘째 해 둘째 달 스무날에 구름이 증거의 성막에서 떠오르매... 그들이 <highlight>여호와께서 모세에게 명령하신 것을 따라 행진하기를 시작</highlight>하였는데"
+                </p>
+                <div class="scripture-ref">출 33:3 / 민 10:11,13</div>
+            </div>
+        </section>
+
+        <!-- ③ Main Logic Grid -->
+        <section class="content-section">
+            <div class="intro-text">
+                <p>어느덧 모세 이야기가 막바지를 향해 가고 있습니다. 우리는 때로는 영적 모세로, 동역자로, 영적 백성의 모습으로 살아갑니다. 그 자리가 쉽고 편안한 자리가 아닌, <strong>하나님이 기뻐하시는 자리여야 함을 기억</strong>해야 합니다. 신앙의 여정 속에서 나에게는 엄격한 잣대를, 타인에게는 관대한 잣대를 사용하는 지혜를 구하며 오늘 주시는 메시지에 귀 기울여 봅시다.</p>
+            </div>
+
+            <!-- Point 1 -->
+            <div class="point-card">
+                <div class="point-header">
+                    <div class="point-icon">🏕️</div>
+                    <h3 class="point-title">1. 은혜의 자리도 심판 앞에 놓일 수 있습니다</h3>
+                </div>
+                <div class="point-body">
+                    <p>우리가 먼 길을 갈 때 고속도로 휴게소에 들릅니다. 맛있는 간식도 먹고 쉴 수 있지만, <strong>아무리 좋아도 휴게소에서 살지는 않습니다. 목적지가 아니기 때문입니다.</strong> 이스라엘 백성에게 시내산은 안식처와 같은 휴게소였습니다. 출애굽 후 지친 그들에게 11개월이라는 긴 쉼과 은혜를 허락한 특별한 장소였지만, 그곳은 결코 최종 목적지가 아니었습니다.</p>
+                    <p>하지만 하나님께서 "이곳을 떠나라"고 명하실 때, 분위기는 평범한 여행 안내가 아니었습니다. 금송아지 사건 직후였기 때문입니다. 백성들은 애굽의 우상숭배 축제처럼 성적으로 난잡하고 도덕적 자제력을 상실한(방자한, <em>파루아</em>) 모습으로 타락했습니다. 이에 하나님은 이스라엘을 "내 백성"이 아닌 모세에게 "네가 인도하여 낸 백성"이라 부르시며 거리를 두셨습니다.</p>
+                    <blockquote>
+                        "가나안 땅은 주겠다. 그러나 나는 함께 가지 않겠다." 젖과 꿀이 흘러도 하나님이 안 계신 가나안은 그저 넓은 땅일 뿐입니다. 좋은 직장, 넓은 집, 안정된 노후가 있어도 하나님이 안 계신다면 무슨 의미가 있겠습니까?
+                    </blockquote>
+                    <p>성경은 이스라엘을 <strong>'목이 곧은 백성(케쉐 오레프)'</strong>이라 부릅니다. 짐승이 주인의 멍에를 메기 싫어 목을 뻣뻣하게 세우고 결사적으로 버티는 모습입니다. 이스라엘은 자신들을 다스리려는 하나님의 거룩한 멍에는 거부하면서도, 자신들이 마음대로 조종할 수 있는 가짜 신(우상) 앞에서는 기꺼이 엎드렸습니다. 이것이 은혜는 원하지만 하나님의 다스림은 불편해하는 이 시대 우리의 영적 현주소일 수 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- Point 2 -->
+            <div class="point-card">
+                <div class="point-header">
+                    <div class="point-icon">☁️</div>
+                    <h3 class="point-title">2. 회복된 임재를 따라, 명령으로만 움직입니다</h3>
+                </div>
+                <div class="point-body">
+                    <p>시내산은 선수들의 훈련장과도 같습니다. 훈련의 목적은 훈련장에 머무는 것이 아니라 대회에 나가기 위함입니다. 십계명, 성막, 제사장, 레위기 규례 등 완벽한 훈련이 끝나자 하나님은 이스라엘을 실전의 광야로 내보내십니다.</p>
+                    <p>모세는 위대한 지도자였습니다. 하나님이 함께 가지 않으시겠다는 선언에 그는 엎드려 매달렸습니다. <strong>"주의 임재가 우리와 함께 가지 아니하시려거든 우리를 여기서 올려 보내지 마옵소서."</strong> 목적지에 빨리 가는 것보다 느리더라도 하나님과 함께 가는 것이 그에게는 전부였습니다. 마침내 하나님은 그 기도를 들으시고 "내가 친히 가리라" 약속하십니다.</p>
+                    <p>민수기 10장에 이르러 마침내 행진이 시작됩니다. 구름이 떠오르면 움직이고, 머물면 머뭅니다. 성경은 말합니다. <strong>"여호와께서 모세에게 명령하신 것을 따라(여호와의 입을 따라, 모세의 손을 통하여)."</strong> 모세가 임의로 판단한 것이 아닙니다. 목회자든 성도든 우리는 명령을 만드는 사람이 아니라, 받은 명령을 전달하고 순종하는 사람이어야 합니다.</p>
+                    <blockquote>
+                        고대 사람들은 신상을 수레에 싣고 다녔습니다. 사람이 신의 방향을 정했습니다. 그러나 우리는 정반대입니다. 구름이 먼저 움직이고 우리는 뒤따라갑니다. 이 순서가 바뀌면 신앙은 생명력을 잃고 종교 행위가 되어버립니다.
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Point 3 -->
+            <div class="point-card">
+                <div class="point-header">
+                    <div class="point-icon">🚶‍♂️</div>
+                    <h3 class="point-title">3. 오늘, 우리에게도 구름이 떠오르고 있습니다</h3>
+                </div>
+                <div class="point-body">
+                    <p>우리 신앙생활에도 각자의 '시내산'이 있습니다. 처음 은혜받은 순간, 뜨겁게 헌신했던 수련회 등 소중한 감격의 자리가 있습니다. 하지만 <strong>그 자리에 장막을 치고 눌러앉아서는 안 됩니다.</strong> 한국교회는 교회 안의 그리스도인을 양산하는 데는 성공했지만, 세상 속의 그리스도인으로 살아내게 하는 데는 부족했습니다.</p>
+                    <p>우리는 스스로에게 질문해야 합니다. "당신은 당신의 시내산에서 출발했습니까?" 예배와 기도의 자리가 필요 없다는 것이 아닙니다. 은혜의 자리에서 충분히 훈련받았으니, 이제 그 힘을 가지고 진짜 삶의 자리, 세상으로 나아가라는 파송의 부름입니다.</p>
+                    <p>익숙한 신앙의 습관, 편안한 예배 자리, 이대로가 좋다는 안일함이라는 시내산에 머물지 마십시오. 예수님은 "가서 제자를 삼으라", "땅끝까지 내 증인이 되리라" 명하셨습니다. 가정과 일터라는 가나안으로 나아갈 때, 임마누엘의 하나님께서 친히 함께 가시며 동행하실 것입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ④ Word Cloud / Key Keywords -->
+        <section class="keywords-section">
+            <h3 class="keywords-title batang">Message Keywords</h3>
+            <div class="tags-container">
+                <span class="tag">#시내산_휴게소</span>
+                <span class="tag">#목이_곧은_백성</span>
+                <span class="tag">#하나님의_멍에</span>
+                <span class="tag">#임마누엘의_동행</span>
+                <span class="tag">#구름기둥_순종</span>
+                <span class="tag">#세상속의_그리스도인</span>
+            </div>
+        </section>
+
+        <!-- ⑤ Conclusion & One Message -->
+        <section class="conclusion-banner">
+            <h3 class="batang">One Message</h3>
+            <p>
+                순종의 출발이 완전한 신앙을 보장하지는 않기에, <br>
+                우리는 매일 구름을 바라보며 걸어야 합니다.<br>
+                시내산에 안주하지 마십시오.<br>
+                그러나 하나님의 임재 없이 떠나지도 마십시오.<br>
+                임마누엘 하나님과 함께 시온을 향해 힘차게 행진합시다.
+            </p>
+        </section>
+
+        <!-- ⑥ Action Checklist -->
+        <section class="action-section">
+            <div class="section-header">
+                <h2 class="batang">오늘의 결단과 적용</h2>
+                <p style="color: var(--text-light); font-size: 0.9rem;">실천할 항목을 터치하여 체크해보세요.</p>
+            </div>
+            <ul class="checklist">
+                <li class="checklist-item">
+                    <div class="check-box"></div>
+                    <div class="check-text">나의 익숙한 신앙의 휴게소(시내산)가 어디인지 점검하고 안주하지 않기</div>
+                </li>
+                <li class="checklist-item">
+                    <div class="check-box"></div>
+                    <div class="check-text">나 자신에게는 엄격하고, 타인에게는 관대한 영적 잣대 적용하기</div>
+                </li>
+                <li class="checklist-item">
+                    <div class="check-box"></div>
+                    <div class="check-text">내 맘대로 조종하는 우상이 아닌, 나를 다스리시는 하나님의 거룩한 멍에 기꺼이 메기</div>
+                </li>
+                <li class="checklist-item">
+                    <div class="check-box"></div>
+                    <div class="check-text">내 삶의 구름 기둥(하나님의 명령)이 오늘 어디를 향하는지 묵상하고 따라 걷기</div>
+                </li>
+                <li class="checklist-item">
+                    <div class="check-box"></div>
+                    <div class="check-text">교회 안의 신앙을 넘어, 나의 가정과 일터에서 참된 그리스도인으로 살아내기</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ⑦ Prayer & Footer -->
+        <section class="prayer-section">
+            <h3 class="prayer-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                함께 드리는 기도
+            </h3>
+            <p class="prayer-content">
+                "하나님, 은혜로운 시내산에만 머물러 안주하던 우리의 나태함을 용서하옵소서. 목이 곧은 백성처럼 주의 다스림을 거부하지 않게 하시고, 매일 떠오르는 구름기둥을 바라보며 삶의 자리로 순종의 걸음을 떼게 하옵소서. 임마누엘의 하나님과 동행하며 세상 속의 참된 그리스도인으로 살아가게 하소서. 예수님의 이름으로 기도드립니다. 아멘."
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 라온동행교회. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Checklist Interaction
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('checked');
+            });
+        });
+    </script>
+</body>
+</html>
