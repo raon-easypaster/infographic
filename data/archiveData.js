@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260823info.html",
+    "relativeURL": "2026/260823info.html",
+    "date": "2026-08-23",
+    "title": "모세 19 — 시내산을 떠나라",
+    "scripture": "출애굽기 33:1-3 / 민수기 10:11-13"
+  },
+  {
     "fileName": "260816info.html",
     "relativeURL": "2026/260816info.html",
     "date": "2026-08-16",
