@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>설계자입니까, 현장감독입니까? | 라온동행교회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main:#2E4034;      /* 딥 포레스트 그린 */
+    --main-dark:#1D2B22;
+    --sub:#8C6B4F;        /* 웜 브라운 */
+    --accent:#D98E4A;     /* 테라코타 오렌지 */
+    --bg:#FBF7F0;
+    --card:#FFFFFF;
+    --text:#2A2A26;
+    --muted:#75726A;
+    --border:#E7E0D3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:16px;
+    line-height:1.75;
+  }
+  .page{max-width:700px;margin:0 auto;padding:0 16px 60px;}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(160deg, var(--main) 0%, var(--main-dark) 100%);
+    color:#fff;
+    border-radius:0 0 28px 28px;
+    padding:52px 24px 40px;
+    margin:0 -16px 28px;
+    text-align:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-60px; right:-60px;
+    width:220px; height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(217,142,74,0.35) 0%, transparent 70%);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-80px; left:-40px;
+    width:180px; height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(140,107,79,0.35) 0%, transparent 70%);
+  }
+  .hero .eyebrow{
+    position:relative;
+    font-size:13px;
+    letter-spacing:.12em;
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  .hero h1{
+    position:relative;
+    font-family:'Gowun Batang', serif;
+    font-size:30px;
+    line-height:1.45;
+    margin:0 0 16px;
+  }
+  .hero .refs{
+    position:relative;
+    font-size:13.5px;
+    color:#D9D2C2;
+  }
+
+  section{margin-bottom:28px;}
+  .section-title{
+    font-family:'Gowun Batang', serif;
+    font-size:14px;
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:.06em;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--border);
+  }
+
+  /* Scripture context */
+  .scripture-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:6px solid var(--accent);
+    border-radius:14px;
+    padding:22px 22px;
+    box-shadow:0 4px 14px rgba(46,64,52,0.06);
+  }
+  .scripture-card .label{
+    font-size:12.5px;
+    color:var(--sub);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .scripture-card p{
+    font-family:'Gowun Batang', serif;
+    font-size:19px;
+    line-height:1.6;
+    margin:0 0 8px;
+    color:var(--main-dark);
+  }
+  .scripture-card .ref{
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  /* Main grid */
+  .point{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:16px;
+    box-shadow:0 4px 14px rgba(46,64,52,0.05);
+  }
+  .point-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+  }
+  .point-num{
+    flex:0 0 auto;
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--main);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:900;
+    font-size:16px;
+  }
+  .point-head h3{
+    font-family:'Gowun Batang', serif;
+    font-size:19px;
+    margin:0;
+    color:var(--main-dark);
+  }
+  .point p{margin:0 0 10px;font-size:15.5px;}
+  .point p:last-child{margin-bottom:0;}
+  blockquote.pq{
+    margin:12px 0;
+    background:#F3EEE3;
+    border-left:4px solid var(--sub);
+    border-radius:0 10px 10px 0;
+    padding:12px 16px;
+    font-family:'Gowun Batang', serif;
+    font-size:16px;
+    color:var(--main-dark);
+  }
+
+  /* Keywords */
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .tag{
+    background:var(--main);
+    color:#fff;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:13.5px;
+    font-weight:700;
+  }
+  .tag.alt{background:var(--accent);}
+  .tag.alt2{background:var(--sub);}
+
+  /* Conclusion banner */
+  .conclusion{
+    background:linear-gradient(120deg, var(--accent) 0%, #C97A34 100%);
+    color:#fff;
+    border-radius:18px;
+    padding:26px 24px;
+    text-align:center;
+  }
+  .conclusion .kicker{
+    font-size:12.5px;
+    letter-spacing:.1em;
+    font-weight:700;
+    opacity:.9;
+    margin-bottom:10px;
+  }
+  .conclusion .msg{
+    font-family:'Gowun Batang', serif;
+    font-size:21px;
+    line-height:1.55;
+  }
+
+  /* Checklist */
+  .checklist{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 22px;
+  }
+  .check-item{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:10px 0;
+    border-bottom:1px dashed var(--border);
+    font-size:15px;
+  }
+  .check-item:last-child{border-bottom:none;}
+  .check-item input[type=checkbox]{
+    margin-top:3px;
+    width:19px;height:19px;
+    accent-color:var(--main);
+    flex:0 0 auto;
+  }
+  .check-item label{cursor:pointer;}
+  .check-item.checked label{
+    color:var(--muted);
+    text-decoration:line-through;
+  }
+  .storage-note{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:10px;
+    text-align:right;
+  }
+
+  /* Prayer */
+  .prayer-card{
+    background:var(--main-dark);
+    color:#EFE9DC;
+    border-radius:16px;
+    padding:24px 22px;
+    font-size:15px;
+    line-height:1.85;
+  }
+  .prayer-card .label{
+    font-size:12.5px;
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:.08em;
+    margin-bottom:10px;
+  }
+
+  footer{
+    text-align:center;
+    font-size:12.5px;
+    color:var(--muted);
+    padding:24px 0 8px;
+  }
+
+  @media (max-width:480px){
+    .hero{padding:44px 18px 34px;}
+    .hero h1{font-size:24px;}
+    .point{padding:18px;}
+    .conclusion{padding:22px 18px;}
+  }
+</style>
+</head>
+<body data-scripture="출애굽기 40:16, 29:46, 40:33-34">
+<div class="page">
+
+  <div class="hero">
+    <div class="eyebrow">모세 시리즈 20 · 라온동행교회</div>
+    <h1>설계자입니까,<br>현장감독입니까?</h1>
+    <div class="refs">출애굽기 40장 16절 · 29장 46절 · 40장 33-34절</div>
+  </div>
+
+  <section>
+    <div class="section-title">오늘의 중심 말씀</div>
+    <div class="scripture-card">
+      <div class="label">EXODUS 40:16</div>
+      <p>"모세가 그같이 행하되 곧 여호와께서 자기에게 명령하신 대로 다 행하였더라."</p>
+      <div class="ref">그리고 — "내가 그들 중에 거하려고" (출 29:46) · "여호와의 영광이 성막에 충만하매" (출 40:34)</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">핵심 메시지</div>
+    <div class="scripture-card" style="border-left-color:var(--main);">
+      <p style="font-size:20px;">하나님의 설계는 우리를 통제하기 위한 설계가 아니라, 우리 가운데 <b>거하시기 위한</b> 설계입니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">오늘의 말씀 — 세 가지</div>
+
+    <div class="point">
+      <div class="point-head">
+        <div class="point-num">1</div>
+        <h3>설계자는 하나님이십니다</h3>
+      </div>
+      <p>출애굽기 39~40장에는 "여호와께서 명령하신 대로"라는 표현이 반복됩니다. 성막은 모세의 아이디어도, 브살렐의 아이디어도, 백성들의 회의 결과도 아니었습니다. 설계자는 오직 하나님이셨습니다.</p>
+      <blockquote class="pq">금송아지는 사람이 자기 필요에 따라 신을 설계한 사건입니다. 반면 성막은 하나님께서 자신이 어떻게 백성 가운데 거하실 것인지를 보여주신 사건입니다. 사람이 바뀐 것이 아니라, 누구의 설계를 따랐느냐가 달라졌습니다.</blockquote>
+      <p>오늘 내 삶의 설계자는 누구입니까? 내 불안과 욕망에 맞춰 신앙을 조립하고 있지는 않습니까?</p>
+    </div>
+
+    <div class="point">
+      <div class="point-head">
+        <div class="point-num">2</div>
+        <h3>설계도는 모든 것을 담지 않습니다</h3>
+      </div>
+      <p>하나님은 성막의 "본"(타브니트, תַּבְנִית)을 보여주셨지만, 모든 세부 작업 과정까지 기록해 두신 것은 아니었습니다. 대신 브살렐에게 성령의 지혜(호크마, חָכְמָה)를 채우셔서, 그 설계를 현실 속에서 구현하게 하셨습니다.</p>
+      <blockquote class="pq">하나님의 영을 그에게 충만하게 하여 지혜와 총명과 지식으로 여러 가지 일을 하게 하고. (출 31:3)</blockquote>
+      <p>우리는 설계자가 아니지만, 아무 생각 없이 서 있는 사람도 아닙니다. 하나님은 우리에게 생각할 능력과 선택할 자유와 판단할 책임을 주셨습니다.</p>
+    </div>
+
+    <div class="point">
+      <div class="point-head">
+        <div class="point-num">3</div>
+        <h3>재량은 목적에 종속된 지혜입니다</h3>
+      </div>
+      <p>우리의 삶은 세 영역으로 나뉩니다. <b>명령의 영역</b>(우상을 섬기지 말라, 사랑하라 — 순종), <b>지혜의 영역</b>(어떤 방법으로 사역할까 — 분별), <b>자유의 영역</b>(성경이 침묵하는 일상의 선택 — 사랑의 선택). 그러나 이 모든 자유와 재량은 하나의 목적을 향합니다.</p>
+      <blockquote class="pq">내가 그들 중에 거하려고 그들을 애굽 땅에서 인도하여 낸 여호와인 줄을 그들이 알리라. (출 29:46)</blockquote>
+      <p>설계의 목적은 규율이 아니라 동거입니다. 이 목적을 놓치면 순종도 율법주의가 되고, 자유도 방종이 됩니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">핵심 키워드</div>
+    <div class="tags">
+      <span class="tag">#선행은총</span>
+      <span class="tag alt">#성화</span>
+      <span class="tag alt2">#타브니트</span>
+      <span class="tag">#호크마</span>
+      <span class="tag alt">#임재</span>
+      <span class="tag alt2">#사회적성결</span>
+      <span class="tag">#순종·분별·사랑</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">결론 · 한 문장</div>
+    <div class="conclusion">
+      <div class="kicker">건물이 아니라 임재였습니다</div>
+      <div class="msg">성막은 완성되었기 때문이 아니라, 하나님이 임재하셨기 때문에 성막이 되었습니다.<br>우리는 설계자가 아니지만, 하나님의 설계를 세상 속에서 살아내도록 부름받은 사람들입니다.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">이번 주 실천 체크리스트</div>
+    <div class="checklist" id="checklist">
+      <div class="check-item">
+        <input type="checkbox" id="c1">
+        <label for="c1">명령의 자리 — 성경이 분명히 말씀하신 것 앞에서 이번 주, 즉시 순종하기</label>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c2">
+        <label for="c2">지혜의 자리 — 방법을 고민할 때 "이것이 하나님 나라를 세우는 일인가?"라고 묻기</label>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c3">
+        <label for="c3">자유의 자리 — 애매한 선택 앞에서 "이 선택이 하나님과 이웃을 더 사랑하게 하는가?" 질문하기</label>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c4">
+        <label for="c4">"내가 왜 이 일을 시작했는가" 처음 목적을 다시 떠올려 보기</label>
+      </div>
+    </div>
+    <!-- 체크 상태는 localStorage에 저장되어, 같은 브라우저에서 다시 방문해도 유지됩니다 -->
+    <div class="storage-note">체크한 내용은 이 기기에 저장됩니다</div>
+  </section>
+
+  <section>
+    <div class="section-title">함께 기도</div>
+    <div class="prayer-card">
+      <div class="label">PRAYER</div>
+      하나님, 우리는 설계자가 아니라 설계를 살아내는 사람들임을 고백합니다.<br>
+      내 불안과 욕망으로 하나님을 내 방식대로 조립하려 했던 마음을 용서하여 주옵소서.<br>
+      명령의 자리에서는 순종하고, 지혜의 자리에서는 분별하고, 자유의 자리에서는 사랑을 선택하게 하옵소서.<br>
+      그 무엇보다 주님이 우리 가운데, 우리의 가정과 일터와 교회 가운데 거하여 주옵소서.<br>
+      예수님의 이름으로 기도합니다. 아멘.
+    </div>
+  </section>
+
+  <footer>라온동행교회 · 쉬운목사 이광복</footer>
+</div>
+
+<script>
+  // 체크박스 상태를 localStorage에 저장/복원 (정적 페이지, 외부 의존성 없음)
+  (function(){
+    var KEY = 'sermon20_checklist';
+    var boxes = document.querySelectorAll('#checklist input[type=checkbox]');
+    try{
+      var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      boxes.forEach(function(b){
+        if(saved[b.id]) { b.checked = true; b.closest('.check-item').classList.add('checked'); }
+      });
+    }catch(e){}
+    boxes.forEach(function(b){
+      b.addEventListener('change', function(){
+        b.closest('.check-item').classList.toggle('checked', b.checked);
+        try{
+          var state = JSON.parse(localStorage.getItem(KEY) || '{}');
+          state[b.id] = b.checked;
+          localStorage.setItem(KEY, JSON.stringify(state));
+        }catch(e){}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
