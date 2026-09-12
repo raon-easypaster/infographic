@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260913info.html",
+    "relativeURL": "2026/260913info.html",
+    "date": "2026-09-13",
+    "title": "설계자입니까, 현장감독입니까? | 라온동행교회",
+    "scripture": "출애굽기 40:16, 29:46, 40:33-34"
+  },
+  {
     "fileName": "260823info.html",
     "relativeURL": "2026/260823info.html",
     "date": "2026-08-23",
