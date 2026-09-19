@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260920info.html",
+    "relativeURL": "2026/260920info.html",
+    "date": "2026-09-20",
+    "title": "분노의 대가 | 모세 시리즈 21편 | 라온동행교회",
+    "scripture": "민수기 20:1-13"
+  },
+  {
     "fileName": "260913info.html",
     "relativeURL": "2026/260913info.html",
     "date": "2026-09-13",
