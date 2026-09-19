@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ko" data-scripture="민수기 20:1-13">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>분노의 대가 | 모세 시리즈 21편 | 라온동행교회</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --main: #1c3a52;
+  --main-dark: #122538;
+  --sub: #2d6e8e;
+  --accent: #d4943a;
+  --accent-light: #f5e8d0;
+  --bg: #f4f1eb;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --border: #ddd6c8;
+  --highlight: #e8f4fd;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+/* ① 히어로 헤더 */
+.hero {
+  background: var(--main);
+  position: relative;
+  overflow: hidden;
+  padding: 56px 36px 48px;
+  margin-bottom: 0;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.1;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: var(--sub);
+  opacity: 0.15;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+}
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  position: relative; z-index: 1;
+}
+.hero-meta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  position: relative; z-index: 1;
+}
+
+/* ② 핵심 구절 */
+.scripture-section {
+  background: var(--main-dark);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+.scripture-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.scripture-text {
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+  color: #fff;
+  line-height: 1.85;
+  border-left: 3px solid var(--accent);
+  padding-left: 18px;
+}
+.scripture-ref {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* ③ 핵심 메시지 */
+.key-message {
+  background: var(--accent);
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.key-message p {
+  font-family: 'Gowun Batang', serif;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+/* ④ 대지 카드 */
+.points-section { margin-bottom: 24px; }
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--sub);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-left: 12px;
+  border-left: 3px solid var(--sub);
+}
+
+.point-card {
+  background: var(--card);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.point-header {
+  background: var(--main);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.point-num {
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+}
+.point-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.4;
+}
+.point-body {
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text);
+}
+.point-body .quote {
+  background: var(--highlight);
+  border-left: 3px solid var(--sub);
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+  margin: 12px 0;
+  font-family: 'Gowun Batang', serif;
+  font-size: 14px;
+  color: #1a2a3a;
+  line-height: 1.8;
+}
+.point-body .original {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin: 10px 0;
+  font-size: 13px;
+  color: #4a3010;
+}
+.point-body .original strong { font-size: 12px; display: block; margin-bottom: 2px; }
+
+/* ⑤ 인용 강조 */
+.highlight-quote {
+  background: var(--sub);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.highlight-quote blockquote {
+  font-family: 'Gowun Batang', serif;
+  font-size: 19px;
+  color: #fff;
+  line-height: 1.7;
+  font-style: normal;
+}
+.highlight-quote cite {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 10px;
+  font-style: normal;
+}
+
+/* ⑥ 적용 */
+.apply-section {
+  background: var(--card);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.apply-header {
+  background: var(--main);
+  padding: 14px 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.apply-body { padding: 20px; }
+.apply-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.apply-item:last-child { margin-bottom: 0; }
+.check-box {
+  width: 22px; height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  transition: all .2s;
+  margin-top: 2px;
+  background: #fff;
+}
+.apply-item.checked .check-box {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.apply-item.checked .apply-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+.apply-text {
+  font-size: 14px;
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* 자문 박스 */
+.question-box {
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 14px;
+  text-align: center;
+}
+.question-box p {
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+  color: #4a3010;
+  line-height: 1.7;
+}
+
+/* ⑦ 기도 */
+.prayer-section {
+  background: var(--card);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.prayer-header {
+  background: var(--sub);
+  padding: 14px 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.prayer-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--text);
+  font-family: 'Gowun Batang', serif;
+}
+
+/* ⑧ 신학 태그 */
+.tags-section { margin-bottom: 24px; }
+.tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag {
+  background: var(--main);
+  color: rgba(255,255,255,0.9);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.tag.accent { background: var(--accent); }
+.tag.sub { background: var(--sub); }
+
+/* ⑨ 푸터 */
+.footer {
+  text-align: center;
+  padding: 24px 0 0;
+  border-top: 2px solid var(--main);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer strong { color: var(--main); font-size: 14px; }
+
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 36px; }
+  .hero h1 { font-size: 28px; }
+  .scripture-section, .key-message, .highlight-quote { padding: 20px; }
+  .point-body { padding: 14px; }
+  .apply-body, .prayer-body { padding: 14px; }
+}
+
+@media print {
+  body { background: #fff; }
+  .point-card, .apply-section, .prayer-section { box-shadow: none; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ① 히어로 헤더 -->
+<div class="hero">
+  <div class="hero-badge">모세 시리즈 21편</div>
+  <h1>분노의<br>대가</h1>
+  <div class="hero-sub">민수기 20:1–13 | Numbers 20:1–13</div>
+  <div class="hero-meta">2026년 9월 19일 · 라온동행교회 · 쉬운목사 이광복</div>
+</div>
+
+<!-- ② 핵심 구절 -->
+<div class="scripture-section">
+  <div class="scripture-label">📖 오늘의 중심 말씀</div>
+  <div class="scripture-text">
+    "너희가 나를 믿지 아니하고<br>
+    이스라엘 자손의 목전에서<br>
+    내 거룩함을 나타내지 아니한 고로<br>
+    너희는 이 회중을 내가 그들에게 준 땅으로<br>
+    인도하여 들이지 못하리라"
+  </div>
+  <div class="scripture-ref">민수기 20:12 (개역개정)</div>
+</div>
+
+<!-- ③ 핵심 메시지 -->
+<div class="key-message">
+  <p>분노는 표면이고, 불신앙이 그 뿌리다.<br>우리의 분노가 하나님의 거룩하심을 가리지 않아야 한다.</p>
+</div>
+
+<!-- ④ 대지 카드 -->
+<div class="points-section">
+  <div class="section-title">오늘 말씀의 세 흐름</div>
+
+  <!-- 대지 1 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">1</div>
+      <div class="point-title">탈진한 모세 — 먼저 하나님 앞에 엎드리다</div>
+    </div>
+    <div class="point-body">
+      <p>미리암의 죽음. 120년의 관계, 광야 40년을 함께 걷던 누이가 떠났습니다. 성경은 그 슬픔을 길게 기록하지 않습니다. "미리암이 거기서 죽어 거기에 장사되니라." 그게 전부입니다. 그 고통이 채 가시기 전에 백성들이 다시 달려와 원망합니다.</p>
+      <div class="quote">
+        "모세와 아론이 회중 앞을 떠나 회막 문에 이르러 엎드리매" (민 20:6)
+      </div>
+      <p>40년을 이끌어온 지도자, 몸과 마음이 탈진 상태에서도 모세는 먼저 하나님 앞에 엎드렸습니다. <strong>이것이 우리가 본받아야 할 첫 번째 선택입니다.</strong> 문제 앞에서 먼저 하나님 앞에 나아가고 있습니까?</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">※ 원망한 백성들 중 다수는 출애굽을 직접 경험하지 못한 광야 세대였습니다. 하나님의 은혜가 '교실에서 배운 역사'일 뿐, 직접 경험한 구원이 아니었던 세대 — 이것이 오늘 우리 교회의 현실이기도 합니다.</p>
+    </div>
+  </div>
+
+  <!-- 대지 2 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">2</div>
+      <div class="point-title">기도와 순종은 다르다 — 분노가 말씀을 앞서다</div>
+    </div>
+    <div class="point-body">
+      <p>하나님은 모세에게 분명히 말씀하셨습니다.</p>
+      <div class="quote">"반석에게 <strong>명령하여</strong> 물을 내라 하라" (민 20:8)</div>
+      <p>40년 전 르비딤에서는 "반석을 <strong>쳐라</strong>"였습니다. 이번엔 달랐습니다. 복음주의 신학자들은 40년 전 반석 타격이 십자가에서 깨어지실 그리스도의 예표라고 말합니다. 그리스도는 단번에 깨어지셨습니다. 이제는 말씀으로, 신뢰로 나아가야 합니다. 그런데 모세는 지팡이로 반석을 <strong>두 번</strong> 쳤습니다.</p>
+      <div class="original">
+        <strong>원어 분석</strong>
+        모세가 말한 "반역한 너희여" — 히브리어 '함모림(הַמֹּרִים)', 어근 '마라(מָרָה)'<br>
+        놀랍게도 민수기 27:14에서 <em>모세 자신</em>에게 그대로 적용됩니다.<br>
+        "너희가 신 광야에서 회중이 물을 다툴 때에 그 명령을 거역하였음이라."<br>
+        다른 이의 반역을 정죄하는 순간, 자신도 선을 넘고 있었습니다.
+      </div>
+      <p style="margin-top:8px;">"우리가 너희를 위하여 이 반석에서 물을 내랴" — 기적의 주인이 하나님에서 모세로 바뀌었습니다. <strong>분노가 감정을 넘어 공적 사건이 된 순간입니다.</strong></p>
+    </div>
+  </div>
+
+  <!-- 대지 3 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">3</div>
+      <div class="point-title">판결과 아름다운 퇴장 — 순복하고 다음을 세우다</div>
+    </div>
+    <div class="point-body">
+      <p>물은 나왔습니다. 그러나 하나님은 결과가 좋다고 과정을 옳다 하지 않으셨습니다. 하나님이 모세의 죄를 두 가지로 지목하셨습니다.</p>
+      <div class="original">
+        <strong>죄목 1 — 불신앙: '로-헤에만템(לֹא-הֶאֱמַנְתֶּם)'</strong>
+        어근 '아만(אָמַן)' — 여기서 "아멘"이 나왔습니다. 전인격적 신뢰, 전적 의탁.<br>
+        분노는 표면이고, <em>불신앙이 그 뿌리</em>입니다.
+      </div>
+      <div class="original">
+        <strong>죄목 2 — 거룩함을 가림: '레하크디셰니(לְהַקְדִּישֵׁנִי)'</strong>
+        어근 '카다쉬(קָדַשׁ)' — 이미 거룩하신 하나님을 백성 앞에서 거룩하신 분으로 <em>드러내는</em> 것이 리더의 역할.<br>
+        분노한 모세의 모습에서 백성들은 하나님의 성품을 오해하게 됩니다.
+      </div>
+      <p>판결 이후 모세는 하나님을 떠나지 않았습니다. 가나안 입성을 간구했고, 허락받지 못했지만, 그 땅으로 여호수아를 세우고 리더십을 이양했습니다. <strong>내가 원하는 결말이 아닌, 하나님이 정하신 결말을 받아들이는 것 — 이것이 신앙의 가장 높은 지점입니다.</strong></p>
+      <div class="quote">
+        그리고 수천 년 후, 변화산에서 모세가 나타났습니다.<br>
+        하나님의 결말은 언제나 우리의 예상을 넘어섭니다.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 인용 강조 -->
+<div class="highlight-quote">
+  <blockquote>
+    "분노의 가장 큰 위험은<br>감정이 폭발하는 것이 아닙니다.<br>그 감정이 하나님의 말씀보다 앞서서<br>하나님의 성품을 가리는 것입니다."
+  </blockquote>
+  <cite>— 설교 본문 中</cite>
+</div>
+
+<!-- ⑥ 적용 체크리스트 -->
+<div class="apply-section">
+  <div class="apply-header">💡 오늘 내 삶에 — 실천 체크리스트</div>
+  <div class="apply-body">
+    <div class="apply-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="apply-text">예배가 끝난 후 가족에게도 동일한 모습을 보이고 있는지 돌아보겠습니다.</div>
+    </div>
+    <div class="apply-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="apply-text">화가 치밀어 오를 때, "지금 이 자리에서 하나님은 어떤 분으로 보이시기를 원하실까?"라고 먼저 스스로에게 묻겠습니다.</div>
+    </div>
+    <div class="apply-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="apply-text">좋은 결과가 났을 때, 과정도 하나님 앞에 옳았는지 점검하겠습니다. 결과가 과정을 증명하지 않습니다.</div>
+    </div>
+    <div class="apply-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="apply-text">탈진할 때, 내 경험과 방법이 아닌 하나님 앞에 엎드려 간구하겠습니다.</div>
+    </div>
+    <div class="apply-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="apply-text">하나님의 뜻에 순복하며, 다음 사람을 세우는 성숙한 신앙인이 되겠습니다.</div>
+    </div>
+    <div class="question-box">
+      <p>"나는 지금 사람들 앞에서<br>하나님을 어떤 분으로 보여주고 있는가?"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ 기도 -->
+<div class="prayer-section">
+  <div class="prayer-header">🙏 마무리 기도</div>
+  <div class="prayer-body">
+    주님, 우리도 모세처럼 탈진하고 지칠 때가 있습니다.<br>
+    그 순간, 내 경험과 분노를 앞세우지 않고<br>
+    먼저 주님 앞에 엎드리는 믿음을 주소서.<br><br>
+
+    우리의 분노가 주님의 거룩하심을 가리지 않게 하소서.<br>
+    자녀 앞에서, 이웃 앞에서, 직장에서<br>
+    우리를 바라보는 사람들이 하나님의 은혜와 자비를 보게 하소서.<br><br>
+
+    결과가 아닌 과정을 주님 앞에서 옳게 걸어가게 하시고,<br>
+    하나님의 뜻에 순복하며 다음 사람을 세우는<br>
+    성숙한 믿음의 사람으로 빚어주소서.<br><br>
+
+    끝까지 순종하신 예수 그리스도의 이름으로 기도합니다. 아멘.
+  </div>
+</div>
+
+<!-- ⑧ 신학 태그 -->
+<div class="tags-section">
+  <div class="section-title">핵심 키워드</div>
+  <div class="tags-wrap">
+    <span class="tag">#불신앙의_뿌리</span>
+    <span class="tag accent">#분노의_대가</span>
+    <span class="tag sub">#하나님의_거룩함</span>
+    <span class="tag">#성화</span>
+    <span class="tag">#리더의무게</span>
+    <span class="tag accent">#순복</span>
+    <span class="tag sub">#선행은총</span>
+    <span class="tag">#모세시리즈</span>
+  </div>
+</div>
+
+<!-- ⑨ 푸터 -->
+<div class="footer">
+  <strong>라온동행교회</strong><br>
+  쉬운목사 이광복 · 기독교 대한성결교회<br>
+  모세 시리즈 21편 · 2026년 9월 19일
+</div>
+
+</div>
+
+<script>
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  const box = item.querySelector('.check-box');
+  box.textContent = item.classList.contains('checked') ? '✓' : '';
+  // localStorage에 저장 (정적 페이지 지원)
+  try {
+    const items = document.querySelectorAll('.apply-item');
+    const states = Array.from(items).map(i => i.classList.contains('checked'));
+    localStorage.setItem('sermon_20260919_checks', JSON.stringify(states));
+  } catch(e) {}
+}
+
+// 저장된 상태 복원
+try {
+  const saved = localStorage.getItem('sermon_20260919_checks');
+  if (saved) {
+    const states = JSON.parse(saved);
+    document.querySelectorAll('.apply-item').forEach((item, i) => {
+      if (states[i]) {
+        item.classList.add('checked');
+        item.querySelector('.check-box').textContent = '✓';
+      }
+    });
+  }
+} catch(e) {}
+</script>
+</body>
+</html>
