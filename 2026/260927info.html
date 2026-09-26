@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ko" data-scripture="민수기 27:15–23">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>계승 — 민수기 27:15–23 | 라온동행교회 모세 시리즈 22</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --main: #1b4332;
+    --main-mid: #2d6a4f;
+    --main-light: #40916c;
+    --accent: #d4a017;
+    --accent-light: #fef3c7;
+    --accent-mid: #f59e0b;
+    --bg: #f9fafb;
+    --bg2: #f0fdf4;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-sub: #4b5563;
+    --border: #d1fae5;
+    --quote-bg: #ecfdf5;
+    --tag-bg: #dcfce7;
+    --tag-text: #166534;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+  }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 0 16px 60px; }
+
+  /* ① HERO */
+  .hero {
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 40%, #1b4332 100%);
+    color: #fff;
+    padding: 56px 36px 48px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 180px; height: 180px;
+    border: 2px solid rgba(212,160,23,0.18);
+    border-radius: 50%;
+  }
+  .hero-church {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .hero-series {
+    display: inline-block;
+    background: var(--accent);
+    color: #1b4332;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 14px;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: clamp(36px, 8vw, 52px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .hero-ref {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .hero-msg {
+    background: rgba(212,160,23,0.18);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.75;
+    max-width: 580px;
+  }
+  .hero-date {
+    margin-top: 18px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ② SCRIPTURE */
+  .scripture-wrap {
+    background: var(--main);
+    padding: 0 36px;
+  }
+  .scripture-box {
+    background: #fff;
+    border-left: 5px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 24px;
+    margin: 0;
+  }
+  .scripture-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .scripture-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent-light);
+  }
+  .scripture-text {
+    font-family: 'Gowun Batang', serif;
+    font-size: 15.5px;
+    line-height: 2;
+    color: var(--main);
+    font-weight: 400;
+  }
+  .scripture-ref {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-sub);
+    text-align: right;
+  }
+  .scripture-outer {
+    background: var(--main);
+    padding: 28px 24px 32px;
+  }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px 28px;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(27,67,50,0.06);
+  }
+  .section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; height: 34px;
+    background: var(--main);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .section-title-wrap { flex: 1; }
+  .section-emoji { font-size: 26px; line-height: 1; }
+  .section-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--main);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 12.5px;
+    color: var(--text-sub);
+    font-weight: 300;
+  }
+  .section-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .section-body p { margin-bottom: 10px; }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* BLOCKQUOTE */
+  .bq {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--main-light);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-family: 'Gowun Batang', serif;
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--main);
+  }
+  .bq-ref {
+    font-size: 12px;
+    color: var(--text-sub);
+    margin-top: 6px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .highlight-box {
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    border-left: 4px solid var(--accent-mid);
+    line-height: 1.8;
+    font-weight: 500;
+  }
+
+  /* ④ KEYWORDS */
+  .keywords-section {
+    background: var(--bg2);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+  }
+  .keywords-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--main-light);
+    margin-bottom: 14px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 24px;
+    border: 1.5px solid #bbf7d0;
+  }
+  .tag.accent {
+    background: var(--accent-light);
+    color: #78350f;
+    border-color: #fde68a;
+  }
+
+  /* ⑤ CONCLUSION */
+  .conclusion-banner {
+    background: linear-gradient(135deg, var(--main) 0%, var(--main-mid) 100%);
+    border-radius: 16px;
+    padding: 30px 28px;
+    margin: 20px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .conclusion-banner::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 140px; height: 140px;
+    border: 2px solid rgba(212,160,23,0.2);
+    border-radius: 50%;
+  }
+  .conclusion-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .conclusion-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .conclusion-body {
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.88);
+  }
+  .conclusion-body p { margin-bottom: 8px; }
+  .conclusion-hl {
+    background: rgba(212,160,23,0.2);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 14px;
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Gowun Batang', serif;
+    line-height: 1.75;
+  }
+
+  /* ⑥ CHECKLIST */
+  .checklist-section {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin: 20px 0;
+    border: 1.5px solid var(--accent-mid);
+    box-shadow: 0 2px 12px rgba(212,160,23,0.08);
+  }
+  .checklist-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--main);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: background 0.2s;
+    border: 1px solid transparent;
+  }
+  .check-item:hover { background: var(--bg2); }
+  .check-item.checked { background: var(--bg2); border-color: var(--border); }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-box {
+    min-width: 22px; height: 22px;
+    border: 2px solid var(--main-light);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    background: #fff;
+  }
+  .check-item.checked .check-box {
+    background: var(--main);
+    border-color: var(--main);
+  }
+  .check-item.checked .check-box::after {
+    content: '✓';
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .check-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .check-item.checked .check-text {
+    color: var(--text-sub);
+    text-decoration: line-through;
+    text-decoration-color: var(--main-light);
+  }
+
+  /* ⑦ PRAYER */
+  .prayer-section {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+  }
+  .prayer-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--main-light);
+    margin-bottom: 14px;
+  }
+  .prayer-text {
+    font-family: 'Gowun Batang', serif;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--main);
+  }
+  .prayer-text p { margin-bottom: 6px; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-sub);
+    line-height: 1.9;
+  }
+  .footer strong { color: var(--main); font-size: 13px; }
+
+  /* DIVIDER */
+  .sec-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--main-light), var(--accent), var(--main-light));
+    border-radius: 2px;
+    margin: 0;
+    opacity: 0.3;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .section-card, .keywords-section, .checklist-section, .prayer-section { box-shadow: none; break-inside: avoid; }
+    .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .conclusion-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 36px 20px 32px; }
+    .section-card { padding: 20px 18px; }
+    .checklist-section { padding: 20px 18px; }
+    .prayer-section { padding: 20px 18px; }
+    .conclusion-banner { padding: 24px 20px; }
+    .scripture-outer { padding: 20px 16px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ① HERO HEADER -->
+<div class="hero">
+  <div class="hero-church">라온동행교회 · 쉬운목사 이광복</div>
+  <div class="hero-series">모세 시리즈 22</div>
+  <div class="hero-title">계승</div>
+  <div class="hero-ref">민수기 27장 15–23절 &nbsp;|&nbsp; 2026년 9월 27일</div>
+  <div class="hero-msg">
+    교회의 사명은 한 사람의 자리를 지키는 방식이 아니라,<br>
+    그리스도를 머리로 삼아 사람과 책임과 신뢰를 세우는 방식으로 계승되어야 합니다.
+  </div>
+  <div class="hero-date">기독교 대한성결교회 · 웨슬리안-성결 신학</div>
+</div>
+
+<!-- ② SCRIPTURE -->
+<div class="scripture-outer">
+  <div class="scripture-box">
+    <div class="scripture-label">오늘의 중심 말씀</div>
+    <div class="scripture-text">
+      여호와, 모든 육체의 생명의 하나님이시여 원하건대 한 사람을 이 회중 위에 세워서 그로 그들 앞에 출입하며 그들을 인도하여 출입하게 하사 여호와의 회중이 목자 없는 양과 같이 되지 않게 하옵소서
+    </div>
+    <div class="scripture-ref">민수기 27:16–17 (개역개정)</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ③ MAIN SECTIONS -->
+
+  <!-- 서론 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">序</div>
+      <div class="section-title-wrap">
+        <div class="section-title">내가 없어도 이어질 수 있는가</div>
+        <div class="section-sub">서론 · 문제 제기</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>저는 늘 마음에 한 질문을 품고 삽니다. "나는 이광복이라는 목회자 없이도 세워지는 라온동행교회 공동체를 만들고 있는가?" 담임목사 한 사람에게 책임과 결정이 집중된 한국 교회 현실에서는 낯선 질문일 수 있습니다.</p>
+      <p>그러나 교회의 주인은 오직 예수 그리스도이십니다. 민수기 11장이 "지금 이 짐을 혼자 지지 말라"는 말씀이라면, 오늘 민수기 27장은 "내가 떠난 뒤에도 이 사명이 이어지게 하라"는 말씀입니다.</p>
+      <div class="highlight-box">
+        딜로이트 2026년 글로벌 가족기업 조사: 82%가 승계 계획이 있다고 답했으나, 그 계획이 구체적이라고 답한 곳은 46%에 불과했습니다. 계획이 있다는 말과 실제로 다음 사람을 준비시키는 일은 다릅니다.
+        <div style="font-size:11px;margin-top:6px;color:#92400e;">추론: 딜로이트 2026 가족기업 보고서 / The Unstuck Group 2025 Q2 Church Report 인용</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 대지 1 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title-wrap">
+        <div class="section-title">떠날 때에도 양 떼를 바라본 사람</div>
+        <div class="section-sub">15–17절 · 자리가 아닌 사명</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>15절, 모세의 마지막 기도에는 자기 자리를 지켜 달라는 요청도, 자기 업적을 기억해 달라는 부탁도 없습니다.</p>
+      <div class="bq">
+        "여호와, 모든 육체의 생명의 하나님이시여, 원하건대 한 사람을 이 회중 위에 세워서... 여호와의 회중이 목자 없는 양과 같이 되지 않게 하옵소서."
+        <div class="bq-ref">민수기 27:16–17</div>
+      </div>
+      <p>모세가 하나님을 '엘로헤 하루호트 레콜 바사르(모든 육체의 생명의 하나님)'라 부른 것은 모든 사람의 영을 아시는 하나님께 다음 지도자를 맡기는 고백입니다.</p>
+      <div class="highlight-box">
+        지도자의 마지막을 보면 그 사람이 자리를 위해 일했는지, 사명을 위해 일했는지가 드러납니다. 자리를 붙드는 사람은 끝까지 자신이 어떻게 대우받는지를 생각합니다. 사명을 붙드는 사람은 자신이 떠난 뒤에도 공동체가 하나님의 돌봄 안에 있기를 바랍니다.
+      </div>
+      <p>예수님은 무리가 "목자 없는 양과 같이 고생하며 기진함"을 보시고 불쌍히 여기셨습니다(마 9:36). 모세는 양 떼를 염려했지만 함께할 수 없었습니다. 그러나 예수님은 양들을 위하여 자기 목숨을 버리시고 부활하신 영원한 목자이십니다.</p>
+    </div>
+  </div>
+
+  <!-- 대지 2 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title-wrap">
+        <div class="section-title">하나님은 모세를 복제하지 않으셨다</div>
+        <div class="section-sub">18–21절 · 공적 위임과 말씀 아래 서는 지도력</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="bq">
+        "눈의 아들 여호수아는 그 안에 영이 머무는 자니, 너는 데려다가 그에게 안수하고."
+        <div class="bq-ref">민수기 27:18</div>
+      </div>
+      <p>'영'은 히브리어 <em>루아흐</em>입니다. 단순한 기질이나 리더십이 아닙니다. 하나님께서 이미 여호수아를 아시고 사명에 합당하게 준비시키셨다는 뜻입니다. 성경적 계승의 출발점은 혈연이나 사적 관계가 아니라 하나님의 부르심입니다.</p>
+      <p>하나님은 여호수아를 온 회중 앞에 세우라 하셨습니다. <strong>위임은 밀실의 거래가 아니라 공동체 앞에서 공개적으로 확인되어야 할 일입니다.</strong></p>
+      <div class="bq">
+        "네 존귀를 그에게 돌려 이스라엘 자손의 온 회중을 그에게 복종하게 하라."
+        <div class="bq-ref">민수기 27:20</div>
+      </div>
+      <div class="highlight-box">
+        책임만 넘기고 권한을 주지 않는 것은 위임이 아닙니다. 하나님은 여호수아를 모세와 똑같은 또 하나의 모세로 복제하지 않으셨습니다. 시대마다 다른 리더십이 필요하기 때문입니다. 교회의 지도력은 하나님에게서 위임받고, 공동체 앞에서 공적으로 확인되며, 말씀 아래 책임 있게 행사되어야 합니다.
+      </div>
+      <p>목회자는 더 높은 계급의 그리스도인이 아닙니다. 특별한 책임을 맡은 사람입니다. 그 권위는 지배할 권력이 아니라 말씀과 사랑으로 섬길 책임입니다. 역할은 다르지만, 머리는 한 분—오직 예수 그리스도이십니다.</p>
+    </div>
+  </div>
+
+  <!-- 대지 3 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title-wrap">
+        <div class="section-title">이름만 넘기면 짐만 넘기는 것이다</div>
+        <div class="section-sub">22–23절 · 진정한 위임의 세 요소</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>모세는 여호수아를 온 회중 앞에 세우고 안수했습니다. 안수는 신비한 능력의 전달이 아니라 책임을 맡게 되었다는 사실을 공적으로 확인하는 행위입니다. 여호수아는 갑자기 등장한 사람이 아니었습니다. 아말렉 전투, 모세 섬김, 가나안 정탐—하나님은 오랜 시간 그를 준비시키셨습니다.</p>
+      <div class="highlight-box" style="font-weight:600;">
+        진정한 위임은 이름만 바꾸는 일이 아닙니다.<br>
+        책임을 맡길 뿐 아니라 권한을 주고, 필요한 정보를 나누며, 공동체의 신뢰 속에 서도록 돕는 일입니다.
+      </div>
+      <p>라온동행교회를 개척할 때부터 저는 은퇴를 생각했습니다. 그러던 어느 날 하나님께서 제 마음에 질문하셨습니다.</p>
+      <div class="bq">
+        "너는 모든 권한이 한 사람에게 집중되는 구조가 옳지 않다고 말하면서, 정작 너는 모든 것을 혼자 짊어지고 모든 결정을 내리려는 것은 아니냐?"
+        <div class="bq-ref">목사님의 고백</div>
+      </div>
+      <p>망치로 머리를 맞은 것 같았습니다. 선한 의도였지만, 결과는 같은 구조를 만들고 있었습니다.</p>
+      <p>한 사람이 모든 자물쇠의 열쇠를 가지고 있으면, 다른 사람은 문을 열 수 없습니다. 위임은 불편합니다. 내가 하면 더 잘하고 더 빠르기 때문입니다. 그러나 그 생각을 붙들면 결국 "나만 할 수 있는 구조"가 만들어집니다. 건강한 계승을 원한다면 지금부터 사람을 세워야 합니다.</p>
+    </div>
+  </div>
+
+  <!-- ④ KEYWORDS -->
+  <div class="keywords-section">
+    <div class="keywords-label">🔑 핵심 키워드</div>
+    <div class="tags">
+      <span class="tag">#계승</span>
+      <span class="tag">#위임</span>
+      <span class="tag">#사명</span>
+      <span class="tag">#공동체</span>
+      <span class="tag accent">#선한목자</span>
+      <span class="tag">#그리스도의몸</span>
+      <span class="tag accent">#사회적성결</span>
+      <span class="tag">#루아흐</span>
+      <span class="tag">#권한위임</span>
+      <span class="tag accent">#웨슬리안신학</span>
+    </div>
+  </div>
+
+  <!-- ⑤ CONCLUSION -->
+  <div class="conclusion-banner">
+    <div class="conclusion-label">결론 · CONCLUSION</div>
+    <div class="conclusion-title">머리는 한 분이고 우리는 모두 지체입니다</div>
+    <div class="conclusion-body">
+      <p>모세는 떠나는 순간에도 자신의 명예가 아니라 양 떼를 바라보았습니다. 하나님은 여호수아를 선택하시고 영으로 준비시키셨습니다. 모세는 책임만 떠넘기지 않고 온 회중 앞에서 실제적인 권위와 사명을 맡겼습니다.</p>
+      <p>모세도, 여호수아도 영원한 목자가 아니었습니다. 모든 인간 지도자는 떠납니다. 오직 예수 그리스도만이 교회의 영원한 머리이십니다.</p>
+      <p>건강한 교회는 목회자가 필요 없는 교회가 아닙니다. 특정 목회자가 머리를 대신하지 않는 교회입니다.</p>
+    </div>
+    <div class="conclusion-hl">
+      라온동행교회는 누구의 교회입니까?<br>
+      예수 그리스도의 교회입니다.<br>
+      그리스도의 몸 된 우리 모두가 각자 받은 은사를 따라 함께 세워 가야 합니다.
+    </div>
+  </div>
+
+  <!-- ⑥ CHECKLIST -->
+  <div class="checklist-section">
+    <div class="checklist-title">✅ 오늘 내 삶에 · 실천 체크리스트</div>
+
+    <label class="check-item" onclick="toggleCheck(this)">
+      <input type="checkbox">
+      <div class="check-box"></div>
+      <div class="check-text">나는 지금 사명을 위해 일하는가, 아니면 자리를 위해 일하는가? 솔직하게 돌아봅니다.</div>
+    </label>
+
+    <label class="check-item" onclick="toggleCheck(this)">
+      <input type="checkbox">
+      <div class="check-box"></div>
+      <div class="check-text">내가 꽉 쥐고 있는 '열쇠 하나'를 이번 주 다른 지체에게 나눕니다. (정보, 결정권, 역할 중 하나)</div>
+    </label>
+
+    <label class="check-item" onclick="toggleCheck(this)">
+      <input type="checkbox">
+      <div class="check-box"></div>
+      <div class="check-text">우리 소그룹/가정/직장에서 정보가 차단되고 결정이 소수에게만 집중되는 구조가 있다면 이야기를 꺼냅니다.</div>
+    </label>
+
+    <label class="check-item" onclick="toggleCheck(this)">
+      <input type="checkbox">
+      <div class="check-box"></div>
+      <div class="check-text">내가 맡은 자리를 성실히 감당하면서도, 다음 사람이 그 자리에 설 수 있도록 가르치고 준비시킵니다.</div>
+    </label>
+
+    <label class="check-item" onclick="toggleCheck(this)">
+      <input type="checkbox">
+      <div class="check-box"></div>
+      <div class="check-text">"내가 없어도 이 공동체가 건강하게 세워질 수 있는가?"를 한 주 동안 묵상합니다.</div>
+    </label>
+  </div>
+
+  <!-- ⑦ PRAYER -->
+  <div class="prayer-section">
+    <div class="prayer-label">🙏 함께 기도합니다</div>
+    <div class="prayer-text">
+      <p>주님, 우리에게 자리를 붙드는 마음이 아니라 사명을 이어 주는 마음을 주소서.</p>
+      <p>모세처럼, 우리의 마지막 기도가 "내 이름이 기억되게"가 아니라 "이 공동체가 목자 없는 양이 되지 않게 해달라"는 기도가 되게 하소서.</p>
+      <p>교회의 영원한 머리이신 예수 그리스도 안에서, 우리 모두가 각자의 은사를 따라 서로를 세우는 지체로 살아가게 하소서.</p>
+      <p>자리는 넘기되 사명은 함께 이어 가는 라온동행교회가 되게 하소서.</p>
+      <p style="margin-top:14px; font-weight:700; color:var(--main);">예수님의 이름으로 기도합니다. 아멘.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>라온동행교회</strong><br>
+    쉬운목사 이광복 &nbsp;·&nbsp; 모세 시리즈 22 &nbsp;·&nbsp; 2026년 9월 27일<br>
+    민수기 27:15–23 &nbsp;·&nbsp; 기독교 대한성결교회
+  </div>
+</div>
+
+<script>
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+}
+// 체크 상태 localStorage 저장 (정적 페이지)
+window.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.check-item');
+  items.forEach((item, i) => {
+    const saved = localStorage.getItem('check_moses22_' + i);
+    if (saved === '1') item.classList.add('checked');
+    item.addEventListener('click', () => {
+      localStorage.setItem('check_moses22_' + i, item.classList.contains('checked') ? '1' : '0');
+    });
+  });
+});
+</script>
+</body>
+</html>
