@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "260927info.html",
+    "relativeURL": "2026/260927info.html",
+    "date": "2026-09-27",
+    "title": "계승 — 민수기 27:15–23 | 라온동행교회 모세 시리즈 22",
+    "scripture": "민수기 27:15–23"
+  },
+  {
     "fileName": "260920info.html",
     "relativeURL": "2026/260920info.html",
     "date": "2026-09-20",
