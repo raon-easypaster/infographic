@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "261004info.html",
+    "relativeURL": "2026/261004info.html",
+    "date": "2026-10-04",
+    "title": "마지막 축복 — 신명기 33장 | 라온동행교회",
+    "scripture": "신명기 33:1–5, 26–29"
+  },
+  {
     "fileName": "260927info.html",
     "relativeURL": "2026/260927info.html",
     "date": "2026-09-27",
