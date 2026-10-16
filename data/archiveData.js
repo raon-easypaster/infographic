@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "261018info.html",
+    "relativeURL": "2026/261018info.html",
+    "date": "2026-10-18",
+    "title": "아름다운 퇴장 | 라온동행교회",
+    "scripture": "신명기 34:1–12"
+  },
+  {
     "fileName": "261004info.html",
     "relativeURL": "2026/261004info.html",
     "date": "2026-10-04",
