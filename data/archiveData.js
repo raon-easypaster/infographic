@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "261025info.html",
+    "relativeURL": "2026/261025info.html",
+    "date": "2026-10-25",
+    "title": "귀히 쓰는 그릇 — 설교 인포그래픽",
+    "scripture": "디모데후서 2:20-21"
+  },
+  {
     "fileName": "261018info.html",
     "relativeURL": "2026/261018info.html",
     "date": "2026-10-18",
