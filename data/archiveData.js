@@ -1,5 +1,12 @@
 window.ARCHIVE_DATA = [
   {
+    "fileName": "261115info.html",
+    "relativeURL": "2026/261115info.html",
+    "date": "2026-11-15",
+    "title": "무엇을 감사할까?",
+    "scripture": "하박국 3:17-19"
+  },
+  {
     "fileName": "261108info.html",
     "relativeURL": "2026/261108info.html",
     "date": "2026-11-08",
