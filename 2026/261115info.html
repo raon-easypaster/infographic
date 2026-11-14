@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무엇을 감사할까? - 라온동행교회</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* 팔레트: 웜 브라운 x 수확 골드 - 추수감사, 위로와 소망 */
+:root {
+  --main: #6B3F1D;
+  --sub: #9A5F2E;
+  --accent: #D9A441;
+  --bg: #FBF5EA;
+  --card: #FFFFFF;
+  --text: #33220F;
+  --muted: #86684B;
+  --light1: #F6EBDA;
+  --light2: #FBEFD0;
+  --border: #E8D5B8;
+  --quote-bg: #F7EEDD;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.8; }
+.page { max-width: 720px; margin: 0 auto; padding: 0 16px 48px; }
+
+.hero { background: linear-gradient(160deg, var(--main) 0%, var(--sub) 70%, #B97A3A 100%); padding: 56px 28px 44px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(217,164,65,0.22); }
+.hero::after { content: ''; position: absolute; bottom: -60px; left: -30px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,0.07); }
+.hero > * { position: relative; z-index: 1; }
+.hero-church { font-size: 12px; letter-spacing: 3px; color: rgba(255,255,255,0.75); margin-bottom: 10px; }
+.hero-event { display: inline-block; background: rgba(217,164,65,0.28); color: #FFE6A8; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 18px; border: 1px solid rgba(217,164,65,0.6); }
+.hero-title { font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 8vw, 50px); font-weight: 700; color: #FFFFFF; line-height: 1.25; margin-bottom: 8px; }
+.hero-divider { width: 50px; height: 3px; background: var(--accent); margin: 16px auto; border-radius: 2px; }
+.scripture-badge { display: inline-block; font-size: 14px; font-weight: 700; color: var(--main); background: #FFE6A8; padding: 4px 16px; border-radius: 20px; margin-bottom: 14px; }
+.hero-meta { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.9; }
+
+.section { margin-top: 24px; }
+.card, .point-card { background: var(--card); border-radius: 16px; padding: 28px; box-shadow: 0 2px 12px rgba(107,63,29,0.08); border: 1px solid var(--border); }
+.point-card { margin-bottom: 16px; }
+.sec-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--sub); margin-bottom: 14px; }
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.scripture-card { background: var(--main); border-radius: 16px; padding: 28px 30px; position: relative; overflow: hidden; }
+.scripture-card::before { content: ''; position: absolute; left: 0; top: 0; width: 5px; height: 100%; background: var(--accent); }
+.scripture-label { font-size: 11px; letter-spacing: 2px; color: var(--accent); margin-bottom: 12px; padding-left: 14px; }
+.scripture-text { font-family: 'Noto Serif KR', serif; font-size: 16px; line-height: 1.95; color: #FFFFFF; padding-left: 14px; }
+.scripture-text .v { color: var(--accent); font-weight: 700; font-size: 13px; margin-right: 6px; }
+.scripture-text p { margin-bottom: 8px; }
+.scripture-ref { font-size: 12px; color: rgba(255,255,255,0.65); text-align: right; margin-top: 12px; }
+
+.point-body { font-size: 15px; line-height: 1.85; margin-bottom: 14px; }
+.point-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.point-num { min-width: 40px; height: 40px; background: var(--main); color: #fff; font-size: 14px; font-weight: 900; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.point-title { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 700; color: var(--main); line-height: 1.45; }
+blockquote.sermon-quote { background: var(--quote-bg); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 16px 0; font-family: 'Noto Serif KR', serif; font-size: 15px; line-height: 1.9; }
+blockquote.sermon-quote .quote-ref { display: block; text-align: right; font-size: 12px; color: var(--muted); margin-top: 8px; font-family: 'Noto Sans KR', sans-serif; }
+.highlight-text { background: var(--light2); border-radius: 8px; padding: 12px 16px; font-size: 15px; color: var(--main); font-weight: 700; line-height: 1.7; margin: 12px 0; }
+
+/* 여섯 가지 없음 목록 */
+.six { list-style: none; margin: 14px 0; counter-reset: s; }
+.six li { counter-increment: s; display: flex; align-items: center; gap: 12px; padding: 9px 12px; margin-bottom: 6px; border-radius: 8px; font-size: 15px; border: 1px solid var(--border); }
+.six li::before { content: counter(s); min-width: 26px; height: 26px; border-radius: 50%; background: var(--sub); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.six li:nth-child(1) { background: #FFF8E8; }
+.six li:nth-child(2) { background: #FCEFD2; }
+.six li:nth-child(3) { background: #F8E3BC; }
+.six li:nth-child(4) { background: #F2D3A0; }
+.six li:nth-child(5) { background: #EBC287; }
+.six li:nth-child(6) { background: #E3AE6C; }
+.six-scale { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+/* 감사의 뿌리 비교 */
+.roots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.root { border-radius: 12px; padding: 16px; font-size: 14px; line-height: 1.7; }
+.root b { display: block; font-size: 13px; margin-bottom: 6px; }
+.root.a { background: #F3E9DD; border: 1px solid var(--border); color: var(--muted); }
+.root.b { background: var(--light2); border: 1px solid var(--accent); color: var(--main); }
+
+.tags-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.tag { background: var(--light1); border: 1px solid var(--border); color: var(--sub); font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 20px; }
+.tag.gold { background: var(--light2); border-color: var(--accent); color: #7A5410; }
+
+.conclusion-banner { background: linear-gradient(135deg, var(--main) 0%, #84502A 100%); border-radius: 16px; padding: 32px; text-align: center; }
+.conclusion-eyebrow { font-size: 11px; letter-spacing: 3px; color: var(--accent); margin-bottom: 14px; }
+.conclusion-msg { font-family: 'Noto Serif KR', serif; font-size: clamp(17px, 4vw, 21px); color: #fff; line-height: 1.8; margin-bottom: 18px; }
+.conclusion-sub { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8; }
+
+.checklist { list-style: none; }
+.checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--border); cursor: pointer; }
+.checklist li:last-child { border-bottom: none; }
+.check-box { min-width: 22px; height: 22px; border: 2px solid var(--sub); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.check-box.checked { background: var(--sub); }
+.check-box.checked::after { content: '\2713'; color: #fff; font-size: 13px; font-weight: 700; }
+.check-text { font-size: 15px; line-height: 1.7; }
+.check-text.done { color: var(--muted); text-decoration: line-through; }
+
+.prayer-box { background: var(--light1); border-radius: 14px; padding: 24px 28px; border: 1px solid var(--border); }
+.prayer-label { font-size: 13px; font-weight: 700; color: var(--sub); margin-bottom: 12px; }
+.prayer-text { font-family: 'Noto Serif KR', serif; font-size: 15px; line-height: 2; }
+
+.footer { text-align: center; margin-top: 28px; font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 36px; }
+  .card, .point-card, .scripture-card { padding: 20px 18px; }
+  .conclusion-banner { padding: 24px 20px; }
+  .prayer-box { padding: 18px; }
+  .roots { grid-template-columns: 1fr; }
+}
+@media print {
+  body { background: #fff; }
+  .hero, .scripture-card, .conclusion-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card, .point-card { box-shadow: none; break-inside: avoid; }
+  .checklist li { cursor: default; }
+}
+</style>
+</head>
+<body data-scripture="하박국 3:17-19">
+
+<header class="hero">
+  <div class="hero-church">라온동행교회</div>
+  <div class="hero-event">온교회 · 경안교회 · 라온동행교회 연합 추수감사예배</div>
+  <h1 class="hero-title">무엇을 감사할까?</h1>
+  <div class="hero-divider"></div>
+  <span class="scripture-badge">하박국 3:17-19</span>
+  <div class="hero-meta">이광복 목사<br>2026년 11월 15일</div>
+</header>
+
+<main class="page">
+
+<section class="section">
+  <div class="scripture-card">
+    <div class="scripture-label">오늘의 말씀 (개역개정)</div>
+    <div class="scripture-text">
+      <p><span class="v">17</span>비록 무화과나무가 무성하지 못하며 포도나무에 열매가 없으며 감람나무에 소출이 없으며 밭에 먹을 것이 없으며 우리에 양이 없으며 외양간에 소가 없을지라도</p>
+      <p><span class="v">18</span>나는 여호와로 말미암아 즐거워하며 나의 구원의 하나님으로 말미암아 기뻐하리로다</p>
+      <p><span class="v">19</span>주 여호와는 나의 힘이시라 나의 발을 사슴과 같게 하사 나를 나의 높은 곳으로 다니게 하시리로다 이 노래는 지휘하는 사람을 위하여 내 수금에 맞춘 것이니라</p>
+    </div>
+    <div class="scripture-ref">하박국 3:17-19 (개역개정)</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <div class="sec-label">서론 - 오늘의 출발</div>
+    <p class="point-body">올해 추수감사예배는 세 교회가 함께 드리게 되었습니다. 라온동행교회와 온교회는 올해 4월부터 같은 건물 2층과 3층에서 각각 예배하며 여러 모습으로 함께 동역하고 있고, 오늘은 경안교회와도 함께합니다. 교회 이름과 예배드리는 자리는 달라도 우리는 예수 그리스도 안에서 한 몸이라고 생각하기 때문에 가능한 일입니다.</p>
+    <p class="point-body">올해 여러분의 추수 바구니에는 무엇이 담겨 있습니까? 바구니가 가득 찬 해도 있지만, 그렇지 않은 해도 있습니다. 기대했던 결과가 나오지 않거나, 일자리가 불안해지거나, 몸이 예전만큼 건강하지 않거나, 가족 사이에 풀리지 않은 문제가 남아 있거나, 소중한 사람을 떠나보내고 그 빈자리를 힘들게 견디는 분도 계십니다.</p>
+    <blockquote class="sermon-quote">그런 분에게 "범사에 감사하세요"라는 말은 위로보다 부담이 될 수 있습니다.</blockquote>
+    <div class="highlight-text">우리는 우리의 바구니가 비어 있어도 드릴 수 있는 감사가 있을까요? 감사한다면 무엇을 감사할 수 있을까요?</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-label">세 가지 말씀</div>
+
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">하나</div>
+      <div class="point-title">비어 있는 바구니를 숨기지 않아도 됩니다</div>
+    </div>
+    <p class="point-body">17절에는 여섯 가지 상실이 등장합니다. 무화과나무, 포도나무, 감람나무, 밭의 먹을 것, 우리의 양과 외양간의 소입니다. 이스라엘 사람에게 이 여섯 가지는 한 해 살림의 전부였습니다. 말 그대로 바구니가 텅 비어버렸습니다.</p>
+    <div class="six-scale"><span>덜 심각</span><span>최악, 총체적 붕괴</span></div>
+    <ol class="six">
+      <li>무화과나무가 무성하지 못함</li>
+      <li>포도나무에 열매가 없음</li>
+      <li>감람나무에 소출이 없음</li>
+      <li>밭에 먹을 것이 없음</li>
+      <li>우리에 양이 없음</li>
+      <li>외양간에 소가 없음</li>
+    </ol>
+    <p class="point-body">학자들은 17절의 여섯 가지 "없음"의 목록이 심각한 순서대로 기록됐다고 합니다. 어느 한쪽이 부족하면 다른 것으로 버텨 볼 텐데, 기댈 곳이 하나씩 사라지다가 모두 사라져 버렸습니다.</p>
+    <p class="point-body">하박국은 이런 일을 멀리서 구경하던 사람이 아닙니다. 3장 16절에서 그는 두려움을 숨기지 않습니다.</p>
+    <blockquote class="sermon-quote">내가 들었으므로 내 창자가 흔들렸고 그 목소리로 말미암아 내 입술이 떨렸도다 무리가 우리를 치러 올라오는 환난 날을 내가 기다리므로 썩이는 것이 내 뼈에 들어왔으며 내 몸은 내 처소에서 떨리는도다<span class="quote-ref">하박국 3:16 (개역개정)</span></blockquote>
+    <p class="point-body">하나님의 말씀을 듣는 제사장도, 믿음이 있는 사람의 몸도 이렇게 떨릴 수 있습니다. 성경은 빈 바구니를 감추지 않습니다. 무엇이 없고, 무엇을 잃을까 두려운지 하나씩 말합니다.</p>
+    <div class="highlight-text">슬프면 슬프다고, 무서우면 무섭다고, 지금은 감사하다는 말조차 잘 나오지 않는다고 말씀드려도 됩니다. 눈물이 난다고 해서 믿음이 없는 것이 아닙니다. 빈 바구니 그대로 가져오셨습니까? 그것으로 충분합니다.</div>
+  </div>
+
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">둘</div>
+      <div class="point-title">바구니가 비어도 하나님은 우리를 버리지 않으십니다</div>
+    </div>
+    <p class="point-body">17절에서 18절로 넘어가는 사이에 열매가 맺혔다는 말은 없습니다. 양이 돌아오고 외양간에 소가 채워졌다는 이야기도 없습니다. 바구니는 여전히 비어 있습니다. 그런데 이때, 하박국은 하나님을 바라봅니다. "나의 구원의 하나님."</p>
+    <p class="point-body">하박국은 앞서 3장 13절에서 자기 백성을 구원하러 나아가시는 하나님을 노래했습니다. 백성을 구원하시는 그 하나님이 자신의 하나님이심을 믿는 것입니다. 빈 바구니를 들고 서 있는 자신을 하나님께서 버리지 않으신다는 믿음이 있습니다.</p>
+    <div class="six-scale"><span>감사의 뿌리가 어디 있느냐의 차이</span></div>
+    <div class="roots">
+      <div class="root a"><b>바구니에 뿌리를 두면</b>바구니가 비는 날 감사도 같이 비어 버립니다.</div>
+      <div class="root b"><b>하나님께 뿌리를 두면</b>바구니가 비어도 감사는 여전히 남습니다.</div>
+    </div>
+    <p class="point-body">그 감사가 언제나 환한 웃음으로 나오는 것은 아닙니다. 하박국의 기쁨도 두려움을 모르는 사람의 기쁨이 아닙니다. 떨리는 가운데 구원의 하나님을 의지하는 고백입니다.</p>
+    <div class="highlight-text">"주님, 저를 붙들어 주십시오." 하나님은 우리의 형편을 다 정리한 뒤에 오라고 하지 않으십니다. 빈손도 괜찮으니 나에게로 나오라고 하십니다.</div>
+  </div>
+
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">셋</div>
+      <div class="point-title">하나님께서 이 길을 걸어갈 힘을 주십니다</div>
+    </div>
+    <p class="point-body">19절은 "주 여호와는 나의 힘이시라"로 시작합니다. 하박국이 자기 마음을 굳게 먹어서 모든 것을 견디겠다는 말이 아닙니다. 주 여호와께서 자신의 힘이시라는 고백입니다. 그리고 그 하나님이 자신의 발을 사슴과 같게 하셔서 높은 곳으로 다니게 하신다고 말합니다.</p>
+    <blockquote class="sermon-quote">금방이라도 미끄러질 것 같은 바위 위에서, 사슴은 한 발 한 발 정확하게 딛고 올라갑니다. 하박국은 하나님께서 그렇게 자신을 붙들어 주실 것을 믿습니다.</blockquote>
+    <p class="point-body">우리는 어려운 형편이 나아지기를 기도할 수 있습니다. 그런데 하박국의 마지막 고백은 거기서 한 걸음 더 나아갑니다. "높은 곳"은 모든 일이 잘 풀린 뒤에야 오르는 정상이 아닙니다. 지금 이 두려운 길을 함께 걸어가게 하시는 하나님의 능력을 가리킵니다.</p>
+    <p class="point-body">우리는 예수님을 임마누엘이라 부릅니다. 예수님은 말구유에 누우셨고, 병든 사람과 굶주린 사람을 만나셨고, 우는 사람 곁에 서셨고, 결국에는 십자가에서 우리의 죄를 대신 담당하시고 죽으셨습니다. 죽음에서 부활하신 주님 안에서 우리는 죄 사함을 받고 하나님과 화목하게 되며 새 생명을 얻습니다.</p>
+    <div class="highlight-text">지금 눈앞에 보이는 형편이 우리 인생의 마지막 이야기가 아닙니다. "주님, 저를 구원하시고 지금도 저를 붙들어 주시니 감사합니다."</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <div class="sec-label">핵심 키워드</div>
+    <div class="tags-wrap">
+      <span class="tag gold">#빈바구니</span>
+      <span class="tag">#여섯가지없음</span>
+      <span class="tag gold">#감사의뿌리</span>
+      <span class="tag">#구원의하나님</span>
+      <span class="tag">#사슴의발</span>
+      <span class="tag gold">#임마누엘</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="conclusion-banner">
+    <div class="conclusion-eyebrow">한 문장 메시지</div>
+    <div class="conclusion-msg">바구니에 뿌리를 두면 바구니가 비는 날 감사도 비어 버립니다.<br>하나님께 뿌리를 두면 바구니가 비어도 감사는 여전히 남습니다.</div>
+    <div class="conclusion-sub">우리 손에 들린 바구니는 해마다 달라질 수 있습니다.<br>그 모든 날에 우리의 힘이신 하나님을 의지하며 걸어가기를 소망합니다.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <div class="sec-label">적용 - 받은 동행을 서로에게 나눕시다</div>
+    <ul class="checklist" id="checklist">
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">하나님 앞에 올해의 바구니를 그대로 내려놓겠습니다. 감사한 일도, 아직 아프고 두려운 일도 모두 내려놓겠습니다.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">바구니가 가득 찬 것은 채워 주신 하나님께 감사드리고, 빈 것처럼 느껴지는 자리는 주님께 내어 드리겠습니다.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">무슨 말을 해야 할지 모르겠다면 이렇게 기도하겠습니다. "주님, 제 마음을 아시지요. 오늘도 저를 붙들어 주십시오."</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">이번 주에 힘든 시간을 지나는 한 분 곁에 서겠습니다. 감사하라는 말보다 먼저 그분의 이야기를 들어 드리겠습니다.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">"요즘 어떻게 지내세요? 제가 도울 일이 있을까요?" 하고 묻겠습니다. 식사 한 끼를 나누거나 필요한 일을 함께할 수도 있습니다.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">먼저 용기 내어 다른 교회 성도님께 인사를 건네고, 서로의 안부를 묻고 기도해 주는 사이가 되겠습니다.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="prayer-box">
+    <div class="prayer-label">마무리 기도</div>
+    <div class="prayer-text">
+      주님, 저를 붙들어 주십시오.<br>
+      주님, 제 마음을 아시지요. 오늘도 저를 붙들어 주십시오.<br>
+      주님, 저를 구원하시고 지금도 저를 붙들어 주시니 감사합니다.<br>
+      주님 우리와 늘 함께해주심에 감사드립니다.<br>
+      예수님의 이름으로 기도드립니다. 아멘.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  라온동행교회 | 이광복 목사<br>
+  하박국 3:17-19 | 2026년 11월 15일 | 온교회 · 경안교회 · 라온동행교회 연합 추수감사예배
+</footer>
+
+</main>
+
+<script>
+function toggleCheck(li) {
+  li.querySelector('.check-box').classList.toggle('checked');
+  li.querySelector('.check-text').classList.toggle('done');
+  saveState();
+}
+function saveState() {
+  try {
+    var items = document.querySelectorAll('#checklist li');
+    var state = Array.prototype.map.call(items, function (li) { return li.querySelector('.check-box').classList.contains('checked'); });
+    localStorage.setItem('sermon_checklist_261115', JSON.stringify(state));
+  } catch (e) {}
+}
+function loadState() {
+  try {
+    var state = JSON.parse(localStorage.getItem('sermon_checklist_261115') || '[]');
+    var items = document.querySelectorAll('#checklist li');
+    state.forEach(function (c, i) {
+      if (c && items[i]) {
+        items[i].querySelector('.check-box').classList.add('checked');
+        items[i].querySelector('.check-text').classList.add('done');
+      }
+    });
+  } catch (e) {}
+}
+loadState();
+</script>
+</body>
+</html>
